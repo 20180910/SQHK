@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_f2"
+    >
+<include layout="@layout/app_title"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="我的信用卡"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@color/white"
+        />
+    <com.library.base.view.MyRecyclerView
+        android:id="@+id/rv_wode_zhangdan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2px"
+        android:background="@color/white"
+        >
+
+    </com.library.base.view.MyRecyclerView>
+</LinearLayout>

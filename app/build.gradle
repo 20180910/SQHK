@@ -50,4 +50,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
     compile 'org.jsoup:jsoup:1.10.2'
+    compile 'com.github.zcweng:switch-button:0.0.3@aar'
 }

@@ -10,19 +10,17 @@ import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.module.home.activity.MainActivity;
 import com.sk.sqhk.module.my.network.response.LoginObj;
 
-import butterknife.OnClick;
-
 /**
  * Created by Administrator on 2017/12/4.
  */
 
-public class LoginActivity extends BaseActivity {
+public class RegisterActivity extends BaseActivity {
 
 
     @Override
     protected int getContentView() {
-        setAppTitle("登录");
-        return R.layout.act_login;
+        setAppTitle("注册");
+        return R.layout.act_register;
     }
 
     @Override
@@ -34,10 +32,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (!"0".equals(getUserId())) {
-            STActivity(MainActivity.class);
-            finish();
-        }
 
 
     }
@@ -52,13 +46,9 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    @OnClick({1})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case 1:
-                break;
 
-        }
+    public void onClick(View view) {
+
     }
     private void login() {
         showLoading();
