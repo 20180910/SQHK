@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
-import android.view.MotionEvent;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.github.androidtools.SPUtils;
+import com.github.androidtools.inter.MyOnClickListener;
 import com.github.customview.MyRadioButton;
 import com.library.base.BaseObj;
 import com.library.base.MyCallBack;
@@ -49,6 +50,7 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.rb_home_tab3)
     MyRadioButton rb_home_tab3;
+    private MyRadioButton selectButtonView;
 
 
     private LocalBroadcastManager localBroadcastManager;
@@ -65,36 +67,41 @@ public class MainActivity extends BaseActivity {
         homeFragment = new HomeFragment();
         addFragment(R.id.fl_content, homeFragment);
 
-        setTabTouchListener();
+        setTabClickListener();
     }
 
-    private void setTabTouchListener() {
-        rb_home_tab1.setOnTouchListener(getTouchListener(1));
-        rb_home_tab2.setOnTouchListener(getTouchListener(2));
-        rb_home_tab3.setOnTouchListener(getTouchListener(3));
-
+    private void setTabClickListener() {
+        selectButtonView=rb_home_tab1;
+        rb_home_tab1.setOnClickListener(getTabClickListener(1));
+        rb_home_tab2.setOnClickListener(getTabClickListener(2));
+        rb_home_tab3.setOnClickListener(getTabClickListener(3));
     }
 
     @NonNull
-    private View.OnTouchListener getTouchListener(final int index) {
-        return new View.OnTouchListener() {
+    private MyOnClickListener getTabClickListener(final int index) {
+        return new MyOnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            protected void onNoDoubleClick(View v) {
                 switch (index){
                     case 1:
                         selectHome();
-                    break;
+                        break;
                     case 2:
                         selectChaXun();
-                    break;
+                        break;
                     case 3:
-                        selectMy();
-                    break;
+                        if(TextUtils.equals(noLoginCode,getUserId())){
+                            selectButtonView.setChecked(true);
+                        }else{
+                            selectMy();
+                        }
+                        break;
                 }
-                return false;
             }
         };
     }
+
+
     private void selectHome() {
         if (homeFragment == null) {
             homeFragment = new HomeFragment();

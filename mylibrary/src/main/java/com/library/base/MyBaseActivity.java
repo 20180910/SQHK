@@ -60,6 +60,7 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
     private boolean hiddenBottomLine;
     protected PtrClassicFrameLayout pcfl;
     protected boolean isPause;
+    protected boolean noSetTheme;
     protected ProgressLayout pl_load;
 
     /****************************************************/
@@ -123,6 +124,10 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
         }
     }
 
+    public void setNoSetTheme(boolean noSetTheme) {
+        this.noSetTheme = noSetTheme;
+    }
+
     public void setTitleBackgroud(@ColorRes int titleBackgroud) {
         this.titleBackgroud = titleBackgroud;
     }
@@ -147,7 +152,6 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
         if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
-        setTheme(R.style.AppTheme_NoActionBar);
         mContext = this;
         if (getContentView() != 0) {
             setContentView(getContentView());
@@ -158,6 +162,9 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
 //            if(navigationBarHeight>0){
 //                rootView.setPadding(0,0,0,navigationBarHeight);
 //            }
+        }
+        if(!noSetTheme){
+            setTheme(R.style.AppTheme_NoActionBar);
         }
 
 /*        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {

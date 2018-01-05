@@ -19,11 +19,13 @@ import org.jsoup.select.Elements;
  */
 
 public abstract class BaseActivity extends MyBaseActivity {
+    protected final String TAG=this.getClass().getSimpleName();
+    protected final String noLoginCode="0";
     protected String getUserId() {
-        return SPUtils.getString(mContext, Config.user_id, "0");
+        return SPUtils.getString(mContext, Config.user_id, noLoginCode);
     }
     public boolean noLogin(){
-        if("0".equals(getUserId())){
+        if(noLoginCode.equals(getUserId())){
             return true;
         }else{
             return false;

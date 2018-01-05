@@ -3,6 +3,7 @@ package com.sk.sqhk;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.text.TextUtils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,5 +23,16 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.sk.sqhk", appContext.getPackageName());
+    }
+    @Test
+    public void asasdfdf() throws Exception {
+        boolean a1 = TextUtils.equals(null, "a");
+        boolean a2 =TextUtils.equals(null,null);
+        boolean a3 =TextUtils.equals("a",null);
+        boolean a4 =TextUtils.equals("a","a");
+        System.out.println(a1);
+        System.out.println(a2);
+        System.out.println(a3);
+        System.out.println(a4);
     }
 }
