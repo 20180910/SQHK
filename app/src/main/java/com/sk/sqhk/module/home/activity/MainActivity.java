@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.customview.MyRadioButton;
 import com.library.base.BaseObj;
@@ -22,7 +21,7 @@ import com.sk.sqhk.module.home.fragment.HomeFragment;
 import com.sk.sqhk.module.home.fragment.MyFragment;
 import com.sk.sqhk.module.home.fragment.SelectFragment;
 import com.sk.sqhk.module.my.activity.LoginActivity;
-import com.sk.sqhk.network.ApiRequest;
+import com.sk.sqhk.network.NetApiRequest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,6 +68,8 @@ public class MainActivity extends BaseActivity {
         addFragment(R.id.fl_content, homeFragment);
 
         setTabClickListener();
+
+        setBroadcast();
     }
 
     private void setTabClickListener() {
@@ -152,14 +153,14 @@ public class MainActivity extends BaseActivity {
         Map<String,String> map=new HashMap<String,String>();
         map.put("payment_type",type+"");
         map.put("sign", GetSign.getSign(map));
-        ApiRequest.paymentURL(map, new MyCallBack<BaseObj>(mContext) {
+        NetApiRequest.paymentURL(map, new MyCallBack<BaseObj>(mContext) {
             @Override
             public void onSuccess(BaseObj obj) {
-                if(obj.getPayment_type()==1){
+               /* if(obj.getPayment_type()==1){
                     SPUtils.setPrefString(mContext,Config.payType_ZFB,obj.getPayment_url());
                 }else{
                     SPUtils.setPrefString(mContext,Config.payType_WX,obj.getPayment_url());
-                }
+                }*/
             }
         });
 
@@ -190,7 +191,7 @@ public class MainActivity extends BaseActivity {
                 selectHome();
             }
         });
-        localBroadcastManager.registerReceiver(myOperationBro, new IntentFilter(Config.Bro.operation));
+        localBroadcastManager.registerReceiver(myOperationBro,new IntentFilter(Config.Bro.operation));
     }
     @Override
     protected void onDestroy() {

@@ -14,6 +14,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2017/12/18.
  */
@@ -31,8 +33,8 @@ public abstract class BaseActivity extends MyBaseActivity {
             return false;
         }
     }
-    protected String getSign() {
-        return getSign("user_id", getUserId());
+    protected String getSign(Map map) {
+        return GetSign.getSign(map);
     }
 
     protected String getSign(String key, String value) {

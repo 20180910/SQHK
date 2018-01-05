@@ -21,7 +21,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        NetWorkManager.getInstance(getApplicationContext(),"http://121.40.186.118:1554/",BuildConfig.DEBUG).complete();
+        NetWorkManager.getInstance(getApplicationContext(),"http://121.40.186.118:1145/",BuildConfig.DEBUG).complete();
         Loading.setLoadView(R.layout.app_loading_view);
 //        ZXingLibrary.initDisplayOpinion(this);
         //二维码

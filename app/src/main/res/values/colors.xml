@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#18B4ED</color>
+    <color name="colorPrimaryDark">#18B4ED</color>
+    <color name="colorPrimaryDark2">#18B4ED</color>
+    <color name="colorPrimaryDark1">#87ceeb</color>
+    <color name="colorAccent">#848484</color>
+
+
     <color name="theme_color">#3a92e9</color>
     <color name="press_theme_color">#419BF3</color>
     <color name="gray_f6">#f6f6f6</color>
@@ -36,11 +43,7 @@
     <color name="blue_00">#0088ff</color>
     <color name="hint_color">#FFC8C8C8</color>
 
-    <color name="colorPrimary">#18B4ED</color>
-    <color name="colorPrimaryDark">#18B4ED</color>
-    <color name="colorPrimaryDark2">#18B4ED</color>
-    <color name="colorPrimaryDark1">#87ceeb</color>
-    <color name="colorAccent">#FF4081</color>
+
     <color name="colorText">#848484</color>
     <color name="c_icon_normal">#848484</color>
     <color name="c_icon">#56abe4</color>

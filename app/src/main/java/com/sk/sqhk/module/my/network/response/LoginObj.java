@@ -11,28 +11,38 @@ public class LoginObj extends BaseObj {
 
 
     /**
-     * user_id : 72
-     * user_name : 121212
-     * name : 咕咕咕咕
+     * user_id : 142
+     * user_name : 15601772923
+     * name :
+     * nick_name : 15601772923
      * avatar :
-     * sex : 男
-     * mobile : 18616266522
-     * message_sink : 0
-     * email :
-     * class_name : NET1702
-     * user_type : 1
+     * sex :
+     * mobile : 15601772923
+     * birthday : 2018/1/5
+     * amount : 0
+     * commission : 0
+     * message_sink : 1
+     * is_validation : 0
+     * cumulative_reward : 0
+     * email : null
+     * major : null
      */
 
     private String user_id;
     private String user_name;
     private String name;
+    private String nick_name;
     private String avatar;
     private String sex;
     private String mobile;
+    private String birthday;
+    private int amount;
+    private int commission;
     private int message_sink;
+    private int is_validation;
+    private int cumulative_reward;
     private String email;
-    private String class_name;
-    private int user_type;
+    private String major;
 
     public String getUser_id() {
         return user_id;
@@ -56,6 +66,14 @@ public class LoginObj extends BaseObj {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNick_name() {
+        return nick_name;
+    }
+
+    public void setNick_name(String nick_name) {
+        this.nick_name = nick_name;
     }
 
     public String getAvatar() {
@@ -82,12 +100,52 @@ public class LoginObj extends BaseObj {
         this.mobile = mobile;
     }
 
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public int getCommission() {
+        return commission;
+    }
+
+    public void setCommission(int commission) {
+        this.commission = commission;
+    }
+
     public int getMessage_sink() {
         return message_sink;
     }
 
     public void setMessage_sink(int message_sink) {
         this.message_sink = message_sink;
+    }
+
+    public int getIs_validation() {
+        return is_validation;
+    }
+
+    public void setIs_validation(int is_validation) {
+        this.is_validation = is_validation;
+    }
+
+    public int getCumulative_reward() {
+        return cumulative_reward;
+    }
+
+    public void setCumulative_reward(int cumulative_reward) {
+        this.cumulative_reward = cumulative_reward;
     }
 
     public String getEmail() {
@@ -98,19 +156,11 @@ public class LoginObj extends BaseObj {
         this.email = email;
     }
 
-    public String getClass_name() {
-        return class_name;
+    public String getMajor() {
+        return major;
     }
 
-    public void setClass_name(String class_name) {
-        this.class_name = class_name;
-    }
-
-    public int getUser_type() {
-        return user_type;
-    }
-
-    public void setUser_type(int user_type) {
-        this.user_type = user_type;
+    public void setMajor(String major) {
+        this.major = major;
     }
 }

@@ -1,17 +1,12 @@
 package com.sk.sqhk.module.home.fragment;
 
-import android.text.TextUtils;
 import android.view.View;
 
-import com.library.base.MyCallBack;
-import com.sk.sqhk.GetSign;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseFragment;
-import com.sk.sqhk.module.my.network.ApiRequest;
-import com.sk.sqhk.module.my.network.response.UserInfoObj;
+import com.sk.sqhk.module.my.activity.SettingActivity;
 
-import java.util.HashMap;
-import java.util.Map;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2017/12/4.
@@ -38,11 +33,11 @@ public class MyFragment extends BaseFragment {
     @Override
     protected void initData() {
         showProgress();
-        getUserInfo();
+//        getUserInfo();
 
     }
 
-    private void getUserInfo() {
+    /*private void getUserInfo() {
         Map<String, String> map = new HashMap<String, String>();
         map.put("user_id", getUserId());
         map.put("sign", GetSign.getSign(map));
@@ -55,13 +50,13 @@ public class MyFragment extends BaseFragment {
             }
         });
 
-    }
+    }*/
 
-
+    @OnClick({R.id.tv_my_setting})
     public void onViewClick(View view) {
         switch (view.getId()) {
-            case 1:
-
+            case R.id.tv_my_setting:
+                STActivity(SettingActivity.class);
                 break;
 
         }

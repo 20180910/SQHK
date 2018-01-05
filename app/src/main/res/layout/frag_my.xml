@@ -166,6 +166,7 @@
                     android:layout_marginTop="5dp"
                     >
                     <TextView
+                        android:id="@+id/tv_my_setting"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="安全中心"

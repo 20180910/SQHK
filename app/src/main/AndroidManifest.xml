@@ -47,7 +47,7 @@
         <activity android:name=".module.my.activity.MyAccountActivity"/>
         <activity android:name=".module.my.activity.MyBankListActivity"/>
         <activity android:name=".module.my.activity.XieYiActivity"/>
-        <activity android:name=".module.my.activity.RegisterActivity"/>
+        <activity android:name=".module.my.activity.RegisterActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".module.my.activity.HelpDetailActivity"/>
         <activity android:name=".module.my.activity.HelpCenterActivity"/>
         <activity android:name=".module.my.activity.ForgetPWDActivity"/>
@@ -55,6 +55,7 @@
         <activity android:name=".module.my.activity.UpdatePhoneActivity"/>
         <activity android:name=".module.my.activity.UpdatePWDActivity"/>
         <activity android:name=".module.my.activity.AboutWeActivity"/>
+        <activity android:name=".module.my.activity.LoginActivity" android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>

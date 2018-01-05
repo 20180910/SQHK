@@ -23,7 +23,7 @@
                     android:src="@drawable/login_icon1"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="20dp"
                     />
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -33,6 +33,9 @@
                     android:background="@color/white"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+
                     >
                     <ImageView
                         android:layout_width="wrap_content"
@@ -49,6 +52,8 @@
                         app:my_et_solid="@color/white"
                         android:layout_marginLeft="6dp"
                         android:hint="请输入手机号码"
+                        android:maxLines="1"
+                        android:inputType="textWebEditText"
                         />
                 </LinearLayout>
                 <View
@@ -80,6 +85,8 @@
                         app:my_et_solid="@color/white"
                         android:layout_marginLeft="6dp"
                         android:hint="请输入登录密码"
+                        android:maxLines="1"
+                        android:inputType="textWebPassword"
                         />
                 </LinearLayout>
                 <View
@@ -98,7 +105,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     app:my_tv_corner_radius="4dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:text="登录"
                     android:textColor="@color/white"
                     android:layout_marginLeft="10dp"

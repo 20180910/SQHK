@@ -7,6 +7,7 @@ import com.sk.sqhk.Config;
 import com.sk.sqhk.module.home.network.request.HomeRoastingChartBody;
 import com.sk.sqhk.module.home.network.request.HomeTypeMerchantListBody;
 import com.sk.sqhk.module.home.network.request.SearchResultBody;
+import com.sk.sqhk.network.NetIRequest;
 
 import java.util.Map;
 
@@ -17,7 +18,7 @@ import java.util.Map;
 public class ApiRequest extends BaseApiRequest {
 
     /*public static Observable getRegisterXieYi(String rnd, String sign){
-        return getCommonClient(com.sk.yangyu.module.home.network.IRequest.class).getPayNotifyUrl(rnd,sign).compose(RxResult.appSchedulers()).compose(RxResult.handleResult());
+        return getCommonClient(com.sk.yangyu.module.home.network.NetIRequest.class).getPayNotifyUrl(rnd,sign).compose(RxResult.appSchedulers()).compose(RxResult.handleResult());
     }*/
 
     public static void tuanGouSureOrder(Map map, MyCallBack callBack) {
@@ -25,7 +26,7 @@ public class ApiRequest extends BaseApiRequest {
             callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
             return;
         }
-        getGeneralClient(com.sk.sqhk.network.IRequest.class).tuanGouSureOrder(map).enqueue(callBack);
+        getGeneralClient(NetIRequest.class).tuanGouSureOrder(map).enqueue(callBack);
     }
 
     //首页轮播图信息

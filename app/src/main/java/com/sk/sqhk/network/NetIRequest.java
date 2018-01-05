@@ -20,7 +20,7 @@ import retrofit2.http.QueryMap;
  * Created by Administrator on 2017/6/28.
  */
 
-public interface IRequest {
+public interface NetIRequest {
     @GET("api/HomePage/GetProductGroupOrderShow")
     Call<ResponseObj<BaseObj>> tuanGouSureOrder(@QueryMap Map<String, String> map);
 

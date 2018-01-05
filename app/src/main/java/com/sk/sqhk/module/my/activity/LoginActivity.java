@@ -1,15 +1,22 @@
 package com.sk.sqhk.module.my.activity;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.github.androidtools.SPUtils;
 import com.github.customview.MyEditText;
-import com.sk.sqhk.Config;
+import com.library.base.MyCallBack;
+import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
+import com.sk.sqhk.AppXml;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.module.home.activity.MainActivity;
+import com.sk.sqhk.module.my.network.ApiRequest;
 import com.sk.sqhk.module.my.network.response.LoginObj;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -57,8 +64,19 @@ public class LoginActivity extends BaseActivity {
     public void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.tv_login:
+                String phone = getSStr(et_login_phone);
+                String pwd = getSStr(et_login_pwd);
+                if(TextUtils.isEmpty(phone)){
+                    showMsg("请输入手机号码");
+                    return;
+                }else if(TextUtils.isEmpty(pwd)){
+                    showMsg("请输入登录密码");
+                    return;
+                }
+                login(phone,pwd);
                 break;
             case R.id.tv_login_register:
+                STActivityForResult(RegisterActivity.class,100);
                 break;
             case R.id.tv_login_forget_pwd:
                 break;
@@ -69,35 +87,56 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
-    private void login() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            switch (requestCode){
+                case 100:
+                    if(data!=null){
+                        et_login_phone.setText(data.getStringExtra(Constant.IParam.userName));
+                        et_login_pwd.requestFocus();
+                    }else{
+                        et_login_phone.requestFocus();
+                    }
+                break;
+            }
+        }
+    }
+
+    private void login(String phone, String pwd) {
         showLoading();
-       /* Map<String,String> map=new HashMap<String,String>();
-        map.put("username",xuehao);
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("username",phone);
         map.put("password",pwd);
-        map.put("type","1");
-        map.put("RegistrationID", SPUtils.getPrefString(mContext, Config.jiguangRegistrationId,""));
-        map.put("sign", GetSign.getSign(map));
+        map.put("RegistrationID",SPUtils.getString(mContext,Constant.registrationId,"0"));
+        map.put("sign",getSign(map));
         ApiRequest.userLogin(map, new MyCallBack<LoginObj>(mContext) {
             @Override
             public void onSuccess(LoginObj obj) {
                 loginResult(obj);
-
             }
         });
-*/
-
     }
 
     private void loginResult(LoginObj obj) {
-        SPUtils.setPrefString(mContext, Config.user_id, obj.getUser_id());
-        SPUtils.setPrefString(mContext, Config.mobile, obj.getMobile());
-        SPUtils.setPrefString(mContext, Config.sex, obj.getSex());
-        SPUtils.setPrefString(mContext, Config.avatar, obj.getAvatar());
-        SPUtils.setPrefString(mContext, Config.user_name, obj.getUser_name());
-        SPUtils.setPrefString(mContext, Config.class_name, obj.getClass_name());
-        SPUtils.setPrefString(mContext, Config.name, obj.getName());
-        SPUtils.setPrefString(mContext, Config.email, obj.getEmail());
-        SPUtils.setPrefBoolean(mContext, Config.user_switch, obj.getMessage_sink() == 1 ? true : false);
+
+        SPUtils.setPrefString(mContext, AppXml.user_id, obj.getUser_id());
+        SPUtils.setPrefString(mContext, AppXml.mobile, obj.getMobile());
+        SPUtils.setPrefString(mContext, AppXml.sex, obj.getSex());
+        SPUtils.setPrefString(mContext, AppXml.avatar, obj.getAvatar());
+        SPUtils.setPrefString(mContext, AppXml.birthday, obj.getBirthday());
+        SPUtils.setPrefString(mContext, AppXml.user_name, obj.getUser_name());
+        SPUtils.setPrefString(mContext, AppXml.nick_name, obj.getNick_name());
+        SPUtils.setPrefInt(mContext, AppXml.amount, obj.getAmount());
+        SPUtils.setPrefInt(mContext, AppXml.commission, obj.getCommission());
+        SPUtils.setPrefInt(mContext, AppXml.message_sink, obj.getMessage_sink());
+        SPUtils.setPrefInt(mContext, AppXml.is_validation, obj.getIs_validation());
+        SPUtils.setPrefInt(mContext, AppXml.cumulative_reward, obj.getCumulative_reward());
+
+        SPUtils.setPrefString(mContext, AppXml.name, obj.getName());
+        SPUtils.setPrefString(mContext, AppXml.email, obj.getEmail());
+        SPUtils.setPrefString(mContext, AppXml.major, obj.getMajor());
 //        LocalBroadcastManager.getInstance(mContext).sendBroadcast(new Intent(Config.Bro.operation));
 
         Intent intent = new Intent();

@@ -29,6 +29,8 @@
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 >
 
                 <ImageView
@@ -84,7 +86,7 @@
                     android:gravity="center_vertical"
                     android:hint="密码为6-12位的数字和字母组合"
                     android:imeOptions="actionNext"
-                    android:inputType="textWebEditText"
+                    android:inputType="textWebPassword"
                     android:textSize="13sp"
                     app:my_et_solid="@color/white"
                     android:maxLength="12"

@@ -16,6 +16,7 @@ import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.module.my.network.ApiRequest;
 import com.sk.sqhk.module.my.network.request.RegisterBody;
+import com.sk.sqhk.network.NetApiRequest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -68,8 +69,8 @@ public class RegisterActivity extends BaseActivity {
                 String pwd = getSStr(et_register_pwd);
                 String msg = getSStr(et_register_msgcode);
                 String yaoQingCode = getSStr(et_register_code);
-                if(TextUtils.isEmpty(phone)){
-                    showMsg("请输入手机号");
+                if(TextUtils.isEmpty(phone)||!ZhengZeUtils.isMobile(phone)){
+                    showMsg("请输入正确手机号");
                     return;
                 }else if(TextUtils.isEmpty(pwd)){
                     showMsg("请输入密码");
@@ -87,7 +88,12 @@ public class RegisterActivity extends BaseActivity {
 
                 break;
             case R.id.tv_register_getmsg:
-                getMsgCode();
+                String  tell= getSStr(et_register_phone);
+                if(TextUtils.isEmpty(tell)||!ZhengZeUtils.isMobile(tell)){
+                    showMsg("请输入正确手机号");
+                    return;
+                }
+                getMsgCode(tell);
                 break;
         }
     }
@@ -95,11 +101,13 @@ public class RegisterActivity extends BaseActivity {
     private void register(final String phone, String pwd, String yaoQingCode) {
         showLoading();
         Map<String,String> map=new HashMap<String,String>();
+        map.put("rnd",getRnd());
+        map.put("sign",getSign(map));
         RegisterBody body=new RegisterBody();
         body.setUsername(phone);
         body.setPassword(pwd);
         body.setDistribution_yard(yaoQingCode);
-        ApiRequest.register(map,null, new MyCallBack<BaseObj>(mContext) {
+        ApiRequest.register(map,body, new MyCallBack<BaseObj>(mContext) {
             @Override
             public void onSuccess(BaseObj obj) {
                 showMsg(obj.getMsg());
@@ -111,15 +119,13 @@ public class RegisterActivity extends BaseActivity {
         });
     }
 
-    private void getMsgCode() {
+    private void getMsgCode(String phone) {
         showLoading();
         Map<String, String> map = new HashMap<String, String>();
-        map.put("mobile",getSStr(et_register_phone));
-        map.put("rnd",getRnd());
-        String sign = GetSign.getSign(map);
-        map.put("sign", sign);
-        showLoading();
-        com.sk.sqhk.network.ApiRequest.getSMSCode(map,new MyCallBack<BaseObj>(mContext) {
+        map.put("mobile",phone);
+        map.put("type","1");
+        map.put("sign", GetSign.getSign(map));
+        NetApiRequest.getSMSCode(map,new MyCallBack<BaseObj>(mContext) {
             @Override
             public void onSuccess(BaseObj obj) {
                 smsCode = obj.getSMSCode();

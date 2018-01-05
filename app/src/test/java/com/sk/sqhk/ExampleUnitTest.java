@@ -30,7 +30,18 @@ public class ExampleUnitTest {
     @Test
     public void asfd() throws Exception {
         String reg = "(?i)^(?!([a-z]*|\\d*)$)[a-z\\d]+$";
-        String str = "s3/ddf";
+        String str = "asfd";
         System.out.println(str.matches(reg));
+    }
+    @Test
+    public void asfdd() throws Exception {
+        String reg = "^[A-Za-z0-9]+$";
+        String str = "13d12ddd2$";
+        System.out.println(str.matches(reg));
+        System.out.println(isMobile("15312312312"));
+    }
+    public static boolean isMobile(String str){
+        String reg = "^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\\d{8}$";
+        return str.matches(reg.trim());
     }
 }

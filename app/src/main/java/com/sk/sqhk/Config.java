@@ -58,7 +58,7 @@ yTKTw0Ct5XUkIoGhR8DIwFus4P0lR9Tq  百度地图*/
     public static final String noNetWork ="无网络连接,请稍后再试";//退出登录参数名
 
 
-    public static final String loginAppType_1 ="1";//飞首app
+    public static final String nick_name ="nick_name";
     public static final String loginAppType_2 ="2";//农户app
     public static final String payType_WX="payType_WX";
     public static final String payType_ZFB="payType_ZFB";
