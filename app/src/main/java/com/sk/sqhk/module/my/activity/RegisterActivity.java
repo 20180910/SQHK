@@ -1,21 +1,31 @@
 package com.sk.sqhk.module.my.activity;
 
 import android.content.Intent;
-import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.androidtools.SPUtils;
+import com.github.baseclass.rx.RxUtils;
 import com.github.customview.MyEditText;
-import com.sk.sqhk.Config;
+import com.library.base.BaseObj;
+import com.library.base.MyCallBack;
+import com.library.base.tools.ZhengZeUtils;
+import com.sk.sqhk.Constant;
+import com.sk.sqhk.GetSign;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
-import com.sk.sqhk.module.home.activity.MainActivity;
-import com.sk.sqhk.module.my.network.response.LoginObj;
+import com.sk.sqhk.module.my.network.ApiRequest;
+import com.sk.sqhk.module.my.network.request.RegisterBody;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscription;
 
 /**
  * Created by Administrator on 2017/12/4.
@@ -24,25 +34,17 @@ import butterknife.OnClick;
 public class RegisterActivity extends BaseActivity {
 
 
-    @BindView(R.id.app_title)
-    TextView appTitle;
-    @BindView(R.id.app_right_iv)
-    ImageView appRightIv;
-    @BindView(R.id.app_right_tv)
-    TextView appRightTv;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.v_bottom_line)
-    View vBottomLine;
     @BindView(R.id.et_register_phone)
-    MyEditText etRegisterPhone;
+    MyEditText et_register_phone;
     @BindView(R.id.et_register_pwd)
-    MyEditText etRegisterPwd;
+    MyEditText et_register_pwd;
     @BindView(R.id.et_register_msgcode)
-    MyEditText etRegisterMsgcode;
+    MyEditText et_register_msgcode;
     @BindView(R.id.et_register_code)
-    MyEditText etRegisterCode;
-
+    MyEditText et_register_code;
+    @BindView(R.id.tv_register_getmsg)
+    TextView tv_register_getmsg;
+    private String smsCode;
     @Override
     protected int getContentView() {
         setAppTitle("注册");
@@ -52,14 +54,7 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
     @Override
     protected void initData() {
 
@@ -69,70 +64,92 @@ public class RegisterActivity extends BaseActivity {
     public void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.tv_register_commit:
+                String phone = getSStr(et_register_phone);
+                String pwd = getSStr(et_register_pwd);
+                String msg = getSStr(et_register_msgcode);
+                String yaoQingCode = getSStr(et_register_code);
+                if(TextUtils.isEmpty(phone)){
+                    showMsg("请输入手机号");
+                    return;
+                }else if(TextUtils.isEmpty(pwd)){
+                    showMsg("请输入密码");
+                    return;
+                }else if(!ZhengZeUtils.isShuZiAndZiMu(pwd)||pwd.length()>12||pwd.length()<6){
+                    showMsg("请输入6-12位数字加字母的密码");
+                    return;
+                }else if(TextUtils.isEmpty(msg)||!TextUtils.equals(smsCode,msg)){
+                    showMsg("请输入正确验证码");
+                    return;
+                }
+                register(phone,pwd,yaoQingCode);
                 break;
             case R.id.tv_register_xieyi:
 
                 break;
             case R.id.tv_register_getmsg:
+                getMsgCode();
                 break;
         }
     }
 
-    private void login() {
+    private void register(final String phone, String pwd, String yaoQingCode) {
         showLoading();
-       /* Map<String,String> map=new HashMap<String,String>();
-        map.put("username",xuehao);
-        map.put("password",pwd);
-        map.put("type","1");
-        map.put("RegistrationID", SPUtils.getPrefString(mContext, Config.jiguangRegistrationId,""));
-        map.put("sign", GetSign.getSign(map));
-        ApiRequest.userLogin(map, new MyCallBack<LoginObj>(mContext) {
+        Map<String,String> map=new HashMap<String,String>();
+        RegisterBody body=new RegisterBody();
+        body.setUsername(phone);
+        body.setPassword(pwd);
+        body.setDistribution_yard(yaoQingCode);
+        ApiRequest.register(map,null, new MyCallBack<BaseObj>(mContext) {
             @Override
-            public void onSuccess(LoginObj obj) {
-                loginResult(obj);
-
+            public void onSuccess(BaseObj obj) {
+                showMsg(obj.getMsg());
+                Intent intent=new Intent();
+                intent.putExtra(Constant.IParam.userName,phone);
+                setResult(RESULT_OK,intent);
+                finish();
             }
         });
-*/
-
     }
 
-    private void loginResult(LoginObj obj) {
-        SPUtils.setPrefString(mContext, Config.user_id, obj.getUser_id());
-        SPUtils.setPrefString(mContext, Config.mobile, obj.getMobile());
-        SPUtils.setPrefString(mContext, Config.sex, obj.getSex());
-        SPUtils.setPrefString(mContext, Config.avatar, obj.getAvatar());
-        SPUtils.setPrefString(mContext, Config.user_name, obj.getUser_name());
-        SPUtils.setPrefString(mContext, Config.class_name, obj.getClass_name());
-        SPUtils.setPrefString(mContext, Config.name, obj.getName());
-        SPUtils.setPrefString(mContext, Config.email, obj.getEmail());
-        SPUtils.setPrefBoolean(mContext, Config.user_switch, obj.getMessage_sink() == 1 ? true : false);
-//        LocalBroadcastManager.getInstance(mContext).sendBroadcast(new Intent(Config.Bro.operation));
-
-        Intent intent = new Intent();
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        STActivity(intent, MainActivity.class);
-
-        finish();
-
-    }
-
-    private long mExitTime;
-
-    @Override
-    public void onBackPressed() {
-        if ((System.currentTimeMillis() - mExitTime) > 1500) {
-            showToastS("再按一次退出程序");
-            mExitTime = System.currentTimeMillis();
-        } else {
-            if (Config.exitAPP.equals(1)) {
-                Intent intent = new Intent(Config.exitAPP);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                STActivity(intent, MainActivity.class);
+    private void getMsgCode() {
+        showLoading();
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("mobile",getSStr(et_register_phone));
+        map.put("rnd",getRnd());
+        String sign = GetSign.getSign(map);
+        map.put("sign", sign);
+        showLoading();
+        com.sk.sqhk.network.ApiRequest.getSMSCode(map,new MyCallBack<BaseObj>(mContext) {
+            @Override
+            public void onSuccess(BaseObj obj) {
+                smsCode = obj.getSMSCode();
+                countDown();
             }
-            super.onBackPressed();
-        }
+        });
     }
 
+    public void countDown() {
+        tv_register_getmsg.setEnabled(false);
+        final long count = 30;
+        Subscription subscribe = Observable.interval(1, TimeUnit.SECONDS)
+                .take(31)//计时次数
+                .map(integer -> count - integer)
+                .compose(RxUtils.appSchedulers())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onCompleted() {
+                        tv_register_getmsg.setEnabled(true);
+                        tv_register_getmsg.setText("获取验证码");
+                    }
+                    @Override
+                    public void onNext(Long aLong) {
+                        tv_register_getmsg.setText("剩下" + aLong + "s");
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+                });
+        addSubscription(subscribe);
+    }
 
 }

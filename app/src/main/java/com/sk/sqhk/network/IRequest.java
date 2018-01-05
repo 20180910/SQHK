@@ -31,9 +31,6 @@ public interface IRequest {
     @POST("api/SHLGPub/PostUploadFileBase64")
     Call<ResponseObj<BaseObj>> uploadImg(@QueryMap Map<String, String> map, @Body UploadImgBody body);
 
-    //发送邮件验证码
-    @GET("api/SHLGPub/GetEmail")
-    Call<ResponseObj<BaseObj>> getSMSCode(@QueryMap Map<String, String> map);
 
 
 
@@ -79,6 +76,10 @@ public interface IRequest {
     //获取分享信息
     @GET("api/Lib/GetShareInformation")
     Call<ResponseObj<FenXiangObj>> fenXiang(@QueryMap Map<String, String> map);
+
+    //获取分享信息
+    @GET("api/Lib/GetSMSCodeBySQHK")
+    Call<ResponseObj<BaseObj>> getSMSCode(@QueryMap Map<String, String> map);
 
 
 

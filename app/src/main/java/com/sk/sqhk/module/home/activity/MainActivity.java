@@ -21,6 +21,7 @@ import com.sk.sqhk.broadcast.MyOperationBro;
 import com.sk.sqhk.module.home.fragment.HomeFragment;
 import com.sk.sqhk.module.home.fragment.MyFragment;
 import com.sk.sqhk.module.home.fragment.SelectFragment;
+import com.sk.sqhk.module.my.activity.LoginActivity;
 import com.sk.sqhk.network.ApiRequest;
 
 import java.util.HashMap;
@@ -50,7 +51,7 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.rb_home_tab3)
     MyRadioButton rb_home_tab3;
-    private MyRadioButton selectButtonView;
+    private MyRadioButton selectView;
 
 
     private LocalBroadcastManager localBroadcastManager;
@@ -71,7 +72,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setTabClickListener() {
-        selectButtonView=rb_home_tab1;
+        selectView =rb_home_tab1;
         rb_home_tab1.setOnClickListener(getTabClickListener(1));
         rb_home_tab2.setOnClickListener(getTabClickListener(2));
         rb_home_tab3.setOnClickListener(getTabClickListener(3));
@@ -91,7 +92,8 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 3:
                         if(TextUtils.equals(noLoginCode,getUserId())){
-                            selectButtonView.setChecked(true);
+                            STActivity(LoginActivity.class);
+                            selectView.setChecked(true);
                         }else{
                             selectMy();
                         }

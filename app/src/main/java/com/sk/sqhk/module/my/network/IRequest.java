@@ -64,7 +64,7 @@ public interface IRequest {
 
 
     //注册
-    @POST("api/UserBase/PostUserRegister")
+    @POST("api/User/PostUserRegistration")
     Call<ResponseObj<BaseObj>> register(@QueryMap Map<String, String> map, @Body RegisterBody body);
 
 

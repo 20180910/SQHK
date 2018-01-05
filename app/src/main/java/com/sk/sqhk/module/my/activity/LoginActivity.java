@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.view.View;
 
 import com.github.androidtools.SPUtils;
+import com.github.customview.MyEditText;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.module.home.activity.MainActivity;
 import com.sk.sqhk.module.my.network.response.LoginObj;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -18,6 +20,11 @@ import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity {
 
+
+    @BindView(R.id.et_login_phone)
+    MyEditText et_login_phone;
+    @BindView(R.id.et_login_pwd)
+    MyEditText et_login_pwd;
 
     @Override
     protected int getContentView() {
@@ -46,20 +53,22 @@ public class LoginActivity extends BaseActivity {
     protected void initData() {
 
     }
-
-    @Override
-    protected void onViewClick(View v) {
-
-    }
-
-    @OnClick({1})
-    public void onClick(View view) {
+    @OnClick({R.id.tv_login, R.id.tv_login_register, R.id.tv_login_forget_pwd, R.id.iv_login_qq, R.id.iv_login_wx})
+    public void onViewClick(View view) {
         switch (view.getId()) {
-            case 1:
+            case R.id.tv_login:
                 break;
-
+            case R.id.tv_login_register:
+                break;
+            case R.id.tv_login_forget_pwd:
+                break;
+            case R.id.iv_login_qq:
+                break;
+            case R.id.iv_login_wx:
+                break;
         }
     }
+
     private void login() {
         showLoading();
        /* Map<String,String> map=new HashMap<String,String>();
@@ -78,41 +87,42 @@ public class LoginActivity extends BaseActivity {
 */
 
     }
+
     private void loginResult(LoginObj obj) {
-        SPUtils.setPrefString(mContext, Config.user_id,obj.getUser_id());
-        SPUtils.setPrefString(mContext, Config.mobile,obj.getMobile());
-        SPUtils.setPrefString(mContext, Config.sex,obj.getSex());
-        SPUtils.setPrefString(mContext, Config.avatar,obj.getAvatar());
-        SPUtils.setPrefString(mContext, Config.user_name,obj.getUser_name());
-        SPUtils.setPrefString(mContext, Config.class_name,obj.getClass_name());
-        SPUtils.setPrefString(mContext, Config.name,obj.getName());
-        SPUtils.setPrefString(mContext, Config.email,obj.getEmail());
-        SPUtils.setPrefBoolean(mContext, Config.user_switch, obj.getMessage_sink()==1?true:false);
+        SPUtils.setPrefString(mContext, Config.user_id, obj.getUser_id());
+        SPUtils.setPrefString(mContext, Config.mobile, obj.getMobile());
+        SPUtils.setPrefString(mContext, Config.sex, obj.getSex());
+        SPUtils.setPrefString(mContext, Config.avatar, obj.getAvatar());
+        SPUtils.setPrefString(mContext, Config.user_name, obj.getUser_name());
+        SPUtils.setPrefString(mContext, Config.class_name, obj.getClass_name());
+        SPUtils.setPrefString(mContext, Config.name, obj.getName());
+        SPUtils.setPrefString(mContext, Config.email, obj.getEmail());
+        SPUtils.setPrefBoolean(mContext, Config.user_switch, obj.getMessage_sink() == 1 ? true : false);
 //        LocalBroadcastManager.getInstance(mContext).sendBroadcast(new Intent(Config.Bro.operation));
 
-        Intent intent=new Intent();
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        STActivity(intent,MainActivity.class);
+        Intent intent = new Intent();
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        STActivity(intent, MainActivity.class);
 
         finish();
 
     }
+
     private long mExitTime;
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         if ((System.currentTimeMillis() - mExitTime) > 1500) {
             showToastS("再按一次退出程序");
             mExitTime = System.currentTimeMillis();
         } else {
-            if(Config.exitAPP.equals(1)){
-                Intent intent=new Intent(Config.exitAPP);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                STActivity(intent,MainActivity.class);
+            if (Config.exitAPP.equals(1)) {
+                Intent intent = new Intent(Config.exitAPP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                STActivity(intent, MainActivity.class);
             }
             super.onBackPressed();
         }
-    }
-
+    }*/
 
 }

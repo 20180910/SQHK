@@ -27,4 +27,10 @@ public class ExampleUnitTest {
         System.out.println(a3);
         System.out.println(a4);
     }
+    @Test
+    public void asfd() throws Exception {
+        String reg = "(?i)^(?!([a-z]*|\\d*)$)[a-z\\d]+$";
+        String str = "s3/ddf";
+        System.out.println(str.matches(reg));
+    }
 }
