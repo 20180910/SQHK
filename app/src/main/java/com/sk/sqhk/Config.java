@@ -67,6 +67,7 @@ yTKTw0Ct5XUkIoGhR8DIwFus4P0lR9Tq  百度地图*/
     public static final String refresh="refresh";
     public static final String details="details";
     public static final String study="study";
+    public static final String upload_data_type="gif,jpg,png,bmp,rar,zip,doc,xls,txt,jpeg,xlsx,pdf";
 
     public static class SP{
         public static final String dai_kuan_edu_order="dai_kuan_edu_order";

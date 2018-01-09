@@ -44,6 +44,7 @@ public abstract class MyBaseFragment extends IBaseFragment implements View.OnCli
     protected boolean isPause;
     protected void myReStart() {
     }
+    protected void getOtherData(){};
     protected void getData(int page,boolean isLoad){};
     protected Unbinder mUnBind;
     protected String TAG=this.getClass().getSimpleName();
@@ -65,6 +66,7 @@ public abstract class MyBaseFragment extends IBaseFragment implements View.OnCli
             pcfl.setPtrHandler(new PtrDefaultHandler() {
                 @Override
                 public void onRefreshBegin(PtrFrameLayout frame) {
+                    getOtherData();
                     getData(1,false);
                 }
             });

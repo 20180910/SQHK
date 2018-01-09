@@ -76,6 +76,7 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
     }
     protected void myReStart() {
     }
+    protected void getOtherData(){};
     protected void getData(int page, boolean isLoad) {
     }
     @Override
@@ -246,6 +247,7 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
             pcfl.setPtrHandler(new PtrDefaultHandler() {
                 @Override
                 public void onRefreshBegin(PtrFrameLayout frame) {
+                    getOtherData();
                     getData(1, false);
                 }
             });
