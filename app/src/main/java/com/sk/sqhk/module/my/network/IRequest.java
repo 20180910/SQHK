@@ -26,6 +26,10 @@ public interface IRequest {
     @GET("api/User/GetUserLogin")
     Call<ResponseObj<LoginObj>> userLogin(@QueryMap Map<String, String> map);
 
+    //忘记密码
+    @GET("api/User/GetSetPassword")
+    Call<ResponseObj<BaseObj>> forgetPWD(@QueryMap Map<String, String> map);
+
     //注册
     @POST("api/User/PostUserRegistration")
     Call<ResponseObj<BaseObj>> register(@QueryMap Map<String, String> map, @Body RegisterBody body);

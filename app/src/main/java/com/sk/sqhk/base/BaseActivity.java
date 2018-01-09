@@ -3,8 +3,10 @@ package com.sk.sqhk.base;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.github.androidtools.SPUtils;
+import com.github.baseclass.rx.RxUtils;
 import com.library.base.MyBaseActivity;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.GetSign;
@@ -15,6 +17,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import rx.Observable;
+import rx.Observer;
+import rx.Subscription;
 
 /**
  * Created by Administrator on 2017/12/18.
@@ -120,6 +127,30 @@ public abstract class BaseActivity extends MyBaseActivity {
         } catch (Exception e) {
             return htmltext;
         }
+    }
+
+    public void countDown(TextView textView) {
+        textView.setEnabled(false);
+        final long count = 30;
+        Subscription subscribe = Observable.interval(1, TimeUnit.SECONDS)
+                .take(31)//计时次数
+                .map(integer -> count - integer)
+                .compose(RxUtils.appSchedulers())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onCompleted() {
+                        textView.setEnabled(true);
+                        textView.setText("获取验证码");
+                    }
+                    @Override
+                    public void onNext(Long aLong) {
+                        textView.setText("剩下" + aLong + "s");
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+                });
+        addSubscription(subscribe);
     }
 }
 

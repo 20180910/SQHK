@@ -30,8 +30,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 >
-
                 <com.github.customview.MyEditText
+                    android:id="@+id/et_forget_phone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -62,6 +62,7 @@
                 >
 
                 <com.github.customview.MyEditText
+                    android:id="@+id/et_forget_code"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -75,6 +76,7 @@
                     />
 
                 <com.github.customview.MyTextView
+                    android:id="@+id/tv_forget_getcode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -107,6 +109,7 @@
                 >
 
                 <com.github.customview.MyEditText
+                    android:id="@+id/et_forget_pwd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -114,7 +117,7 @@
                     android:gravity="center_vertical"
                     android:hint="密码为6-12位的数字和字母组合"
                     android:imeOptions="actionNext"
-                    android:inputType="textWebEditText"
+                    android:inputType="textWebPassword"
                     android:textSize="13sp"
                     app:my_et_solid="@color/white"
                     />

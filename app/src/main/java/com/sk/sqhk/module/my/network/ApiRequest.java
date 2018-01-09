@@ -27,11 +27,13 @@ public class ApiRequest extends BaseApiRequest {
 
     //登录
     public static void userLogin(Map map, MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) {
-            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
-            return;
-        }
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
         getGeneralClient(IRequest.class).userLogin(map).enqueue(callBack);
+    }
+    //登录
+    public static void forgetPWD(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).forgetPWD(map).enqueue(callBack);
     }
 
 

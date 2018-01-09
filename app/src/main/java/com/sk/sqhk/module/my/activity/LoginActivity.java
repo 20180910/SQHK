@@ -79,6 +79,7 @@ public class LoginActivity extends BaseActivity {
                 STActivityForResult(RegisterActivity.class,100);
                 break;
             case R.id.tv_login_forget_pwd:
+                STActivity(ForgetPWDActivity.class);
                 break;
             case R.id.iv_login_qq:
                 break;

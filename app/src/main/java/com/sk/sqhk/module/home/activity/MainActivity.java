@@ -106,6 +106,7 @@ public class MainActivity extends BaseActivity {
 
 
     private void selectHome() {
+        selectView=rb_home_tab1;
         if (homeFragment == null) {
             homeFragment = new HomeFragment();
             addFragment(R.id.fl_content,homeFragment);
@@ -116,6 +117,7 @@ public class MainActivity extends BaseActivity {
         hideFragment(myFragment);
     }
     private void selectChaXun() {
+        selectView=rb_home_tab2;
         if (selectFragment == null) {
             selectFragment = new SelectFragment();
             addFragment(R.id.fl_content,selectFragment);
@@ -126,6 +128,7 @@ public class MainActivity extends BaseActivity {
         hideFragment(myFragment);
     }
     private void selectMy() {
+        selectView=rb_home_tab3;
         if (myFragment == null) {
             myFragment = new MyFragment();
             addFragment(R.id.fl_content, myFragment);
