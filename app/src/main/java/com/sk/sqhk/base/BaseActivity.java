@@ -1,14 +1,18 @@
 package com.sk.sqhk.base;
 
+import android.util.Log;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.github.androidtools.SPUtils;
+import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.rx.RxUtils;
 import com.library.base.MyBaseActivity;
-import com.sk.sqhk.Config;
+import com.sk.sqhk.AppXml;
+import com.sk.sqhk.BuildConfig;
 import com.sk.sqhk.GetSign;
 
 import org.jsoup.Jsoup;
@@ -31,7 +35,7 @@ public abstract class BaseActivity extends MyBaseActivity {
     protected final String TAG=this.getClass().getSimpleName();
     protected final String noLoginCode="0";
     protected String getUserId() {
-        return SPUtils.getString(mContext, Config.user_id, noLoginCode);
+        return SPUtils.getString(mContext, AppXml.user_id, noLoginCode);
     }
     public boolean noLogin(){
         if(noLoginCode.equals(getUserId())){
@@ -40,6 +44,20 @@ public abstract class BaseActivity extends MyBaseActivity {
             return false;
         }
     }
+
+    @Override
+    protected void setClickListener() {
+        super.setClickListener();
+        if(BuildConfig.DEBUG&&app_title!=null){
+            app_title.setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View v) {
+                    Log.i(TAG+"===","userId==="+getUserId());
+                }
+            });
+        }
+    }
+
     protected String getSign(Map map) {
         return GetSign.getSign(map);
     }

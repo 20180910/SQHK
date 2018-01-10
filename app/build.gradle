@@ -26,7 +26,9 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
+
 }
+
 configurations.all {
     resolutionStrategy.eachDependency { DependencyResolveDetails details ->
         def requested = details.requested
@@ -45,7 +47,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile project(':baselibrary')
+//    compile project(':baselibrary')
+    releaseCompile project(path: ':baselibrary', configuration: 'release')
+    debugCompile project(path: ':baselibrary', configuration: 'debug')
+
     compile(name: 'mylibrary', ext: 'aar')
     compile(name: 'baseclass', ext: 'aar')
 //    compile(name: 'androidutils', ext: 'aar')

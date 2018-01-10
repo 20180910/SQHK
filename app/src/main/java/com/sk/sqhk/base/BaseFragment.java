@@ -5,6 +5,8 @@ import com.library.base.MyBaseFragment;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.GetSign;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2017/12/18.
  */
@@ -20,9 +22,10 @@ public abstract class BaseFragment extends MyBaseFragment {
             return false;
         }
     }
-    protected String getSign() {
-        return getSign("user_id", getUserId());
+    protected String getSign(Map map) {
+        return GetSign.getSign(map);
     }
+
 
     protected String getSign(String key, String value) {
         return GetSign.getSign(key, value);

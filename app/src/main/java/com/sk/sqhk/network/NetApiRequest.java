@@ -14,25 +14,14 @@ import java.util.Map;
 
 public class NetApiRequest extends BaseApiRequest {
 
-    /*public static Observable getRegisterXieYi(String rnd, String sign){
-        return getCommonClient(com.sk.yangyu.module.home.network.NetIRequest.class).getPayNotifyUrl(rnd,sign).compose(RxResult.appSchedulers()).compose(RxResult.handleResult());
-    }*/
-
-    public static void tuanGouSureOrder(Map map ,MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;}
-        getGeneralClient(NetIRequest.class).tuanGouSureOrder(map).enqueue(callBack);
-    }
-    //退出登录
-    public static void getLogOut(Map map,MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
-        getGeneralClient(NetIRequest.class).getLogOut(map).enqueue(callBack);
-    }
-    //base64图片上传
     public static void uploadImg(Map map, UploadImgBody body, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
         getGeneralClient(NetIRequest.class).uploadImg(map, body).enqueue(callBack);
     }
-   // 发送邮件验证码
+    public static void getAPPVersion(Map map,  MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(NetIRequest.class).getAPPVersion(map ).enqueue(callBack);
+    }
 
     public static void getSMSCode(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) {

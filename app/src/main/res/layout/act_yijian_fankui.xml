@@ -23,17 +23,20 @@
             android:textColor="@color/gray_33"
             />
         <com.github.customview.MyEditText
+            android:id="@+id/et_fankui_content"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@color/white"
             android:gravity="top"
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:my_et_solid="@color/white"
             android:layout_marginTop="5dp"
             android:padding="10dp"
             android:hint="请输入反馈内容"
-            android:maxLength="500"
+            android:maxLength="700"
             app:my_et_hiddenClear="true"
+            android:inputType="text"
+            android:imeOptions="actionNext"
             />
     </LinearLayout>
     <com.github.customview.MyTextView

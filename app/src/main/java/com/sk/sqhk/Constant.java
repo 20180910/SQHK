@@ -19,7 +19,7 @@ public class Constant {
     public static final int houTian=3;
     public static class IParam{
         public static final String userName="userName";
-        public static final String noTuan="noTuan";
+        public static final String helpCenter="helpCenter";
         public static final String canTuan="canTuan";
         public static final String zhiBaoId="phone";
         public static final String searchStr="searchStr";

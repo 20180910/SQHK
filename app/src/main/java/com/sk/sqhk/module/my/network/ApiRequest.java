@@ -4,9 +4,7 @@ import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
 import com.library.base.MyCallBack;
 import com.sk.sqhk.Config;
-import com.sk.sqhk.module.my.network.request.EditUserInfoBody;
 import com.sk.sqhk.module.my.network.request.RegisterBody;
-import com.sk.sqhk.network.NetIRequest;
 
 import java.util.Map;
 
@@ -16,30 +14,52 @@ import java.util.Map;
 
 public class ApiRequest extends BaseApiRequest {
 
-
-    public static void tuanGouSureOrder(Map map, MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) {
-            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
-            return;
-        }
-        getGeneralClient(NetIRequest.class).tuanGouSureOrder(map).enqueue(callBack);
-    }
-
     //登录
     public static void userLogin(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
         getGeneralClient(IRequest.class).userLogin(map).enqueue(callBack);
     }
-    //登录
+    public static void getUserInfo(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).getUserInfo(map).enqueue(callBack);
+    }
     public static void forgetPWD(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
         getGeneralClient(IRequest.class).forgetPWD(map).enqueue(callBack);
     }
+    public static void getMyAccount(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).getMyAccount(map).enqueue(callBack);
+    }
+    public static void getDefaultBank(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).getDefaultBank(map).enqueue(callBack);
+    }
+    public static void getHelpCenter(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).getHelpCenter(map).enqueue(callBack);
+    }
+    public static void yiJianFanKui(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).yiJianFanKui(map).enqueue(callBack);
+    }
+    public static void updatePhone(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).updatePhone(map).enqueue(callBack);
+    }
+    public static void updatePwd(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).updatePwd(map).enqueue(callBack);
+    }
+    public static void aboutWe(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).aboutWe(map).enqueue(callBack);
+    }
+    public static void setOpen(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).setOpen(map).enqueue(callBack);
+    }
 
-
-
-
-    /********************************分割线**********************************************/
 
 
     //注册
@@ -49,18 +69,6 @@ public class ApiRequest extends BaseApiRequest {
             return;
         }
         getGeneralClient(IRequest.class).register(map, body).enqueue(callBack);
-    }
-
-
-
-
-    //修改信息（昵称，姓名，生日，性别，头像）
-    public static void editUserInfo(Map map, EditUserInfoBody body, MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) {
-            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
-            return;
-        }
-        getGeneralClient(IRequest.class).editUserInfo(map, body).enqueue(callBack);
     }
 
 

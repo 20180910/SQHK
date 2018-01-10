@@ -4,7 +4,6 @@ import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
 import com.library.base.MyCallBack;
 import com.sk.sqhk.Config;
-import com.sk.sqhk.module.my.network.request.EditUserInfoBody;
 import com.sk.sqhk.module.my.network.request.RegisterBody;
 import com.sk.sqhk.network.NetIRequest;
 
@@ -43,16 +42,6 @@ public class ApiRequest extends BaseApiRequest {
     }
 
 
-
-
-    //修改信息（昵称，姓名，生日，性别，头像）
-    public static void editUserInfo(Map map, EditUserInfoBody body, MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) {
-            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
-            return;
-        }
-        getGeneralClient(com.sk.sqhk.module.my.network.IRequest.class).editUserInfo(map, body).enqueue(callBack);
-    }
 
 
 

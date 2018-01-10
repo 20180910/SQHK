@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -28,15 +29,18 @@
                     android:paddingRight="10dp"
                     >
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="实名认证"
                         />
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="已认证"
+                        android:id="@+id/tv_setting_renzheng"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        tools:text="已认证"
+                        android:gravity="right|center_vertical"
+
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -56,15 +60,17 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="手机绑定"
-                        />
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="123412432"
+                        android:text="联系方式"
+                        />
+                    <TextView
+                        android:id="@+id/tv_setting_phone"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        tools:text="123412432"
+                        android:gravity="center_vertical|right"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -85,10 +91,12 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
+                        android:id="@+id/tv_setting_updatepwd"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="修改登录密码"
+                        android:gravity="center_vertical"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -115,9 +123,10 @@
                         android:text="版本信息"
                         />
                     <TextView
+                        android:id="@+id/tv_setting_version"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3.2"
+                        tools:text="3.2"
                         />
                 </LinearLayout>
 
@@ -132,10 +141,12 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
+                        android:id="@+id/tv_setting_about_we"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="关于我们"
+                        android:gravity="center_vertical"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -156,10 +167,12 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
+                        android:id="@+id/tv_setting_clear_cache"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="清除缓存"
+                        android:gravity="center_vertical"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -186,7 +199,7 @@
                         android:text="消息提醒"
                         />
                     <com.suke.widget.SwitchButton
-                        android:id="@+id/sb_address_default"
+                        android:id="@+id/sb_setting_tixing"
                         android:layout_width="45dp"
                         android:layout_height="30dp"
                         app:sb_checked="false"

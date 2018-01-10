@@ -7,33 +7,48 @@
               android:background="@color/white"
     >
 <include layout="@layout/app_title"/>
-    <TextView
+    <com.library.base.ProgressLayout
+        android:id="@id/pl_load"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/white"
-        android:text="猜你想问"
-        android:gravity="center_vertical"
-        android:paddingLeft="10dp"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/background_f2"
-        />
-    <com.library.base.view.MyRecyclerView
-        android:id="@+id/rv_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        >
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:text="猜你想问"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/background_f2"
+                />
+            <com.library.base.view.MyRecyclerView
+                android:id="@+id/rv_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                >
 
-    </com.library.base.view.MyRecyclerView>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="意见反馈"
-        android:gravity="center"
-        android:textColor="@color/theme_color"
-        android:background="@color/background_f2"
-        />
+            </com.library.base.view.MyRecyclerView>
+            <TextView
+                android:id="@+id/tv_help_center_yijian"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="意见反馈"
+                android:gravity="center"
+                android:textColor="@color/theme_color"
+                android:background="@color/background_f2"
+                />
+        </LinearLayout>
+    </com.library.base.ProgressLayout>
+
+
 </LinearLayout>

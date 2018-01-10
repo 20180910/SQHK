@@ -24,13 +24,15 @@
             android:ems="4"
             />
         <com.github.customview.MyEditText
+            android:id="@+id/et_update_pwd_old"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:textSize="13sp"
             app:my_et_solid="@color/white"
-            android:inputType="textWebEditText"
+            android:inputType="textWebPassword"
+            android:digits="0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
             android:imeOptions="actionNext"
             android:layout_marginLeft="20dp"
             android:hint="当前使用的密码"
@@ -57,13 +59,14 @@
             android:ems="4"
             />
         <com.github.customview.MyEditText
+            android:id="@+id/et_update_pwd_new"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:textSize="13sp"
             app:my_et_solid="@color/white"
-            android:inputType="textWebEditText"
+            android:inputType="textWebPassword"
             android:imeOptions="actionNext"
             android:layout_marginLeft="20dp"
             android:hint="设置6-12位的字母数字组合"
@@ -91,13 +94,14 @@
             android:ems="4"
             />
         <com.github.customview.MyEditText
+            android:id="@+id/et_update_pwd_re"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:textSize="13sp"
             app:my_et_solid="@color/white"
-            android:inputType="textWebEditText"
+            android:inputType="textWebPassword"
             android:imeOptions="actionNext"
             android:layout_marginLeft="20dp"
             android:hint="设置6-12位的字母数字组合"
@@ -110,7 +114,7 @@
         android:background="@color/background_f2"
         />
     <com.github.customview.MyTextView
-        android:id="@+id/tv_update_phone_next"
+        android:id="@+id/tv_update_pwd_commit"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginLeft="10dp"

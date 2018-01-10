@@ -1,78 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="@color/white"
+              android:orientation="vertical"
     >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:background="@color/white"
-    android:padding="10dp"
-    >
+
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/white"
         android:gravity="center_vertical"
-        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备"
-            android:lines="3"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:textColor="@color/gray_33"
-            />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:layout_weight="2"
             android:background="@color/white"
-            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
             >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="来自新华网"
-                android:textSize="12sp"
-                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2017-07-07"
-                android:textSize="12sp"
-                android:layout_marginRight="15dp"
+                android:ellipsize="end"
+                android:lines="3"
+                android:maxLines="3"
+                android:text="商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备"
+                android:textColor="@color/gray_33"
                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="来自新华网"
+                    android:textSize="12sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="2017-07-07"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        >
+
         <com.github.customview.MyImageView
-            app:my_iv_radius="3dp"
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="80dp"
-            android:src="@drawable/banner"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banner"
+            app:my_iv_radius="3dp"
             />
     </LinearLayout>
-
-</LinearLayout>
 </LinearLayout>

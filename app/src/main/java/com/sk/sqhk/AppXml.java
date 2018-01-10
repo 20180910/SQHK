@@ -13,7 +13,7 @@ public class AppXml {
     public static final String nick_name = "nick_name";
     public static final String name = "name";
     public static final String email = "email";
-    public static final String user_switch = "user_switch";
+    public static final String needLogin = "needLogin";
     public static final String birthday = "birthday";
 
     public static final String amount = "amount";

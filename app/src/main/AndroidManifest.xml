@@ -32,7 +32,7 @@
         <activity android:name=".module.home.activity.TiXianActivity"/>
         <activity android:name=".module.home.activity.BankListActivity"/>
         <activity android:name=".module.home.activity.TiXianResultActivity"/>
-        <activity android:name=".module.home.activity.FastRenZhengActivity"/>
+        <activity android:name=".module.home.activity.FastRenZhengActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".module.home.activity.YaoQingActivity"/>
         <activity android:name=".module.home.activity.HuoDongGuiZeActivity"/>
         <activity android:name=".module.home.activity.AddBankActivity"/>

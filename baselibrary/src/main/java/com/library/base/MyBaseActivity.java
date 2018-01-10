@@ -25,7 +25,10 @@ import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.BaseDividerListItem;
 import com.github.baseclass.activity.IBaseActivity;
 import com.github.baseclass.adapter.LoadMoreAdapter;
+import com.github.baseclass.rx.IOCallBack;
+import com.library.BuildConfig;
 import com.library.R;
+import com.library.base.tools.CleanMessageUtil;
 
 import java.util.List;
 import java.util.Random;
@@ -34,6 +37,7 @@ import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
+import rx.Subscriber;
 
 
 /**
@@ -79,6 +83,7 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
     protected void getOtherData(){};
     protected void getData(int page, boolean isLoad) {
     }
+    protected void setClickListener(){};
     @Override
     protected void onPause() {
         super.onPause();
@@ -104,7 +109,11 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
     protected void setAppTitle(String title) {
         appTitle = title;
         if (app_title != null) {
-            app_title.setText(appTitle == null ? "" : appTitle);
+            if(BuildConfig.DEBUG){
+                app_title.setText(appTitle == null ? "" : appTitle+"(DeBug)");
+            }else{
+                app_title.setText(appTitle == null ? "" : appTitle);
+            }
         }
     }
 
@@ -206,7 +215,7 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
         }
         if (null != findViewById(R.id.app_title)) {
             app_title = (TextView) findViewById(R.id.app_title);
-            app_title.setText(appTitle == null ? "" : appTitle);
+            setAppTitle(appTitle);
             if(null!=findViewById(R.id.v_bottom_line)){
                 if(TextUtils.isEmpty(appTitle)||hiddenBottomLine){
                     findViewById(R.id.v_bottom_line).setVisibility(View.GONE);
@@ -262,6 +271,7 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
 //        setInput();
         initRxBus();
         initView();
+        setClickListener();
         if (toolbar != null) {
             if (navigationIcon != -1) {
                 getSupportActionBar().setHomeAsUpIndicator(navigationIcon);
@@ -385,7 +395,32 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
 
 
 
+    public void deleteCache() {
+        deleteCache(null);
+    }
+    public void deleteCache(final TextView textView) {
+        RXStart(new IOCallBack<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                CleanMessageUtil.clearAllCache(getApplicationContext());
+                try {
+                    String totalCacheSize = CleanMessageUtil.getTotalCacheSize(getApplicationContext());
+                    subscriber.onNext(totalCacheSize);
+                    subscriber.onCompleted();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onMyNext(String totalCacheSize) {
+                showMsg("清除成功");
+                if(textView!=null){
+                    textView.setText(totalCacheSize);
+                }
+            }
+        });
 
+    }
 
 
 }

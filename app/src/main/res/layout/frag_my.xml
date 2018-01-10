@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -20,6 +21,7 @@
         android:textColor="@color/white"
         />
     <ImageView
+        android:id="@+id/iv_my_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/my_msg"
@@ -29,7 +31,11 @@
         android:padding="10dp"
         />
 </RelativeLayout>
-    <android.support.v4.widget.NestedScrollView
+    <com.library.base.ProgressLayout
+        android:id="@id/pl_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.NestedScrollView
             android:id="@id/nsv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,11 +52,15 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/app_bar"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="20dp"
                     >
                     <com.github.customview.CircleImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:id="@+id/civ_my"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
                         android:src="@drawable/my_people"
                         />
                     <LinearLayout
@@ -61,17 +71,19 @@
                         android:layout_marginLeft="10dp"
                         >
                         <TextView
+                            android:id="@+id/tv_my_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="13213234234234"
+                            tools:text="13213234234234"
                             android:textColor="@color/white"
                             />
                         <TextView
+                            android:id="@+id/tv_my_yue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="账户余额:1232130"
+                            tools:text="账户余额:1232130"
                             android:textColor="@color/white"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="9dp"
                             />
                     </LinearLayout>
                 </LinearLayout>
@@ -86,6 +98,7 @@
                     android:layout_marginTop="5dp"
                     >
                     <TextView
+                        android:id="@+id/tv_my_yinhangka"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="我的银行卡"
@@ -106,6 +119,7 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
+                        android:id="@+id/tv_my_zhangdan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="我的账单"
@@ -126,6 +140,7 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
+                        android:id="@+id/tv_my_zhanghu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="我的账户"
@@ -146,6 +161,7 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
+                        android:id="@+id/tv_my_yaoqing"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="邀请好友"
@@ -187,6 +203,7 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
+                        android:id="@+id/tv_my_bangzhu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="帮助中心"
@@ -203,4 +220,5 @@
                     />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
+    </com.library.base.ProgressLayout>
 </LinearLayout>

@@ -5,6 +5,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
 
+    publishNonDefault true
+
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 26
@@ -47,7 +49,7 @@ dependencies {
     compile(name: 'mylibrary', ext: 'aar')
     compile(name: 'baseclass', ext: 'aar')
 //    compile(name: 'androidutils', ext: 'aar')
-    compile(name: 'retrofitutil', ext: 'aar')
+//    compile(name: 'retrofitutil', ext: 'aar')
 
 //    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 //    compile 'com.squareup.retrofit2:retrofit:2.1.0'

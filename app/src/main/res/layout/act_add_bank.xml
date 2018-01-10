@@ -23,6 +23,7 @@
            android:ems="4"
            />
        <com.github.customview.MyEditText
+           android:id="@+id/et_add_bank_account"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:background="@color/white"
@@ -90,6 +91,7 @@
             android:ems="4"
             />
         <com.github.customview.MyEditText
+            android:id="@+id/et_add_bank_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -106,7 +108,7 @@
         android:background="@color/background_f2"
         />
     <com.github.customview.MyTextView
-        android:id="@+id/tv_tx_result"
+        android:id="@+id/tv_add_bank"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:orientation="horizontal"

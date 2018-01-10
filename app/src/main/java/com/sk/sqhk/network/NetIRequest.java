@@ -3,6 +3,7 @@ package com.sk.sqhk.network;
 import com.library.base.BaseObj;
 import com.library.base.ResponseObj;
 import com.sk.sqhk.network.request.UploadImgBody;
+import com.sk.sqhk.network.response.APPVersionObj;
 import com.sk.sqhk.network.response.CitySearchObj;
 import com.sk.sqhk.network.response.FenXiangObj;
 import com.sk.sqhk.network.response.ProvinceObj;
@@ -27,9 +28,14 @@ public interface NetIRequest {
     //退出登录
     @GET("api/SHLGPub/GetLogOut")
     Call<ResponseObj<BaseObj>> getLogOut(@QueryMap Map<String, String> map);
+
     //图片上传
     @POST("api/SHLGPub/PostUploadFileBase64")
     Call<ResponseObj<BaseObj>> uploadImg(@QueryMap Map<String, String> map, @Body UploadImgBody body);
+
+    //获取android    version
+    @GET("api/Lib/GetAppVersion")
+    Call<ResponseObj<APPVersionObj>> getAPPVersion(@QueryMap Map<String, String> map );
 
 
 
