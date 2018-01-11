@@ -3,13 +3,14 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
               android:background="@color/background_f2"
               android:orientation="vertical"
     >
 
     <include layout="@layout/app_title"/>
 
-    <TextView
+    <com.library.base.view.MarqueTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -19,7 +20,6 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:scrollHorizontally="true"
-
         android:padding="10dp"
         android:text="请先进行身份证验证,才能进行信用卡还款,下次申请无需再验证"
         />
@@ -66,12 +66,13 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         >
 
                         <com.github.customview.MyLinearLayout
+                            android:id="@+id/ll_renzheng"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:padding="15dp"
@@ -82,7 +83,6 @@
                             app:my_ll_corner_radius="13dp"
                             app:my_ll_solid="@color/background_f2"
                             >
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -96,6 +96,16 @@
                                 android:text="点击拍摄"
                                 />
                         </com.github.customview.MyLinearLayout>
+                        <com.github.customview.MyImageView
+                            android:id="@+id/iv_renzheng_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            tools:src="@drawable/banner"
+                            app:my_iv_radius="13dp"
+                            android:visibility="gone"
+                            />
                     </FrameLayout>
                 </LinearLayout>
 
@@ -119,12 +129,13 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         >
 
                         <com.github.customview.MyLinearLayout
+                            android:id="@+id/ll_renzheng_second"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:padding="15dp"
@@ -149,6 +160,17 @@
                                 android:text="点击拍摄"
                                 />
                         </com.github.customview.MyLinearLayout>
+
+                        <com.github.customview.MyImageView
+                            android:id="@+id/iv_renzheng_second_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            tools:src="@drawable/banner"
+                            app:my_iv_radius="13dp"
+                            android:visibility="gone"
+                            />
                     </FrameLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -168,12 +190,15 @@
                     android:ems="4"
                     />
                 <com.github.customview.MyEditText
+                    android:id="@+id/et_renzheng_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
                     android:gravity="center_vertical"
-                    android:textSize="13sp"
+                    android:textSize="15sp"
                     app:my_et_solid="@color/white"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
                     android:hint="输入真实姓名"
                     />
             </LinearLayout>
@@ -199,6 +224,7 @@
                     android:orientation="horizontal"
                     >
                     <com.github.customview.MyRadioButton
+                        android:id="@+id/rb_renzheng_nan"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="男"
@@ -239,12 +265,15 @@
                     android:ems="4"
                     />
                 <com.github.customview.MyEditText
+                    android:id="@+id/et_renzheng_eid"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
                     android:gravity="center_vertical"
-                    android:textSize="13sp"
+                    android:textSize="15sp"
                     app:my_et_solid="@color/white"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
                     android:hint="输入身份证号"
                     />
             </LinearLayout>
@@ -265,13 +294,16 @@
                     android:ems="4"
                     />
                 <com.github.customview.MyEditText
+                    android:id="@+id/et_renzheng_phone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
                     android:gravity="center_vertical"
-                    android:textSize="13sp"
+                    android:textSize="15sp"
                     app:my_et_solid="@color/white"
                     android:hint="输入联系方式"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
                     />
             </LinearLayout>
             <LinearLayout
@@ -291,13 +323,15 @@
                     android:ems="4"
                     />
                 <com.github.customview.MyEditText
+                    android:id="@+id/et_renzheng_address"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
                     android:gravity="center_vertical"
-                    android:textSize="13sp"
                     app:my_et_solid="@color/white"
                     android:hint="输入家庭住址"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
                     />
             </LinearLayout>
             <LinearLayout
@@ -309,7 +343,7 @@
                 android:layout_marginTop="2px"
                 >
                 <com.github.customview.MyTextView
-                    android:id="@+id/tv_tx_result"
+                    android:id="@+id/tx_renzheng_commit"
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
                     android:orientation="horizontal"
