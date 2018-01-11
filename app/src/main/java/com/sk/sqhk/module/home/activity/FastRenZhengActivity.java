@@ -1,7 +1,10 @@
 package com.sk.sqhk.module.home.activity;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 
+import com.github.androidtools.PhoneUtils;
 import com.github.customview.MyEditText;
 import com.github.customview.MyImageView;
 import com.github.customview.MyRadioButton;
@@ -46,17 +49,33 @@ public class FastRenZhengActivity extends BaseActivity {
     protected void initData() {
 
     }
-
-
     @OnClick({R.id.ll_renzheng, R.id.ll_renzheng_second, R.id.tx_renzheng_commit})
     public void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.ll_renzheng:
+                PhoneUtils.hiddenKeyBoard(mContext);
+                showSelectPhotoDialog();
                 break;
             case R.id.ll_renzheng_second:
                 break;
             case R.id.tx_renzheng_commit:
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            switch (requestCode){
+                case result_select_photo:
+                    String imgPath =getSelectPhotoPath(data);
+                    Log.i(TAG+"===","==="+imgPath);
+                break;
+                case result_take_photo:
+                    Log.i(TAG+"===","==="+ takePhotoImgSavePath);
+                    break;
+            }
         }
     }
 }

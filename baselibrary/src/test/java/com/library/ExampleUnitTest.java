@@ -15,6 +15,21 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 
+    @Test
+    public void afsdfsd() throws Exception {
+        a();
+        a("1","1");
+        a(null,null);
+    }
+
+    public void a(String... a){
+        if(a==null){
+            System.out.println("空");
+        }else{
+            System.out.println(a.length);
+        }
+    }
+
 
 
 

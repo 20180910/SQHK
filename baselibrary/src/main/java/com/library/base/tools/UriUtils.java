@@ -15,7 +15,13 @@ import android.provider.MediaStore;
  */
 
 public class UriUtils {
-    public static String getPathForUri(Context context,Uri uri){
+    /**
+     * 适用于调用系统文件管理器选择文件，不适于拍照和相册选择图片
+     * @param context
+     * @param uri
+     * @return
+     */
+    public static String getFilePathForUri(Context context, Uri uri){
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {//4.4以后
             return getPath(context, uri);
         } else {//4.4以下下系统调用方法

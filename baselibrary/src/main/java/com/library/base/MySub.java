@@ -12,6 +12,7 @@ import rx.Subscriber;
 /**
  * Created by Administrator on 2017/6/16.
  */
+@Deprecated
 public abstract class MySub<T> extends Subscriber<T> {
     private Context context;
     private boolean noHiddenLoad;

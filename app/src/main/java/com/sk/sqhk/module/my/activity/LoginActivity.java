@@ -3,11 +3,14 @@ package com.sk.sqhk.module.my.activity;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.github.androidtools.SPUtils;
+import com.github.androidtools.inter.MyOnClickListener;
 import com.github.customview.MyEditText;
 import com.library.base.MyCallBack;
 import com.sk.sqhk.AppXml;
+import com.sk.sqhk.BuildConfig;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
@@ -32,6 +35,8 @@ public class LoginActivity extends BaseActivity {
     MyEditText et_login_phone;
     @BindView(R.id.et_login_pwd)
     MyEditText et_login_pwd;
+    @BindView(R.id.iv_login_test)
+    ImageView iv_login_test;
 
     @Override
     protected int getContentView() {
@@ -41,7 +46,15 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        if(BuildConfig.DEBUG){
+            iv_login_test.setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View v) {
+                    et_login_phone.setText("13122753707");
+                    et_login_pwd.setText("123456");
+                }
+            });
+        }
 
     }
 
