@@ -23,7 +23,7 @@ public class Constant {
         public static final String huoDongGuiZe="huoDongGuiZe";
         public static final String searchStr="searchStr";
         public static final String city="city";
-        public static final String type="type";
+        public static final String messageId="messageId";
         public static final String editAddress="editAddress";
         public static final String Address="Address";
         public static final String goodsId="goodsId";

@@ -13,6 +13,7 @@ import com.sk.sqhk.base.BaseFragment;
 import com.sk.sqhk.module.home.activity.YaoQingActivity;
 import com.sk.sqhk.module.my.activity.HelpCenterActivity;
 import com.sk.sqhk.module.my.activity.MyAccountActivity;
+import com.sk.sqhk.module.my.activity.MyMessageActivity;
 import com.sk.sqhk.module.my.activity.SettingActivity;
 import com.sk.sqhk.module.my.network.ApiRequest;
 import com.sk.sqhk.module.my.network.response.LoginObj;
@@ -106,6 +107,7 @@ public class MyFragment extends BaseFragment {
     public void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.iv_my_msg:
+                STActivity(MyMessageActivity.class);
                 break;
             case R.id.tv_my_setting:
                 STActivity(SettingActivity.class);

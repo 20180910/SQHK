@@ -7,7 +7,9 @@ import com.sk.sqhk.module.my.network.response.AboutWeObj;
 import com.sk.sqhk.module.my.network.response.DefaultBankObj;
 import com.sk.sqhk.module.my.network.response.HelpCenterObj;
 import com.sk.sqhk.module.my.network.response.LoginObj;
+import com.sk.sqhk.module.my.network.response.MessageDetailObj;
 import com.sk.sqhk.module.my.network.response.MyAccountObj;
+import com.sk.sqhk.module.my.network.response.MyMessageObj;
 import com.sk.sqhk.module.my.network.response.YaoQingObj;
 
 import java.util.List;
@@ -101,6 +103,15 @@ public interface IRequest {
     //邀请好友
     @GET("api/User/GetInviteFriend")
     Call<ResponseObj<YaoQingObj>> yaoQing(@QueryMap Map<String, String> map);
+
+
+    //消息列表
+    @GET("api/User/GetNewList")
+    Call<ResponseObj<List<MyMessageObj>>> getMessageList(@QueryMap Map<String, String> map);
+
+    //消息详情
+    @GET("api/User/GetNewsDetail")
+    Call<ResponseObj<MessageDetailObj>> getMessageDetail(@QueryMap Map<String, String> map);
 
 
 

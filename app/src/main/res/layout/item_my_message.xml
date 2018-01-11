@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+
+        <com.github.customview.MyImageView
+            android:id="@+id/iv_my_message_img"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            tools:src="@drawable/xiaoxi_icon01"
+            android:scaleType="centerCrop"
+            app:my_iv_radius="26dp"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_my_message_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="系统通知"
+                android:textColor="@color/gray_66"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_my_message_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                tools:text="你有一份限时礼品你有一份限时礼品你有一份限时礼品你有一份限时礼品"
+                android:maxLines="1"
+                android:ellipsize="end"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_my_message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="11-11"
+            />
+    </LinearLayout>
+</LinearLayout>
