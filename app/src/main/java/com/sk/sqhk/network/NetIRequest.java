@@ -30,7 +30,7 @@ public interface NetIRequest {
     Call<ResponseObj<BaseObj>> getLogOut(@QueryMap Map<String, String> map);
 
     //图片上传
-    @POST("api/SHLGPub/PostUploadFileBase64")
+    @POST("api/Lib/PostUploadFileBase64")
     Call<ResponseObj<BaseObj>> uploadImg(@QueryMap Map<String, String> map, @Body UploadImgBody body);
 
     //获取android    version

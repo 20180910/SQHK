@@ -11,6 +11,7 @@ import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.rx.RxUtils;
 import com.library.base.MyBaseActivity;
+import com.library.base.view.MyWebViewClient;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.BuildConfig;
 import com.sk.sqhk.GetSign;
@@ -99,6 +100,15 @@ public abstract class BaseActivity extends MyBaseActivity {
         });
     }
 
+    protected void initSimpleWebViewForUrl(WebView webview, String url) {
+        WebSettings webSetting = webview.getSettings();
+        webSetting.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        //此方法不支持4.4以后
+        webSetting.setUseWideViewPort(true);
+        webSetting.setJavaScriptEnabled(true);
+        webview.loadUrl(url);
+        webview.setWebViewClient(new MyWebViewClient());
+    }
     protected void initWebViewForUrl(WebView webview, String url) {
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -114,13 +124,13 @@ public abstract class BaseActivity extends MyBaseActivity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
 //                initWebTopView();
+                imgReset(webview);
             }
         });
 
 //        webview.loadDataWithBaseURL(null, getNewContent(url), "text/html", "utf-8",null);
         webview.loadUrl(url);
         // 设置WevView要显示的网页
-//        webview.loadDataWithBaseURL(null, content, "text/html", "utf-8",null);
         webview.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webview.getSettings().setJavaScriptEnabled(true); //设置支持Javascript
         webview.requestFocus(); //触摸焦点起作用.如果不设置，则在点击网页文本输入框时，不能弹出软键盘及不响应其他的一些事件。
@@ -131,6 +141,17 @@ public abstract class BaseActivity extends MyBaseActivity {
                 return true;
             }
         });
+    }
+
+    private void imgReset(WebView webview) {
+        webview.loadUrl("javascript:(function(){" +
+                "var objs = document.getElementsByTagName('img'); " +
+                "for(var i=0;i<objs.length;i++)  " +
+                "{"
+                + "var img = objs[i];   " +
+                " img.style.maxWidth = '100%';img.style.height='auto';" +
+                "}" +
+                "})()");
     }
 
 

@@ -17,9 +17,10 @@ public class ExampleUnitTest {
 
     @Test
     public void afsdfsd() throws Exception {
-        a();
-        a("1","1");
-        a(null,null);
+        String a="asdfsf.gd.54.";
+        String[] bb = a.split("\\.");
+        System.out.println(bb.length);
+        System.out.println(bb[bb.length-1]);
     }
 
     public void a(String... a){

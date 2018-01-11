@@ -20,8 +20,7 @@ public class Constant {
     public static class IParam{
         public static final String userName="userName";
         public static final String helpCenter="helpCenter";
-        public static final String canTuan="canTuan";
-        public static final String zhiBaoId="phone";
+        public static final String huoDongGuiZe="huoDongGuiZe";
         public static final String searchStr="searchStr";
         public static final String city="city";
         public static final String type="type";

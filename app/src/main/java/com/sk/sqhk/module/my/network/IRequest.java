@@ -8,6 +8,7 @@ import com.sk.sqhk.module.my.network.response.DefaultBankObj;
 import com.sk.sqhk.module.my.network.response.HelpCenterObj;
 import com.sk.sqhk.module.my.network.response.LoginObj;
 import com.sk.sqhk.module.my.network.response.MyAccountObj;
+import com.sk.sqhk.module.my.network.response.YaoQingObj;
 
 import java.util.List;
 import java.util.Map;
@@ -90,6 +91,16 @@ public interface IRequest {
     //推送开关
     @GET("api/User/GetMessageSink")
     Call<ResponseObj<BaseObj>> setOpen(@QueryMap Map<String, String> map);
+
+
+    //提交身份认证
+    @GET("api/User/GetSetMemberAuthentication")
+    Call<ResponseObj<BaseObj>> renZheng(@QueryMap Map<String, String> map);
+
+
+    //邀请好友
+    @GET("api/User/GetInviteFriend")
+    Call<ResponseObj<YaoQingObj>> yaoQing(@QueryMap Map<String, String> map);
 
 
 

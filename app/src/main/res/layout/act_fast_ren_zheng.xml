@@ -72,7 +72,7 @@
                         <com.github.customview.MyLinearLayout
                             android:id="@+id/ll_renzheng"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="100dp"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:padding="15dp"
@@ -99,12 +99,13 @@
                         <com.github.customview.MyImageView
                             android:id="@+id/iv_renzheng_img"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:adjustViewBounds="true"
                             android:scaleType="fitCenter"
                             tools:src="@drawable/banner"
                             app:my_iv_radius="13dp"
                             android:visibility="gone"
+                            android:background="@color/background_f2"
                             />
                     </FrameLayout>
                 </LinearLayout>
@@ -135,7 +136,7 @@
                         <com.github.customview.MyLinearLayout
                             android:id="@+id/ll_renzheng_second"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="100dp"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:padding="15dp"
@@ -164,12 +165,13 @@
                         <com.github.customview.MyImageView
                             android:id="@+id/iv_renzheng_second_img"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:adjustViewBounds="true"
                             android:scaleType="fitCenter"
                             tools:src="@drawable/banner"
                             app:my_iv_radius="13dp"
                             android:visibility="gone"
+                            android:background="@color/background_f2"
                             />
                     </FrameLayout>
                 </LinearLayout>

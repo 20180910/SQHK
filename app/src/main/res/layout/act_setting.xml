@@ -21,7 +21,7 @@
                 >
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="43dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
@@ -51,7 +51,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="43dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
@@ -82,7 +82,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="43dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
@@ -108,7 +108,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="43dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
@@ -132,7 +132,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="43dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
@@ -157,8 +157,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_setting_clear_cache"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="43dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
@@ -167,12 +168,17 @@
                     android:layout_marginTop="2px"
                     >
                     <TextView
-                        android:id="@+id/tv_setting_clear_cache"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
                         android:text="清除缓存"
                         android:gravity="center_vertical"
+                        />
+                    <TextView
+                        android:id="@+id/tv_setting_cachesize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="123MB"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -184,7 +190,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="43dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"

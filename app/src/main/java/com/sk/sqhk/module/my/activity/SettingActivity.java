@@ -7,14 +7,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.github.androidtools.SPUtils;
+import com.github.baseclass.rx.IOCallBack;
 import com.library.base.BaseObj;
 import com.library.base.MyCallBack;
+import com.library.base.tools.CacheUtils;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.module.home.activity.FastRenZhengActivity;
 import com.sk.sqhk.module.my.network.ApiRequest;
+import com.sk.sqhk.module.my.network.response.LoginObj;
 import com.sk.sqhk.network.NetApiRequest;
 import com.sk.sqhk.network.response.APPVersionObj;
 import com.suke.widget.SwitchButton;
@@ -24,6 +27,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import rx.Subscriber;
 
 /**
  * Created by Administrator on 2017/12/25.
@@ -38,6 +42,8 @@ public class SettingActivity extends BaseActivity {
     TextView tv_setting_updatepwd;
     @BindView(R.id.tv_setting_version)
     TextView tv_setting_version;
+    @BindView(R.id.tv_setting_cachesize)
+    TextView tv_setting_cachesize;
     @BindView(R.id.sb_setting_tixing)
     SwitchButton sb_setting_tixing;
 
@@ -49,6 +55,8 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        setRenZheng();
+
         String phone = SPUtils.getString(mContext, AppXml.mobile, null);
         tv_setting_phone.setText(phone);
 
@@ -62,7 +70,44 @@ public class SettingActivity extends BaseActivity {
             return true;
         });
 
+        RXStart(new IOCallBack<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                try {
+                    String cacheSize = CacheUtils.getTotalCacheSize(mContext);
+                    subscriber.onNext(cacheSize);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onMyNext(String s) {
+                tv_setting_cachesize.setText(s);
+            }
+        });
     }
+
+    private void setRenZheng() {
+        int renZhengFlag = SPUtils.getInt(mContext, AppXml.is_validation, 0);
+        //身份认证状态(0未认证 1待审核 2审核通过 3审核未通过)
+        String renZhengStr="未认证";
+        switch (renZhengFlag){
+            case 0:
+                renZhengStr="未认证";
+            break;
+            case 1:
+                renZhengStr="待审核";
+            break;
+            case 2:
+                renZhengStr="审核通过";
+            break;
+            case 3:
+                renZhengStr="审核未通过";
+            break;
+        }
+        tv_setting_renzheng.setText(renZhengStr);
+    }
+
     private void setOpen(boolean isChecked) {
         showLoading();
         Map<String,String>map=new HashMap<String,String>();
@@ -102,11 +147,11 @@ public class SettingActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv_setting_clear_cache,R.id.tv_setting_about_we,R.id.tv_setting_exit,R.id.tv_setting_renzheng, R.id.tv_setting_phone, R.id.tv_setting_updatepwd})
+    @OnClick({R.id.ll_setting_clear_cache,R.id.tv_setting_about_we,R.id.tv_setting_exit,R.id.tv_setting_renzheng, R.id.tv_setting_phone, R.id.tv_setting_updatepwd})
     protected void onViewClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_setting_clear_cache:
-                deleteCache();
+            case R.id.ll_setting_clear_cache:
+                deleteCache(tv_setting_cachesize);
                 break;
             case R.id.tv_setting_about_we:
                 STActivity(AboutWeActivity.class);
@@ -123,7 +168,7 @@ public class SettingActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.tv_setting_renzheng:
-                STActivity(FastRenZhengActivity.class);
+                STActivityForResult(FastRenZhengActivity.class,2000);
                 break;
             case R.id.tv_setting_phone:
                 STActivity(UpdatePhoneActivity.class);
@@ -133,4 +178,50 @@ public class SettingActivity extends BaseActivity {
                 break;
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            switch (requestCode){
+                case 2000:
+                    getUserInfo();
+                break;
+            }
+        }
+    }
+
+    private void getUserInfo() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("user_id", getUserId());
+        map.put("sign", getSign(map));
+        ApiRequest.getUserInfo(map, new MyCallBack<LoginObj>(mContext, pl_load, pcfl) {
+            @Override
+            public void onSuccess(LoginObj obj) {
+                loginResult(obj);
+            }
+        });
+    }
+    private void loginResult(LoginObj obj) {
+
+        SPUtils.setPrefString(mContext, AppXml.user_id, obj.getUser_id());
+        SPUtils.setPrefString(mContext, AppXml.mobile, obj.getMobile());
+        SPUtils.setPrefString(mContext, AppXml.sex, obj.getSex());
+        SPUtils.setPrefString(mContext, AppXml.avatar, obj.getAvatar());
+        SPUtils.setPrefString(mContext, AppXml.birthday, obj.getBirthday());
+        SPUtils.setPrefString(mContext, AppXml.user_name, obj.getUser_name());
+        SPUtils.setPrefString(mContext, AppXml.nick_name, obj.getNick_name());
+        SPUtils.setPrefFloat(mContext, AppXml.amount, obj.getAmount());
+        SPUtils.setPrefFloat(mContext, AppXml.commission, obj.getCommission());
+        SPUtils.setPrefInt(mContext, AppXml.message_sink, obj.getMessage_sink());
+        SPUtils.setPrefInt(mContext, AppXml.is_validation, obj.getIs_validation());
+        SPUtils.setPrefInt(mContext, AppXml.cumulative_reward, obj.getCumulative_reward());
+
+        SPUtils.setPrefString(mContext, AppXml.name, obj.getName());
+        SPUtils.setPrefString(mContext, AppXml.email, obj.getEmail());
+        SPUtils.setPrefString(mContext, AppXml.major, obj.getMajor());
+
+        setRenZheng();
+    }
+
 }

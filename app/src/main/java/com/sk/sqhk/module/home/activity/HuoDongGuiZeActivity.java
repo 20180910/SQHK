@@ -3,6 +3,7 @@ package com.sk.sqhk.module.home.activity;
 import android.view.View;
 import android.webkit.WebView;
 
+import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 
@@ -24,7 +25,8 @@ public class HuoDongGuiZeActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        String content = getIntent().getStringExtra(Constant.IParam.huoDongGuiZe);
+        initWebViewForContent(wv_gui_ze,content);
     }
 
     @Override

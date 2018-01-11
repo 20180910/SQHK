@@ -10,6 +10,7 @@ import com.library.base.MyCallBack;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseFragment;
+import com.sk.sqhk.module.home.activity.YaoQingActivity;
 import com.sk.sqhk.module.my.activity.HelpCenterActivity;
 import com.sk.sqhk.module.my.activity.MyAccountActivity;
 import com.sk.sqhk.module.my.activity.SettingActivity;
@@ -34,6 +35,8 @@ public class MyFragment extends BaseFragment {
     TextView tv_my_name;
     @BindView(R.id.tv_my_yue)
     TextView tv_my_yue;
+    @BindView(R.id.tv_my_shouyi)
+    TextView tv_my_shouyi;
 
     @Override
     protected int getContentView() {
@@ -79,6 +82,7 @@ public class MyFragment extends BaseFragment {
     }
 
     private void loginResult(LoginObj obj) {
+        tv_my_shouyi.setText("累计奖励: ¥"+obj.getCommission()+"元");
 
         SPUtils.setPrefString(mContext, AppXml.user_id, obj.getUser_id());
         SPUtils.setPrefString(mContext, AppXml.mobile, obj.getMobile());
@@ -114,6 +118,7 @@ public class MyFragment extends BaseFragment {
                 STActivity(MyAccountActivity.class);
                 break;
             case R.id.tv_my_yaoqing:
+                STActivity(YaoQingActivity.class);
                 break;
             case R.id.tv_my_bangzhu:
                 STActivity(HelpCenterActivity.class);

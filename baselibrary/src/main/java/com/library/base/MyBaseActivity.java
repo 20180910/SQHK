@@ -41,7 +41,7 @@ import com.github.baseclass.rx.IOCallBack;
 import com.github.baseclass.rx.MySubscriber;
 import com.library.BuildConfig;
 import com.library.R;
-import com.library.base.tools.CleanMessageUtil;
+import com.library.base.tools.CacheUtils;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import java.io.File;
@@ -440,9 +440,9 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
         RXStart(new IOCallBack<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                CleanMessageUtil.clearAllCache(getApplicationContext());
+                CacheUtils.clearAllCache(getApplicationContext());
                 try {
-                    String totalCacheSize = CleanMessageUtil.getTotalCacheSize(getApplicationContext());
+                    String totalCacheSize = CacheUtils.getTotalCacheSize(getApplicationContext());
                     subscriber.onNext(totalCacheSize);
                     subscriber.onCompleted();
                 } catch (Exception e) {

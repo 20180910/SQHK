@@ -5,7 +5,7 @@ import android.os.Environment;
 import java.io.File;
 import java.math.BigDecimal;
 
-public class CleanMessageUtil {
+public class CacheUtils {
 
     /**
      * @param context

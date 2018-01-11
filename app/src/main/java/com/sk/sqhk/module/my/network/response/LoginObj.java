@@ -39,7 +39,7 @@ public class LoginObj extends BaseObj {
     private int amount;
     private int commission;
     private int message_sink;
-    private int is_validation;
+    private int is_validation;//身份认证状态(0未认证 1待审核 2审核通过 3审核未通过)
     private int cumulative_reward;
     private String email;
     private String major;
