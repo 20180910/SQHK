@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.customview.MyEditText;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.BuildConfig;
 import com.sk.sqhk.Constant;

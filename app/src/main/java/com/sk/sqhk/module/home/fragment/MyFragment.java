@@ -9,7 +9,7 @@ import com.github.androidtools.SPUtils;
 import com.github.baseclass.rx.IOCallBack;
 import com.github.customview.CircleImageView;
 import com.library.base.BaseObj;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.library.base.tools.has.BitmapUtils;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.R;

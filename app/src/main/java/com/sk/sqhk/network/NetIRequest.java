@@ -39,6 +39,12 @@ public interface NetIRequest {
 
 
 
+    //是否有未读消息
+    @GET("api/Informations/GetUnreadNews")
+    Call<ResponseObj<BaseObj>> isHasNewMsg(@QueryMap Map<String, String> map );
+
+
+
 
 
 

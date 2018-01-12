@@ -2,7 +2,7 @@ package com.sk.sqhk.network;
 
 import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.network.request.UploadImgBody;
 
@@ -21,6 +21,10 @@ public class NetApiRequest extends BaseApiRequest {
     public static void getAPPVersion(Map map,  MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
         getGeneralClient(NetIRequest.class).getAPPVersion(map ).enqueue(callBack);
+    }
+    public static void isHasNewMsg(Map map,  MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(NetIRequest.class).isHasNewMsg(map ).enqueue(callBack);
     }
 
     public static void getSMSCode(Map map, MyCallBack callBack) {

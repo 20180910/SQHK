@@ -21,7 +21,14 @@ public class CacheUtils {
         }
         return getFormatSize(cacheSize);
     }
-
+    public static String getExternalCacheSize(Context context) throws Exception {
+        long cacheSize = 0;
+        if (Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED)) {
+            cacheSize += getFolderSize(context.getExternalCacheDir());
+        }
+        return getFormatSize(cacheSize);
+    }
     /**
      * @param context
      *            删除缓存

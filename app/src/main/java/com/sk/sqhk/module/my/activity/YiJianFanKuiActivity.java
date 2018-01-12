@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.library.base.BaseObj;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.module.my.network.ApiRequest;

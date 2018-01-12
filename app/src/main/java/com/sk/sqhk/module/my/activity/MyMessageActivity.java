@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;

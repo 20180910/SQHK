@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.library.base.view.MyRecyclerView;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;

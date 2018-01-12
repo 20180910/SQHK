@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.github.customview.MyImageView;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.module.my.network.ApiRequest;

@@ -1,11 +1,18 @@
-package com.library.base;
+package com.sk.sqhk.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
 import com.github.androidtools.ToastUtils;
+import com.github.baseclass.utils.ActUtils;
 import com.github.baseclass.view.Loading;
 import com.github.retrofitutil.NoNetworkException;
+import com.library.base.BaseObj;
+import com.library.base.ProgressLayout;
+import com.library.base.ResponseObj;
+import com.library.base.ServerException;
+import com.sk.sqhk.module.my.activity.LoginActivity;
 
 import java.net.ConnectException;
 
@@ -130,11 +137,11 @@ public abstract class MyCallBack<T> implements Callback<ResponseObj<T>> {
         } else if (errCode == 2) {//2需要登录
             if (this.progressLayout != null) {//需要finish
                 onError(new ServerException(response.body().getErrMsg()),false);
-//                ActUtils.STActivity((Activity) context, LoginActivity.class);
-//                ((Activity) context).finish();
+                ActUtils.STActivity((Activity) context, LoginActivity.class);
+                ((Activity) context).finish();
             } else {
                 onError(new ServerException(response.body().getErrMsg()));
-//                ActUtils.STActivity((Activity) context, LoginActivity.class);
+                ActUtils.STActivity((Activity) context, LoginActivity.class);
             }
             return;
         }

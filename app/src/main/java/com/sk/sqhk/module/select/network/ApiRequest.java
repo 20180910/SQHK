@@ -2,7 +2,7 @@ package com.sk.sqhk.module.select.network;
 
 import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.module.my.network.request.RegisterBody;
 import com.sk.sqhk.network.NetIRequest;

@@ -12,7 +12,7 @@ import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.customview.MyRadioButton;
 import com.library.base.BaseObj;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.Constant;

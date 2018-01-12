@@ -6,7 +6,7 @@ import android.view.View;
 import com.github.androidtools.SPUtils;
 import com.github.customview.MyEditText;
 import com.library.base.BaseObj;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.library.base.tools.ZhengZeUtils;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.R;

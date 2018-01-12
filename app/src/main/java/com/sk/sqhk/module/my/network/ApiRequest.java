@@ -2,7 +2,7 @@ package com.sk.sqhk.module.my.network;
 
 import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.module.my.network.request.RegisterBody;
 
@@ -58,6 +58,10 @@ public class ApiRequest extends BaseApiRequest {
     public static void setOpen(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
         getGeneralClient(IRequest.class).setOpen(map).enqueue(callBack);
+    }
+    public static void getRenZhengData(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).getRenZhengData(map).enqueue(callBack);
     }
     public static void renZheng(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }

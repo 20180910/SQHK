@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.github.androidtools.SPUtils;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;

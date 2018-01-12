@@ -2,7 +2,7 @@ package com.sk.sqhk.module.home.network;
 
 import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.module.home.network.request.HomeRoastingChartBody;
 import com.sk.sqhk.module.home.network.request.HomeTypeMerchantListBody;

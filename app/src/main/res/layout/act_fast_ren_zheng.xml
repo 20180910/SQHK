@@ -23,6 +23,10 @@
         android:padding="10dp"
         android:text="请先进行身份证验证,才能进行信用卡还款,下次申请无需再验证"
         />
+<com.library.base.ProgressLayout
+    android:id="@id/pl_load"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@id/nsv"
@@ -238,6 +242,7 @@
                         android:checked="true"
                         />
                     <com.github.customview.MyRadioButton
+                        android:id="@+id/rb_renzheng_nv"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="女"
@@ -372,4 +377,5 @@
             </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+</com.library.base.ProgressLayout>
 </LinearLayout>

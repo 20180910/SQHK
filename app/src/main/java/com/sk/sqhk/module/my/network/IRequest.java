@@ -10,6 +10,7 @@ import com.sk.sqhk.module.my.network.response.LoginObj;
 import com.sk.sqhk.module.my.network.response.MessageDetailObj;
 import com.sk.sqhk.module.my.network.response.MyAccountObj;
 import com.sk.sqhk.module.my.network.response.MyMessageObj;
+import com.sk.sqhk.module.my.network.response.RenZhengDataObj;
 import com.sk.sqhk.module.my.network.response.YaoQingObj;
 
 import java.util.List;
@@ -93,6 +94,11 @@ public interface IRequest {
     //推送开关
     @GET("api/User/GetMessageSink")
     Call<ResponseObj<BaseObj>> setOpen(@QueryMap Map<String, String> map);
+
+
+    //获取认证信息
+    @GET("api/User/GetMemberAuthentication")
+    Call<ResponseObj<RenZhengDataObj>> getRenZhengData(@QueryMap Map<String, String> map);
 
 
     //提交身份认证

@@ -10,7 +10,7 @@ import com.github.baseclass.rx.RxUtils;
 import com.github.customview.MyEditText;
 import com.github.customview.MyTextView;
 import com.library.base.BaseObj;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;

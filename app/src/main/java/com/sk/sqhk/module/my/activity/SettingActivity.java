@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.github.androidtools.SPUtils;
 import com.github.baseclass.rx.IOCallBack;
 import com.library.base.BaseObj;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.library.base.tools.CacheUtils;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.Constant;
@@ -74,7 +74,7 @@ public class SettingActivity extends BaseActivity {
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 try {
-                    String cacheSize = CacheUtils.getTotalCacheSize(mContext);
+                    String cacheSize = CacheUtils.getExternalCacheSize(mContext);
                     subscriber.onNext(cacheSize);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -151,7 +151,7 @@ public class SettingActivity extends BaseActivity {
     protected void onViewClick(View v) {
         switch (v.getId()) {
             case R.id.ll_setting_clear_cache:
-                deleteCache(tv_setting_cachesize);
+                deleteCache(tv_setting_cachesize,false);
                 break;
             case R.id.tv_setting_about_we:
                 STActivity(AboutWeActivity.class);

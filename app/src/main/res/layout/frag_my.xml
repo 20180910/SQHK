@@ -176,6 +176,7 @@
                         android:layout_height="wrap_content"
                         tools:text="asfdsdf"
                         android:drawablePadding="10dp"
+                        android:textSize="13sp"
                         android:drawableRight="@drawable/jiantou_right1"
                         />
                 </LinearLayout>

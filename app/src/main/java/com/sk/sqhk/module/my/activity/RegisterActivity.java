@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.github.baseclass.rx.RxUtils;
 import com.github.customview.MyEditText;
 import com.library.base.BaseObj;
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.library.base.tools.ZhengZeUtils;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.GetSign;

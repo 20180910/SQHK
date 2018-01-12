@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.webkit.WebView;
 
-import com.library.base.MyCallBack;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;

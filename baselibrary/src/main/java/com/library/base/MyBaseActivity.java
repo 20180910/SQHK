@@ -434,15 +434,15 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
 
 
     public void deleteCache() {
-        deleteCache(null);
+        deleteCache(null,false);
     }
-    public void deleteCache(final TextView textView) {
+    public void deleteCache(final TextView textView,final boolean isAllCache) {
         RXStart(new IOCallBack<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 CacheUtils.clearAllCache(getApplicationContext());
                 try {
-                    String totalCacheSize = CacheUtils.getTotalCacheSize(getApplicationContext());
+                    String totalCacheSize = isAllCache?CacheUtils.getTotalCacheSize(getApplicationContext()):CacheUtils.getExternalCacheSize(getApplicationContext());
                     subscriber.onNext(totalCacheSize);
                     subscriber.onCompleted();
                 } catch (Exception e) {

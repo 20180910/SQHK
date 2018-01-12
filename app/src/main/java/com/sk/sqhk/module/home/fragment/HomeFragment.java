@@ -5,13 +5,18 @@ import android.view.View;
 
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
+import com.library.base.BaseObj;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseFragment;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.activity.MyFenRunActivity;
+import com.sk.sqhk.network.NetApiRequest;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -56,6 +61,23 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        showProgress();
+        getOtherData();
+        getData(1,false);
+    }
+
+    @Override
+    protected void getOtherData() {
+        super.getOtherData();
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("user_id",getUserId());
+        map.put("sign",getSign(map));
+        NetApiRequest.isHasNewMsg(map, new MyCallBack<BaseObj>(mContext) {
+            @Override
+            public void onSuccess(BaseObj obj) {
+
+            }
+        });
 
     }
 
