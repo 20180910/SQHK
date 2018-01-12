@@ -2,12 +2,10 @@ package com.sk.sqhk.module.home.network;
 
 import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
-import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.Config;
-import com.sk.sqhk.module.home.network.request.HomeRoastingChartBody;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.network.request.HomeTypeMerchantListBody;
 import com.sk.sqhk.module.home.network.request.SearchResultBody;
-import com.sk.sqhk.network.NetIRequest;
 
 import java.util.Map;
 
@@ -21,22 +19,39 @@ public class ApiRequest extends BaseApiRequest {
         return getCommonClient(com.sk.yangyu.module.home.network.NetIRequest.class).getPayNotifyUrl(rnd,sign).compose(RxResult.appSchedulers()).compose(RxResult.handleResult());
     }*/
 
-    public static void tuanGouSureOrder(Map map, MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) {
-            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
-            return;
-        }
-        getGeneralClient(NetIRequest.class).tuanGouSureOrder(map).enqueue(callBack);
+    public static void getHomeJiSuData(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getHomeJiSuData(map).enqueue(callBack);
+    }
+    public static void getHomeBaner(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getHomeBaner(map).enqueue(callBack);
+    }
+    public static void getHomeZiXunData(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getHomeZiXunData(map).enqueue(callBack);
+    }
+    public static void getMoreZiXunData(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getMoreZiXunData(map).enqueue(callBack);
+    }
+    public static void getZiXunDetail(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getZiXunDetail(map).enqueue(callBack);
+    }
+    public static void ziXunDianZan(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).ziXunDianZan(map).enqueue(callBack);
+    }
+    public static void getHomeImg(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getHomeImg(map).enqueue(callBack);
+    }
+    public static void getHomeFenLei(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getHomeFenLei(map).enqueue(callBack);
     }
 
-    //首页轮播图信息
-    public static void postRoastingChart(Map map, HomeRoastingChartBody body, MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) {
-            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
-            return;
-        }
-        getGeneralClient(IRequest.class).postRoastingChart(map, body).enqueue(callBack);
-    }
 
     //首页类别集合信息
     public static void getTypeAssemblage(Map map, MyCallBack callBack) {
@@ -100,14 +115,7 @@ public class ApiRequest extends BaseApiRequest {
         getGeneralClient(IRequest.class).getAnnouncement(map).enqueue(callBack);
     }
 
-    //获取首页右上角未读消息状态(红点)
-    public static void getUnreadNews(Map map, MyCallBack callBack) {
-        if (notNetWork(callBack.getContext())) {
-            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
-            return;
-        }
-        getGeneralClient(IRequest.class).getUnreadNews(map).enqueue(callBack);
-    }
+
 
     //热门搜索词、历史搜索词
     public static void getHottestSearch(Map map, MyCallBack callBack) {

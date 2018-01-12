@@ -51,6 +51,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 public abstract class MyBaseFragment extends IBaseFragment implements View.OnClickListener,ProgressLayout.OnAgainInter,LoadMoreAdapter.OnLoadMoreListener{
     protected int pageNum=2;
     protected int pageSize=20;
+    protected int pagesize = 20;
     protected NestedScrollView nsv;
     private boolean isFirstLoadData=true;
     private boolean isPrepared;

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.github.androidtools.inter.MyOnClickListener;
@@ -37,11 +38,18 @@ public class MyMessageActivity extends BaseActivity {
         return R.layout.act_my_message;
     }
 
+
     @Override
     protected void initView() {
         adapter=new LoadMoreAdapter<MyMessageObj>(mContext,R.layout.item_my_message,pageSize) {
             @Override
             public void bindData(LoadMoreViewHolder holder, int position, MyMessageObj bean) {
+                TextView tv_my_message_has_tishi = holder.getTextView(R.id.tv_my_message_has_tishi);
+                if(bean.getIs_check()==1){
+                    tv_my_message_has_tishi.setVisibility(View.VISIBLE);
+                }else{
+                    tv_my_message_has_tishi.setVisibility(View.GONE);
+                }
                 ImageView imageView = holder.getImageView(R.id.iv_my_message_img);
                 Glide.with(mContext).load(bean.getImage()).error(R.color.c_press).into(imageView);
                 holder.setText(R.id.tv_my_message_title,bean.getTitle())
@@ -68,7 +76,11 @@ public class MyMessageActivity extends BaseActivity {
         showProgress();
         getData(1,false);
     }
-
+    @Override
+    protected void onMyReStart() {
+        super.onMyReStart();
+        getData(1,false);
+    }
     @Override
     protected void getData(int page, boolean isLoad) {
         super.getData(page, isLoad);

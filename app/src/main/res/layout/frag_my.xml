@@ -20,16 +20,33 @@
         android:layout_centerInParent="true"
         android:textColor="@color/white"
         />
-    <ImageView
-        android:id="@+id/iv_my_msg"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/my_msg"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:padding="10dp"
-        />
+        android:layout_centerVertical="true"
+        >
+        <ImageView
+            android:id="@+id/iv_my_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/my_msg"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            />
+        <com.github.customview.MyTextView
+            android:id="@+id/tv_my_has_msg"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            app:my_tv_solid="@color/red"
+            app:my_tv_corner_radius="3dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="11dp"
+            android:layout_marginBottom="1dp"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
 </RelativeLayout>
     <com.library.base.ProgressLayout
         android:id="@id/pl_load"

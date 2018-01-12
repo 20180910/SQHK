@@ -3,6 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              xmlns:tools="http://schemas.android.com/tools"
               android:background="@color/white"
               android:orientation="vertical"
     >
@@ -27,12 +28,13 @@
             >
 
             <TextView
+                android:id="@+id/tv_home_zixun_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:lines="3"
                 android:maxLines="3"
-                android:text="商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备"
+                tools:text="商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备"
                 android:textColor="@color/gray_33"
                 />
 
@@ -46,29 +48,34 @@
                 >
 
                 <TextView
+                    android:id="@+id/tv_home_zixun_from"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="来自新华网"
+                    tools:text="来自新华网"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:textSize="12sp"
                     />
 
                 <TextView
+                    android:id="@+id/tv_home_zixun_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
-                    android:text="2017-07-07"
+                    tools:text="2017-07-07"
                     android:textSize="12sp"
                     />
             </LinearLayout>
         </LinearLayout>
 
         <com.github.customview.MyImageView
+            android:id="@+id/iv_home_zixun_img"
             android:layout_width="120dp"
             android:layout_height="80dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/banner"
+            tools:src="@drawable/banner"
             app:my_iv_radius="3dp"
             />
     </LinearLayout>

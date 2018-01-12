@@ -2,21 +2,25 @@ package com.sk.sqhk.module.home.network;
 
 import com.library.base.BaseObj;
 import com.library.base.ResponseObj;
-import com.sk.sqhk.module.home.network.request.HomeRoastingChartBody;
 import com.sk.sqhk.module.home.network.request.HomeTypeMerchantListBody;
 import com.sk.sqhk.module.home.network.request.SearchResultBody;
 import com.sk.sqhk.module.home.network.response.AreaBusinessCircleObj;
+import com.sk.sqhk.module.home.network.response.BannerObj;
 import com.sk.sqhk.module.home.network.response.CityIdObj;
+import com.sk.sqhk.module.home.network.response.DianZanObj;
 import com.sk.sqhk.module.home.network.response.HomeAnnouncementObj;
 import com.sk.sqhk.module.home.network.response.HomeDailybestObj;
+import com.sk.sqhk.module.home.network.response.HomeFenLeiObj;
+import com.sk.sqhk.module.home.network.response.HomeImgObj;
+import com.sk.sqhk.module.home.network.response.HomeJiSuObj;
 import com.sk.sqhk.module.home.network.response.HomeLikeObj;
 import com.sk.sqhk.module.home.network.response.HomePageImageObj;
-import com.sk.sqhk.module.home.network.response.HomeRoastingChartObj;
 import com.sk.sqhk.module.home.network.response.HomeTypeAssemblageObj;
 import com.sk.sqhk.module.home.network.response.HomeTypeMerchantListObj;
-import com.sk.sqhk.module.home.network.response.HomeUnreadNews;
+import com.sk.sqhk.module.home.network.response.HomeZiXunDataObj;
 import com.sk.sqhk.module.home.network.response.SearchObj;
 import com.sk.sqhk.module.home.network.response.SearchResultObj;
+import com.sk.sqhk.module.home.network.response.ZiXunDetailObj;
 
 import java.util.List;
 import java.util.Map;
@@ -32,12 +36,12 @@ import retrofit2.http.QueryMap;
  */
 
 public interface IRequest {
-    @GET("api/HomePage/GetProductGroupOrderShow")
-    Call<ResponseObj<BaseObj>> tuanGouSureOrder(@QueryMap Map<String, String> map);
+    @GET("api/Informations/GetTypeAssemBlages")
+    Call<ResponseObj<List<HomeJiSuObj>>> getHomeJiSuData(@QueryMap Map<String, String> map);
 
     //首页轮播图信息
-    @POST("api/Information/PostRoastingChart")
-    Call<ResponseObj<HomeRoastingChartObj>> postRoastingChart(@QueryMap Map<String, String> map, @Body HomeRoastingChartBody body);
+    @POST("api/Informations/PostRoastingChart")
+    Call<ResponseObj<BannerObj>> getHomeBaner(@QueryMap Map<String, String> map );
     //首页类别集合信息
     @GET("api/Information/GetTypeAssemblage")
     Call<ResponseObj<HomeTypeAssemblageObj>> getTypeAssemblage(@QueryMap Map<String, String> map);
@@ -49,6 +53,43 @@ public interface IRequest {
     //首页每日精选
     @GET("api/Information/GetDailybest")
     Call<ResponseObj<HomeDailybestObj>> getDailybest(@QueryMap Map<String, String> map);
+
+    //首页咨询列表数据
+    @GET("api/Informations/GetInformationList")
+    Call<ResponseObj<List<HomeZiXunDataObj>>> getHomeZiXunData(@QueryMap Map<String, String> map);
+
+    //more咨询列表数据
+    @GET("api/Informations/GetInformationMoreList")
+    Call<ResponseObj<List<HomeZiXunDataObj>>> getMoreZiXunData(@QueryMap Map<String, String> map);
+
+    //咨询详情数据
+    @GET("api/Informations/GetInformationMore")
+    Call<ResponseObj<ZiXunDetailObj>> getZiXunDetail(@QueryMap Map<String, String> map);
+
+
+    //咨询详情点赞
+    @GET("api/Informations/GetThumbupForum")
+    Call<ResponseObj<DianZanObj>> ziXunDianZan(@QueryMap Map<String, String> map);
+
+
+    //首页中部图片
+    @GET("api/Informations/GetHomePageCenterImage")
+    Call<ResponseObj<HomeImgObj>> getHomeImg(@QueryMap Map<String, String> map);
+
+
+    //首页快速认证，分享推荐等
+    @GET("api/Informations/GetHomePageClass")
+    Call<ResponseObj<List<HomeFenLeiObj>>> getHomeFenLei(@QueryMap Map<String, String> map);
+
+
+
+
+
+
+
+
+
+
 
     //根据城市名获取ID
     @GET("api/Lib/GetCityID")
@@ -66,9 +107,6 @@ public interface IRequest {
     Call<ResponseObj<List<HomeAnnouncementObj>>> getAnnouncement(@QueryMap Map<String, String> map);
 
 
-    //获取首页右上角未读消息状态(红点)
-    @GET("api/Information/GetUnreadNews")
-    Call<ResponseObj<HomeUnreadNews>> getUnreadNews(@QueryMap Map<String, String> map);
 
     //热门搜索词、历史搜索词
     @GET("api/MerchantCenter/GetHottestSearch")

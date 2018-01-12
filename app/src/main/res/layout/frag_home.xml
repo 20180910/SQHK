@@ -25,17 +25,33 @@
             android:textColor="@color/white"
             android:textSize="19sp"
             />
-
-        <ImageView
-            android:id="@+id/iv_home_news"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/home_msg"
-            />
+            >
+            <ImageView
+                android:id="@+id/iv_home_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/home_msg"
+                android:layout_alignParentRight="true"
+                />
+            <com.github.customview.MyTextView
+                android:id="@+id/tv_home_has_msg"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                app:my_tv_solid="@color/red"
+                app:my_tv_corner_radius="3dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
 
         <com.github.customview.MyTextView
             android:id="@+id/tv_home_xiaoxi_num"
@@ -111,35 +127,83 @@
                 android:paddingTop="10dp"
                 android:layout_marginTop="10dp"
                 >
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/home_icon02"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:text="急速还款"
-                    />
+                    >
+                    <com.github.customview.MyImageView
+                        android:id="@+id/iv_home_jisu1"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/home_icon02"
+                        app:my_iv_radius="28dp"
+                        />
+                    <TextView
+                        android:id="@+id/tv_home_jisu1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        tools:text="急速还款"
+                        android:layout_marginTop="6dp"
+                        />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/home_icon03"
-                    android:gravity="center"
-                    android:text="急速还款"
-                    />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/home_icon04"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:text="急速还款"
-                    />
+                    >
+                    <com.github.customview.MyImageView
+                        android:id="@+id/iv_home_jisu2"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/home_icon03"
+                        app:my_iv_radius="28dp"
+                        />
+                    <TextView
+                        android:id="@+id/tv_home_jisu2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        tools:text="急速还款"
+                        android:layout_marginTop="6dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+                    <com.github.customview.MyImageView
+                        android:id="@+id/iv_home_jisu3"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/home_icon04"
+                        app:my_iv_radius="28dp"
+                        />
+                    <TextView
+                        android:id="@+id/tv_home_jisu3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        tools:text="急速还款"
+                        android:layout_marginTop="6dp"
+                        />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -162,6 +226,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/iv_home_fenlei1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
@@ -169,6 +234,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_home_fenlei1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -197,12 +263,14 @@
                     >
 
                     <ImageView
+                        android:id="@+id/iv_home_fenlei2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/home_icon06"
                         />
 
                     <TextView
+                        android:id="@+id/tv_home_fenlei2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -235,6 +303,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/iv_home_fenlei3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
@@ -242,6 +311,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_home_fenlei3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -270,6 +340,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/iv_home_fenlei4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
@@ -277,6 +348,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_home_fenlei4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -290,24 +362,44 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/iv_home_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/home_banner02"
+                tools:src="@drawable/home_banner02"
                 />
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="最新资讯"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/home_icon_09"
-                android:paddingLeft="10dp"
                 android:background="@color/white"
-                android:drawablePadding="5dp"
-                />
+
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:text="最新资讯"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/home_icon_09"
+                    android:paddingLeft="10dp"
+                    android:background="@color/white"
+                    android:drawablePadding="5dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_home_more_zixun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="更多资讯"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
 
                 <com.library.base.view.MyRecyclerView
                     android:id="@+id/rv_home"

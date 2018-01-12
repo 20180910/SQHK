@@ -1,10 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/background_f2"
+              android:background="@color/white"
     >
 <include layout="@layout/app_title"/>
+    <com.library.base.ProgressLayout
+        android:id="@id/pl_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.NestedScrollView
+            android:id="@id/nsv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@color/white"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_zixun_detail_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备"
+                        android:textColor="@color/gray_33"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_zixun_detail_from"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:text="来自新华网"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:textSize="12sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_zixun_detail_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            tools:text="2017-07-07"
+                            android:textSize="12sp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+                <WebView
+                    android:id="@+id/wv_zixun_detail"
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </WebView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tv_zixun_detail_zan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="2002"
+                        android:drawableLeft="@drawable/wenzhang_icon01"
+                        android:gravity="center_vertical"
+                        />
+                    <TextView
+                        android:id="@+id/tv_zixun_detail_look"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/wenzhang_icon02"
+                        tools:text="2002"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="50dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </com.library.base.ProgressLayout>
+
 </LinearLayout>

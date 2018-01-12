@@ -8,12 +8,14 @@ import com.github.androidtools.SPUtils;
 import com.library.base.MyBaseFragment;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.GetSign;
+import com.youth.banner.Banner;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -130,6 +132,35 @@ public abstract class BaseFragment extends MyBaseFragment {
             return doc.toString();
         } catch (Exception e) {
             return htmltext;
+        }
+    }
+
+
+
+    protected void setBannerList(Banner bn_home,List bannerList){
+        if (notEmpty(bannerList)) {
+            bn_home.setLayoutParams(ImageSizeUtils.getImageSizeLayoutParams(mContext));
+            bn_home.setImages(bannerList);
+            bn_home.setImageLoader(new GlideLoader());
+
+            /*bn_home.setOnBannerListener(new OnBannerListener() {
+                @Override
+                public void OnBannerClick(int position) {
+                    HomeBannerObj.ShufflingListBean item = shufflingList.get(position);
+                    //(0商品不存在 1普通商品 2限时抢购 3团购),status商品状态(0商品不存在或者活动已结束 1商品存在活动没结束
+                    Intent intent=new Intent();
+                    intent.putExtra(com.sk.yangyu.module.orderclass.Constant.IParam.goodsId,item.getGoods_id()+"");
+                    if(item.getCode()==1&&item.getStatus()==1){
+                        STActivity(intent,GoodsDetailActivity.class);
+                    }else if(item.getCode()==2&&item.getStatus()==1){
+                        intent.setAction(Config.IParam.xianShiQiangGou);
+                        STActivity(intent,GoodsDetailXianShiActivity.class);
+                    }else if(item.getCode()==3&&item.getStatus()==1){
+                        STActivity(intent,GoodsDetailTuanGouActivity.class);
+                    }
+                }
+            });*/
+            bn_home.start();
         }
     }
 

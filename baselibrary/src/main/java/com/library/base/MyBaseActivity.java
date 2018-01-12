@@ -70,6 +70,7 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
     private int navigationIcon = -1;
     protected int pageNum = 2;
     protected int pageSize = 20;
+    protected int pagesize = 20;
     private String appTitle, appRightTitle;
     private int appTitleColor, appRightTitleColor;
     private int appRightImg;

@@ -50,6 +50,8 @@ public class MyFragment extends BaseFragment {
     TextView tv_my_yue;
     @BindView(R.id.tv_my_shouyi)
     TextView tv_my_shouyi;
+    @BindView(R.id.tv_my_has_msg)
+    TextView tv_my_has_msg;
 
     @Override
     protected int getContentView() {
@@ -65,13 +67,20 @@ public class MyFragment extends BaseFragment {
     @Override
     protected void initData() {
         showProgress();
+        getOtherData();
         getData(1, false);
+    }
 
+    @Override
+    protected void getOtherData() {
+        super.getOtherData();
+        isHasMsg();
     }
 
     @Override
     protected void onMyReStart() {
         super.onMyReStart();
+        getOtherData();
         getData(1, false);
     }
 
@@ -91,6 +100,21 @@ public class MyFragment extends BaseFragment {
             }
         });
 
+    }
+    public void isHasMsg() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("user_id", getUserId());
+        map.put("sign", getSign(map));
+        NetApiRequest.isHasNewMsg(map, new MyCallBack<BaseObj>(mContext) {
+            @Override
+            public void onSuccess(BaseObj obj) {
+                if (obj.getIs_check() == 1) {
+                    tv_my_has_msg.setVisibility(View.VISIBLE);
+                } else {
+                    tv_my_has_msg.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     private void loginResult(LoginObj obj) {

@@ -26,7 +26,7 @@ public class Constant {
         public static final String messageId="messageId";
         public static final String editAddress="editAddress";
         public static final String Address="Address";
-        public static final String goodsId="goodsId";
+        public static final String ziXunId="ziXunId";
         public static final String goods="goods";
         public static final String isCollect="isCollect";
         public static final String faPiaoType="faPiaoType";
