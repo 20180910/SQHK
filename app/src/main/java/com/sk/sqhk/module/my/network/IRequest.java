@@ -112,6 +112,9 @@ public interface IRequest {
     //消息详情
     @GET("api/User/GetNewsDetail")
     Call<ResponseObj<MessageDetailObj>> getMessageDetail(@QueryMap Map<String, String> map);
+    //修改头像
+    @GET("api/User/GetSetUserAvatar")
+    Call<ResponseObj<BaseObj>> updateUserImg(@QueryMap Map<String, String> map);
 
 
 

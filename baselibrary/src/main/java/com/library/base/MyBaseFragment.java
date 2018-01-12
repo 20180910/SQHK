@@ -44,9 +44,6 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
-import static com.library.base.MyBaseActivity.result_select_photo;
-import static com.library.base.MyBaseActivity.result_take_photo;
-
 /**
  * Created by Administrator on 2017/7/13.
  */
@@ -64,7 +61,7 @@ public abstract class MyBaseFragment extends IBaseFragment implements View.OnCli
     protected abstract void initData();
     protected abstract void onViewClick(View v);
     protected void initRxBus(){};
-    protected boolean isPause;
+    protected boolean isStop;
     protected void myReStart() {
     }
     protected void getOtherData(){};
@@ -109,26 +106,27 @@ public abstract class MyBaseFragment extends IBaseFragment implements View.OnCli
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        isPause =true;
+    public void onStop() {
+        super.onStop();
+
+        isStop =true;
     }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if(hidden){
-            isPause =true;
+            isStop =true;
         }else{
-            isPause =false;
+            isStop =false;
             myReStart();
         }
     }
     @Override
     public void onResume() {
         super.onResume();
-        if(isPause){
-            isPause =false;
+        if(isStop){
+            isStop =false;
             myReStart();
         }
     }
@@ -229,8 +227,8 @@ public abstract class MyBaseFragment extends IBaseFragment implements View.OnCli
     }
 
     private BottomSheetDialog selectPhotoDialog;
-    public final static int select_photo=8888;
-    public final static int take_photo=8889;
+    public final static int result_select_photo =8888;
+    public final static int result_take_photo =8889;
     public void showSelectPhotoDialog() {
         if (selectPhotoDialog == null) {
             View sexView= LayoutInflater.from(mContext).inflate(R.layout.app_popu_select_photo,null);

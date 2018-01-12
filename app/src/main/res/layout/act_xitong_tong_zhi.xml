@@ -28,7 +28,7 @@
                 android:gravity="center"
                 app:my_tv_solid="@color/gray_d7"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="15dp"
                 app:my_tv_corner_radius="18dp"
                 android:textColor="@color/white"
                 />
