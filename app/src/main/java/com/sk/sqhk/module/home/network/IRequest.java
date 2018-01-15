@@ -18,8 +18,13 @@ import com.sk.sqhk.module.home.network.response.HomePageImageObj;
 import com.sk.sqhk.module.home.network.response.HomeTypeAssemblageObj;
 import com.sk.sqhk.module.home.network.response.HomeTypeMerchantListObj;
 import com.sk.sqhk.module.home.network.response.HomeZiXunDataObj;
+import com.sk.sqhk.module.home.network.response.JinRongChaoShiObj;
+import com.sk.sqhk.module.home.network.response.MyFenRunObj;
+import com.sk.sqhk.module.home.network.response.MyXiaJiObj;
 import com.sk.sqhk.module.home.network.response.SearchObj;
 import com.sk.sqhk.module.home.network.response.SearchResultObj;
+import com.sk.sqhk.module.home.network.response.ShouYiDetailObj;
+import com.sk.sqhk.module.home.network.response.XinYongDaiObj;
 import com.sk.sqhk.module.home.network.response.ZiXunDetailObj;
 
 import java.util.List;
@@ -80,6 +85,34 @@ public interface IRequest {
     //首页快速认证，分享推荐等
     @GET("api/Informations/GetHomePageClass")
     Call<ResponseObj<List<HomeFenLeiObj>>> getHomeFenLei(@QueryMap Map<String, String> map);
+
+
+    //我的分润
+    @GET("api/AccountWithdrawal/GetMyCommission")
+    Call<ResponseObj<MyFenRunObj>> getFenRun(@QueryMap Map<String, String> map);
+
+    //提现
+    @GET("api/AccountWithdrawal/GetCommissionWithdrawals")
+    Call<ResponseObj<BaseObj>> fenRunTiXian(@QueryMap Map<String, String> map);
+
+    //收益明细
+    @GET("api/AccountWithdrawal/GetCommissionDetail")
+    Call<ResponseObj<List<ShouYiDetailObj>>> getShouYiDetail(@QueryMap Map<String, String> map);
+
+
+    //我的下级-我的邀请
+    @GET("api/User/GetMyLowerLevel")
+    Call<ResponseObj<List<MyXiaJiObj>>> getMyXiaJi(@QueryMap Map<String, String> map);
+
+
+
+    //金融超市
+    @GET("api/FinancialSupermarket/GetFinancialSupermarket")
+    Call<ResponseObj<JinRongChaoShiObj>> getJinRongChaoShi(@QueryMap Map<String, String> map);
+
+    //金融贷列表
+    @GET("api/FinancialSupermarket/GetCreditLoanList")
+    Call<ResponseObj<XinYongDaiObj>> getJinRongDaiList(@QueryMap Map<String, String> map);
 
 
 

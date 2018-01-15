@@ -15,9 +15,13 @@ import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseFragment;
 import com.sk.sqhk.base.MyCallBack;
+import com.sk.sqhk.module.home.activity.FastRenZhengActivity;
+import com.sk.sqhk.module.home.activity.JinRongChaoShiActivity;
 import com.sk.sqhk.module.home.activity.MoreZiXunActivity;
 import com.sk.sqhk.module.home.activity.MyFenRunActivity;
 import com.sk.sqhk.module.home.activity.WenZhangDetailActivity;
+import com.sk.sqhk.module.home.activity.WoDeYaoQingActivity;
+import com.sk.sqhk.module.home.activity.YaoQingActivity;
 import com.sk.sqhk.module.home.network.ApiRequest;
 import com.sk.sqhk.module.home.network.response.BannerObj;
 import com.sk.sqhk.module.home.network.response.HomeFenLeiObj;
@@ -274,6 +278,9 @@ public class HomeFragment extends BaseFragment {
     }
 
     @OnClick({R.id.ll_home_renzheng,
+            R.id.ll_home_tab1,
+            R.id.ll_home_tab2,
+            R.id.ll_home_tab3,
             R.id.ll_home_fenxiang,
             R.id.ll_home_fenrun,
             R.id.tv_home_more_zixun,
@@ -281,6 +288,15 @@ public class HomeFragment extends BaseFragment {
             R.id.ll_home_xiaji,})
     protected void onViewClick(View v) {
         switch (v.getId()) {
+            case R.id.ll_home_tab1:
+
+                break;
+            case R.id.ll_home_tab2:
+
+                break;
+            case R.id.ll_home_tab3:
+                STActivity(JinRongChaoShiActivity.class);
+                break;
             case R.id.iv_home_news:
                 if(noLogin()){
                     STActivity(LoginActivity.class);
@@ -292,10 +308,18 @@ public class HomeFragment extends BaseFragment {
                 STActivity(MoreZiXunActivity.class);
                 break;
             case R.id.ll_home_renzheng:
-
+                if(noLogin()){
+                    STActivity(LoginActivity.class);
+                }else{
+                    STActivity(FastRenZhengActivity.class);
+                }
                 break;
             case R.id.ll_home_fenxiang:
-
+                if(noLogin()){
+                    STActivity(LoginActivity.class);
+                }else{
+                    STActivity(YaoQingActivity.class);
+                }
                 break;
             case R.id.ll_home_fenrun:
                 if(noLogin()){
@@ -305,7 +329,11 @@ public class HomeFragment extends BaseFragment {
                 }
                 break;
             case R.id.ll_home_xiaji:
-
+                if(noLogin()){
+                    STActivity(LoginActivity.class);
+                }else{
+                    STActivity(WoDeYaoQingActivity.class);
+                }
                 break;
         }
     }

@@ -21,8 +21,8 @@ public class Constant {
         public static final String userName="userName";
         public static final String helpCenter="helpCenter";
         public static final String huoDongGuiZe="huoDongGuiZe";
-        public static final String searchStr="searchStr";
-        public static final String city="city";
+        public static final String title="title";
+        public static final String typeId="typeId";
         public static final String messageId="messageId";
         public static final String editAddress="editAddress";
         public static final String Address="Address";

@@ -19,13 +19,12 @@
             app:ptr_ratio_of_header_height_to_refresh="1.2"
             >
             <com.library.base.view.MyRecyclerView
-                android:id="@+id/rv_xinyongdai"
+                android:id="@+id/rv_wode_yaoqing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-
             </com.library.base.view.MyRecyclerView>
         </in.srain.cube.views.ptr.PtrClassicFrameLayout>
-    </com.library.base.ProgressLayout>
 
+    </com.library.base.ProgressLayout>
 </LinearLayout>

@@ -3,6 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              xmlns:tools="http://schemas.android.com/tools"
               android:background="@color/white"
               android:orientation="vertical"
     >
@@ -18,16 +19,18 @@
         >
 
         <TextView
+            android:id="@+id/tv_tixian_detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="提现金额:"
+            tools:text="提现金额:"
             />
 
         <TextView
+            android:id="@+id/tv_tixian_detail_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="20"
+            tools:text="20"
             android:textColor="@color/theme_color"
             />
 
@@ -39,9 +42,10 @@
             />
 
         <TextView
+            android:id="@+id/tv_tixian_detail_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2017-11-11"
+            tools:text="2017-11-11"
             android:textColor="@color/theme_color"
             />
     </LinearLayout>

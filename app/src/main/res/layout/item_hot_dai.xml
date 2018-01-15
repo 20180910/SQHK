@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -18,10 +19,11 @@
     android:paddingLeft="10dp"
     >
     <com.github.customview.MyImageView
+        android:id="@+id/iv_jinrong_img"
         android:layout_width="60dp"
         android:layout_height="60dp"
         app:my_iv_radius="3dp"
-        android:src="@drawable/daikuanicon002"
+        tools:src="@drawable/daikuanicon002"
         />
     <LinearLayout
         android:layout_width="0dp"
@@ -33,31 +35,35 @@
         android:layout_marginLeft="20dp"
         >
         <TextView
+            android:id="@+id/tv_jinrong_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="极速贷-你我金融"
+            tools:text="极速贷-你我金融"
             android:textColor="@color/gray_33"
             android:textSize="16sp"
             />
         <TextView
+            android:id="@+id/tv_jinrong_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="可贷:500-16000(元)"
+            tools:text="可贷:500-16000(元)"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:textSize="13sp"
             />
         <TextView
+            android:id="@+id/tv_jinrong_lilv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="日利率低至0.057%"
+            tools:text="日利率低至0.057%"
             android:textSize="13sp"
             />
     </LinearLayout>
     <TextView
+        android:id="@+id/tv_jinrong_people"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="已申请人数435345"
+        tools:text="已申请人数435345"
         android:layout_gravity="bottom"
         android:textSize="13sp"
         />

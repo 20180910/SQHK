@@ -19,21 +19,24 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginRight="8dp"
             android:layout_weight="2"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="vertical"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
             >
 
             <TextView
                 android:id="@+id/tv_home_zixun_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ellipsize="end"
-                android:lines="3"
-                android:maxLines="3"
+                android:maxLines="2"
+                android:textSize="14sp"
                 tools:text="商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备商旅一族必备"
                 android:textColor="@color/gray_33"
                 />
@@ -46,7 +49,6 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 >
-
                 <TextView
                     android:id="@+id/tv_home_zixun_from"
                     android:layout_width="0dp"

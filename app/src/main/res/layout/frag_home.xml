@@ -128,6 +128,7 @@
                 android:layout_marginTop="10dp"
                 >
                 <LinearLayout
+                    android:id="@+id/ll_home_tab1"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -155,6 +156,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/ll_home_tab2"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -175,11 +177,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        tools:text="急速还款"
+                        tools:text="在线办卡"
                         android:layout_marginTop="6dp"
                         />
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/ll_home_tab3"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -200,7 +203,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        tools:text="急速还款"
+                        tools:text="金融超市"
                         android:layout_marginTop="6dp"
                         />
                 </LinearLayout>
@@ -228,7 +231,8 @@
                     <ImageView
                         android:id="@+id/iv_home_fenlei1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         android:src="@drawable/home_icon05"
                         />
@@ -265,7 +269,8 @@
                     <ImageView
                         android:id="@+id/iv_home_fenlei2"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:adjustViewBounds="true"
                         android:src="@drawable/home_icon06"
                         />
 
@@ -305,7 +310,8 @@
                     <ImageView
                         android:id="@+id/iv_home_fenlei3"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         android:src="@drawable/home_icon07"
                         />
@@ -342,7 +348,8 @@
                     <ImageView
                         android:id="@+id/iv_home_fenlei4"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         android:src="@drawable/home_icon08"
                         />

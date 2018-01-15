@@ -23,6 +23,8 @@ public class ApiRequest extends BaseApiRequest {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
         getGeneralClient(IRequest.class).getHomeJiSuData(map).enqueue(callBack);
     }
+
+
     public static void getHomeBaner(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
         getGeneralClient(IRequest.class).getHomeBaner(map).enqueue(callBack);
@@ -50,6 +52,30 @@ public class ApiRequest extends BaseApiRequest {
     public static void getHomeFenLei(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
         getGeneralClient(IRequest.class).getHomeFenLei(map).enqueue(callBack);
+    }
+    public static void getFenRun(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getFenRun(map).enqueue(callBack);
+    }
+    public static void fenRunTiXian(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).fenRunTiXian(map).enqueue(callBack);
+    }
+    public static void getShouYiDetail(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getShouYiDetail(map).enqueue(callBack);
+    }
+    public static void getMyXiaJi(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getMyXiaJi(map).enqueue(callBack);
+    }
+    public static void getJinRongChaoShi(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getJinRongChaoShi(map).enqueue(callBack);
+    }
+    public static void getJinRongDaiList(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getJinRongDaiList(map).enqueue(callBack);
     }
 
 
