@@ -77,6 +77,10 @@ public class ApiRequest extends BaseApiRequest {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
         getGeneralClient(IRequest.class).getJinRongDaiList(map).enqueue(callBack);
     }
+    public static void getDaiKuanDetail(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getDaiKuanDetail(map).enqueue(callBack);
+    }
 
 
     //首页类别集合信息

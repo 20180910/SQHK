@@ -1,11 +1,13 @@
 package com.sk.sqhk.module.home.activity;
 
+import android.content.Intent;
 import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
 import com.library.base.view.MyRecyclerView;
@@ -58,6 +60,16 @@ public class XinYongDaiActivity extends BaseActivity {
 
                 holder.setText(R.id.tv_jinrong_title, bean.getTitle())
                         .setText(R.id.tv_jinrong_people, "已申请人数" + bean.getApplications());
+
+
+                holder.itemView.setOnClickListener(new MyOnClickListener() {
+                    @Override
+                    protected void onNoDoubleClick(View v) {
+                        Intent intent=new Intent();
+                        intent.putExtra(Constant.IParam.creditId,bean.getCredit_id()+"");
+                        STActivity(intent,DaiKuanDetailActivity.class);
+                    }
+                });
             }
         };
         adapter.setOnLoadMoreListener(this);

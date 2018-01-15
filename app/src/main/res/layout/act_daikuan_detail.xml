@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/white"
     >
 <include layout="@layout/app_title"/>
-    <RelativeLayout
+    <com.library.base.ProgressLayout
+        android:id="@id/pl_load"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
         <android.support.v4.widget.NestedScrollView
             android:id="@id/nsv"
             android:layout_width="match_parent"
@@ -31,10 +32,12 @@
                     android:background="@color/white"
                     android:padding="10dp"
                     >
-                    <ImageView
+                    <com.github.customview.MyImageView
+                        android:id="@+id/iv_daikuan_detail"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/daikuanicon002"
+                        app:my_iv_radius="3dp"
+                        tools:src="@drawable/daikuanicon002"
                         />
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -45,16 +48,18 @@
                         android:layout_marginLeft="10dp"
                         >
                         <TextView
+                            android:id="@+id/tv_daikuan_detail_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="贷款公司"
+                            tools:text="贷款公司"
                             android:textSize="16sp"
                             android:textColor="@color/gray_33"
                             />
                         <TextView
+                            android:id="@+id/tv_daikuan_detail_people"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="累计62655人贷款成功"
+                            tools:text="累计62655人贷款成功"
                             android:layout_marginTop="6dp"
                             />
                     </LinearLayout>
@@ -89,9 +94,10 @@
                             android:layout_marginBottom="1dp"
                             />
                         <TextView
+                            android:id="@+id/tv_daikuan_detail_edu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="500-5000元"
+                            tools:text="500-5000元"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -115,9 +121,10 @@
                             android:layout_marginBottom="1dp"
                             />
                         <TextView
+                            android:id="@+id/tv_daikuan_detail_qx"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="14天"
+                            tools:text="14天"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -141,9 +148,10 @@
                             android:layout_marginBottom="1dp"
                             />
                         <TextView
+                            android:id="@+id/tv_daikuan_detail_lilv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0.01%"
+                            tools:text="0.01%"
                             />
                     </LinearLayout>
                 </LinearLayout>
@@ -189,9 +197,10 @@
                         android:visibility="invisible"
                         />
                     <TextView
+                        android:id="@+id/tv_daikuan_detail_tj"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="芝麻粉550以上/手机实名9个月"
+                        tools:text="芝麻粉550以上/手机实名9个月"
                         android:layout_marginLeft="10dp"
                         />
                 </LinearLayout>
@@ -238,13 +247,13 @@
                         android:visibility="invisible"
                         />
                     <TextView
+                        android:id="@+id/tv_daikuan_detail_sm1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="身份证扫描+个人基本信息"
+                        tools:text="身份证扫描+个人基本信息"
                         android:layout_marginLeft="10dp"
                         />
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -287,9 +296,10 @@
                         android:visibility="invisible"
                         />
                     <TextView
+                        android:id="@+id/tv_daikuan_detail_sm2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="三步申请,急速审核"
+                        tools:text="三步申请,急速审核"
                         android:layout_marginLeft="10dp"
                         />
                 </LinearLayout>
@@ -314,6 +324,5 @@
             android:layout_marginBottom="10dp"
             android:layout_alignParentBottom="true"
             />
-    </RelativeLayout>
-
+    </com.library.base.ProgressLayout>
 </LinearLayout>
