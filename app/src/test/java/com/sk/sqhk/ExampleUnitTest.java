@@ -4,6 +4,8 @@ import android.text.TextUtils;
 
 import org.junit.Test;
 
+import java.lang.reflect.Method;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -43,5 +45,15 @@ public class ExampleUnitTest {
     public static boolean isMobile(String str){
         String reg = "^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\\d{8}$";
         return str.matches(reg.trim());
+    }
+
+    @Test
+    public void calculateMethodNum() throws Exception {
+        Method[] declaredMethods1 = com.sk.sqhk.module.select.network.ApiRequest.class.getDeclaredMethods();
+        Method[] declaredMethods2 = com.sk.sqhk.module.home.network.ApiRequest.class.getDeclaredMethods();
+        Method[] declaredMethods3 = com.sk.sqhk.module.my.network.ApiRequest.class.getDeclaredMethods();
+        Method[] declaredMethods4 = com.sk.sqhk.network.NetApiRequest.class.getDeclaredMethods();
+        int methodSize = declaredMethods1.length + declaredMethods2.length + declaredMethods3.length + declaredMethods4.length  ;
+        System.out.println("方法数量:"+methodSize);
     }
 }

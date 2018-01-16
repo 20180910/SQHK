@@ -167,7 +167,6 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
-
     }
 
     private void getHomeFenLei() {

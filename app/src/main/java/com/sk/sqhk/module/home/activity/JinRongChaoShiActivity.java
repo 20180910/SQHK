@@ -103,6 +103,15 @@ public class JinRongChaoShiActivity extends BaseActivity {
                 holder.setText(R.id.tv_jinrong_title, bean.getTitle())
                         .setText(R.id.tv_jinrong_people, "已申请人数" + bean.getApplications());
 
+                holder.itemView.setOnClickListener(new MyOnClickListener() {
+                    @Override
+                    protected void onNoDoubleClick(View v) {
+                        Intent intent=new Intent();
+                        intent.putExtra(Constant.IParam.creditId,bean.getCredit_id()+"");
+                        STActivity(intent,DaiKuanDetailActivity.class);
+                    }
+                });
+
             }
         };
         adapter.setOnLoadMoreListener(this);
