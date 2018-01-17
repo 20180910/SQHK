@@ -288,10 +288,10 @@ public abstract class MyBaseActivity extends IBaseActivity implements ProgressLa
         if (null != findViewById(R.id.pcfl_refresh)) {
             pcfl = (PtrClassicFrameLayout) findViewById(R.id.pcfl_refresh);
             pcfl.setLastUpdateTimeRelateObject(this);
-            pcfl.disableWhenHorizontalMove(true);
-            pcfl.setHorizontalMoveFlag(3);
-            pcfl.setOffsetXFlag(3);
-            pcfl.setScaledTouchSlopFlag((float) 0.5);
+//            pcfl.disableWhenHorizontalMove(true);
+            pcfl.setYOffsetMultiple(3);
+            pcfl.setXOffsetMultiple(3);
+            pcfl.setScaledTouchMultiple(0.5f);
             pcfl.setPtrHandler(new PtrDefaultHandler() {
                 @Override
                 public void onRefreshBegin(PtrFrameLayout frame) {
