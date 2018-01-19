@@ -7,7 +7,12 @@
               android:background="@color/background_f2"
     >
 <include layout="@layout/app_title"/>
-    <android.support.v4.widget.NestedScrollView
+    <com.library.base.ProgressLayout
+        android:id="@id/pl_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
             android:id="@id/nsv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,7 +25,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
                     android:background="@color/white"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
@@ -36,7 +41,7 @@
                 </com.library.base.view.MyRecyclerView>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
                     android:text="我的银行卡"
                     android:background="@color/white"
                     android:paddingLeft="10dp"
@@ -51,4 +56,5 @@
                 </com.library.base.view.MyRecyclerView>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
+    </com.library.base.ProgressLayout>
 </LinearLayout>

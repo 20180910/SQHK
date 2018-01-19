@@ -1,5 +1,8 @@
 package com.sk.sqhk.base;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -35,15 +38,17 @@ import rx.Subscription;
  */
 
 public abstract class BaseActivity extends MyBaseActivity {
-    protected final String TAG=this.getClass().getSimpleName();
-    protected final String noLoginCode="0";
+    protected final String TAG = this.getClass().getSimpleName();
+    protected final String noLoginCode = "0";
+
     protected String getUserId() {
         return SPUtils.getString(mContext, AppXml.user_id, noLoginCode);
     }
-    public boolean noLogin(){
-        if(noLoginCode.equals(getUserId())){
+
+    public boolean noLogin() {
+        if (noLoginCode.equals(getUserId())) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -51,11 +56,11 @@ public abstract class BaseActivity extends MyBaseActivity {
     @Override
     protected void setClickListener() {
         super.setClickListener();
-        if(BuildConfig.DEBUG&&app_title!=null){
+        if (BuildConfig.DEBUG && app_title != null) {
             app_title.setOnClickListener(new MyOnClickListener() {
                 @Override
                 protected void onNoDoubleClick(View v) {
-                    Log.i(TAG+"===","userId==="+getUserId());
+                    Log.i(TAG + "===", "userId===" + getUserId());
                 }
             });
         }
@@ -68,6 +73,7 @@ public abstract class BaseActivity extends MyBaseActivity {
     protected String getSign(String key, String value) {
         return GetSign.getSign(key, value);
     }
+
     protected void initWebViewForContent(WebView webview, String content) {
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -111,6 +117,7 @@ public abstract class BaseActivity extends MyBaseActivity {
         webview.loadUrl(url);
         webview.setWebViewClient(new MyWebViewClient());
     }
+
     protected void initWebViewForUrl(WebView webview, String url) {
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -183,10 +190,12 @@ public abstract class BaseActivity extends MyBaseActivity {
                         textView.setEnabled(true);
                         textView.setText("获取验证码");
                     }
+
                     @Override
                     public void onNext(Long aLong) {
                         textView.setText("剩下" + aLong + "s");
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
@@ -194,7 +203,7 @@ public abstract class BaseActivity extends MyBaseActivity {
         addSubscription(subscribe);
     }
 
-    protected void setBannerList(Banner bn_home, List bannerList){
+    protected void setBannerList(Banner bn_home, List bannerList) {
         if (notEmpty(bannerList)) {
             bn_home.setLayoutParams(ImageSizeUtils.getImageSizeLayoutParams(mContext));
             bn_home.setImages(bannerList);
@@ -219,6 +228,37 @@ public abstract class BaseActivity extends MyBaseActivity {
             });*/
             bn_home.start();
         }
+    }
+
+    public int getAppVersionCode() {
+        Context context = mContext;
+        int versioncode = 1;
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            String versionName = pi.versionName;
+            versioncode = pi.versionCode;
+            return versioncode;
+        } catch (Exception e) {
+            Log.e("VersionInfo", "Exception", e);
+        }
+        return versioncode;
+    }
+
+    public String getAppVersionName() {
+        Context context = mContext;
+        int versioncode = 1;
+        String versionName = "V1.0.0";
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            versionName = pi.versionName;
+            versioncode = pi.versionCode;
+            return versionName;
+        } catch (Exception e) {
+            Log.e("VersionInfo", "Exception", e);
+        }
+        return versionName;
     }
 }
 

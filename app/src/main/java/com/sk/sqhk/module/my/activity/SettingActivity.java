@@ -56,6 +56,7 @@ public class SettingActivity extends BaseActivity {
     @Override
     protected void initView() {
         setRenZheng();
+        tv_setting_version.setText("V"+getAppVersionName());
 
         String phone = SPUtils.getString(mContext, AppXml.mobile, null);
         tv_setting_phone.setText(phone);
@@ -141,7 +142,7 @@ public class SettingActivity extends BaseActivity {
         NetApiRequest.getAPPVersion(map, new MyCallBack<APPVersionObj>(mContext) {
             @Override
             public void onSuccess(APPVersionObj obj) {
-                tv_setting_version.setText(obj.getVersion_name());
+//                tv_setting_version.setText(obj.getVersion_name());
             }
         });
 
@@ -150,6 +151,9 @@ public class SettingActivity extends BaseActivity {
     @OnClick({R.id.ll_setting_clear_cache,R.id.tv_setting_about_we,R.id.tv_setting_exit,R.id.tv_setting_renzheng, R.id.tv_setting_phone, R.id.tv_setting_updatepwd})
     protected void onViewClick(View v) {
         switch (v.getId()) {
+            case R.id.ll_setting_update:
+
+                break;
             case R.id.ll_setting_clear_cache:
                 deleteCache(tv_setting_cachesize,false);
                 break;

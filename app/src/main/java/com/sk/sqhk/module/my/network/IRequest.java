@@ -9,6 +9,7 @@ import com.sk.sqhk.module.my.network.response.HelpCenterObj;
 import com.sk.sqhk.module.my.network.response.LoginObj;
 import com.sk.sqhk.module.my.network.response.MessageDetailObj;
 import com.sk.sqhk.module.my.network.response.MyAccountObj;
+import com.sk.sqhk.module.my.network.response.MyAllBankObj;
 import com.sk.sqhk.module.my.network.response.MyMessageObj;
 import com.sk.sqhk.module.my.network.response.RenZhengDataObj;
 import com.sk.sqhk.module.my.network.response.YaoQingObj;
@@ -121,6 +122,15 @@ public interface IRequest {
     //修改头像
     @GET("api/User/GetSetUserAvatar")
     Call<ResponseObj<BaseObj>> updateUserImg(@QueryMap Map<String, String> map);
+
+    //信用卡和银行卡列表
+    @GET("api/AccountWithdrawal/GetMyBankCard")
+    Call<ResponseObj<MyAllBankObj>> getXinYongCardList(@QueryMap Map<String, String> map);
+
+
+    //删除信用卡和银行卡
+    @GET("api/AccountWithdrawal/GetDelAccount")
+    Call<ResponseObj<BaseObj>> deleteBankCard(@QueryMap Map<String, String> map);
 
 
 

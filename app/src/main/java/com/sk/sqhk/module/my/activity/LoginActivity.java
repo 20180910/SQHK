@@ -50,7 +50,8 @@ public class LoginActivity extends BaseActivity {
             iv_login_test.setOnClickListener(new MyOnClickListener() {
                 @Override
                 protected void onNoDoubleClick(View v) {
-                    et_login_phone.setText("13122753707");
+                    et_login_phone.setText("18117352720");
+//                    et_login_phone.setText("13122753707");
                     et_login_pwd.setText("123456");
                 }
             });

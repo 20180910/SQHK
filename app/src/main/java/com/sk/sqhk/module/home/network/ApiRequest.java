@@ -4,6 +4,7 @@ import com.github.retrofitutil.NoNetworkException;
 import com.library.base.BaseApiRequest;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.base.MyCallBack;
+import com.sk.sqhk.module.home.network.request.AddChuXunBody;
 
 import java.util.Map;
 
@@ -78,6 +79,14 @@ public class ApiRequest extends BaseApiRequest {
     public static void getDaiKuanDetail(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
         getGeneralClient(IRequest.class).getDaiKuanDetail(map).enqueue(callBack);
+    }
+    public static void getBankListForAddCard(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getBankListForAddCard(map).enqueue(callBack);
+    }
+    public static void addChuXu(Map map, AddChuXunBody body, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).addChuXu(map,body).enqueue(callBack);
     }
 
 

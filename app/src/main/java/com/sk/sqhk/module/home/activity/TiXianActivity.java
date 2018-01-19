@@ -77,7 +77,7 @@ public class TiXianActivity extends BaseActivity {
     protected void onViewClick(View v) {
         switch (v.getId()) {
             case R.id.tv_tixian_bank_name:
-                STActivity(AddBankActivity.class);
+                STActivity(AddChuXuKaActivity.class);
                 break;
             case R.id.tv_tx_commit:
                 break;

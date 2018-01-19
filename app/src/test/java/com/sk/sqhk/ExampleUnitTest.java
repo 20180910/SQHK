@@ -19,6 +19,12 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
     @Test
+    public void afdasdf() throws Exception {
+        String a="asfdasfd.gif";
+        String substring = a.substring(1, 4);
+        System.out.println(substring);
+    }
+    @Test
     public void afds() throws Exception {
         boolean a1 = TextUtils.equals(null, "a");
         boolean a2 =TextUtils.equals(null,null);

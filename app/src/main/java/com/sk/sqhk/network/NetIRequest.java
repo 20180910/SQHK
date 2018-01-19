@@ -34,7 +34,7 @@ public interface NetIRequest {
     Call<ResponseObj<BaseObj>> uploadImg(@QueryMap Map<String, String> map, @Body UploadImgBody body);
 
     //获取android    version
-    @GET("api/Lib/GetAppVersion")
+    @GET("api/Lib/GetVersionUpdate")
     Call<ResponseObj<APPVersionObj>> getAPPVersion(@QueryMap Map<String, String> map );
 
 

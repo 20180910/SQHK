@@ -2,9 +2,11 @@ package com.sk.sqhk.module.home.network;
 
 import com.library.base.BaseObj;
 import com.library.base.ResponseObj;
+import com.sk.sqhk.module.home.network.request.AddChuXunBody;
 import com.sk.sqhk.module.home.network.request.HomeTypeMerchantListBody;
 import com.sk.sqhk.module.home.network.request.SearchResultBody;
 import com.sk.sqhk.module.home.network.response.AreaBusinessCircleObj;
+import com.sk.sqhk.module.home.network.response.BankObj;
 import com.sk.sqhk.module.home.network.response.BannerObj;
 import com.sk.sqhk.module.home.network.response.CityIdObj;
 import com.sk.sqhk.module.home.network.response.DaiKuanDetailObj;
@@ -118,6 +120,17 @@ public interface IRequest {
     //金融贷详情
     @GET("api/FinancialSupermarket/GetCreditLoanDetail")
     Call<ResponseObj<DaiKuanDetailObj>> getDaiKuanDetail(@QueryMap Map<String, String> map);
+
+
+
+    //添加银行卡-银行卡列表
+    @GET("api/AccountWithdrawal/GetBankList")
+    Call<ResponseObj<List<BankObj>>> getBankListForAddCard(@QueryMap Map<String, String> map);
+
+
+    //添加储蓄卡
+    @POST("api/AccountWithdrawal/PostAddAccountS")
+    Call<ResponseObj<BaseObj>> addChuXu(@QueryMap Map<String, String> map,@Body AddChuXunBody body);
 
 
 

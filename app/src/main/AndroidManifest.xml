@@ -36,7 +36,7 @@
         <activity android:name=".module.home.activity.FastRenZhengActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".module.home.activity.YaoQingActivity"/>
         <activity android:name=".module.home.activity.HuoDongGuiZeActivity"/>
-        <activity android:name=".module.home.activity.AddBankActivity"/>
+        <activity android:name=".module.home.activity.AddChuXuKaActivity"/>
         <activity android:name=".module.home.activity.SelectBankTypeActivity"/>
         <activity android:name=".module.home.activity.OnlineMakeBankActivity"/>
         <activity android:name=".module.home.activity.JinRongChaoShiActivity"/>

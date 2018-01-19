@@ -9,14 +9,15 @@ import com.github.androidtools.SPUtils;
 import com.github.baseclass.rx.IOCallBack;
 import com.github.customview.CircleImageView;
 import com.library.base.BaseObj;
-import com.sk.sqhk.base.MyCallBack;
 import com.library.base.tools.has.BitmapUtils;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseFragment;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.activity.YaoQingActivity;
 import com.sk.sqhk.module.my.activity.HelpCenterActivity;
 import com.sk.sqhk.module.my.activity.MyAccountActivity;
+import com.sk.sqhk.module.my.activity.MyBankListActivity;
 import com.sk.sqhk.module.my.activity.MyMessageActivity;
 import com.sk.sqhk.module.my.activity.SettingActivity;
 import com.sk.sqhk.module.my.network.ApiRequest;
@@ -151,6 +152,7 @@ public class MyFragment extends BaseFragment {
                 STActivity(SettingActivity.class);
                 break;
             case R.id.tv_my_yinhangka:
+                STActivity(MyBankListActivity.class);
                 break;
             case R.id.tv_my_zhangdan:
                 break;
