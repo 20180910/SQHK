@@ -128,9 +128,14 @@ public interface IRequest {
     Call<ResponseObj<MyAllBankObj>> getXinYongCardList(@QueryMap Map<String, String> map);
 
 
-    //删除信用卡和银行卡
+    //删除储蓄卡
     @GET("api/AccountWithdrawal/GetDelAccount")
     Call<ResponseObj<BaseObj>> deleteBankCard(@QueryMap Map<String, String> map);
+
+
+    //删除信用卡
+    @GET("api/HandleCardOnline/GetCardDelete")
+    Call<ResponseObj<BaseObj>> deleteXinYongCard(@QueryMap Map<String, String> map);
 
 
 

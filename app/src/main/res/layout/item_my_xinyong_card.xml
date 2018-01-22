@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/white"
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            xmlns:tools="http://schemas.android.com/tools"
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/white"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -114,4 +114,14 @@
             </LinearLayout>
         </com.github.customview.MyLinearLayout>
     </LinearLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_xinyong_ka_delete"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:text="删\n除"
+        android:background="@color/red"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:gravity="center"
+        />
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

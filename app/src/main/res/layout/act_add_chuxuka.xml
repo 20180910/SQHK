@@ -32,7 +32,7 @@
            android:textSize="13sp"
            app:my_et_solid="@color/white"
            android:paddingLeft="0dp"
-           android:hint="输入信用卡卡号"
+           android:hint="输入储蓄卡卡号"
            android:inputType="number"
            android:imeOptions="actionNext"
            />

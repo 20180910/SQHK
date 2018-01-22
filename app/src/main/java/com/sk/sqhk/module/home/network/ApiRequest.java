@@ -88,6 +88,14 @@ public class ApiRequest extends BaseApiRequest {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
         getGeneralClient(IRequest.class).addChuXu(map,body).enqueue(callBack);
     }
+    public static void getMsgCodeForAddXinYongKa(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).getMsgCodeForAddXinYongKa(map).enqueue(callBack);
+    }
+    public static void addXinYongKa(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).addXinYongKa(map).enqueue(callBack);
+    }
 
 
 }

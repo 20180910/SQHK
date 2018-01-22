@@ -133,6 +133,16 @@ public interface IRequest {
     Call<ResponseObj<BaseObj>> addChuXu(@QueryMap Map<String, String> map,@Body AddChuXunBody body);
 
 
+    //添加信用卡-发短信
+    @GET("api/HandleCardOnline/GetCreateCardSMS")
+    Call<ResponseObj<BaseObj>> getMsgCodeForAddXinYongKa(@QueryMap Map<String, String> map);
+
+
+    //添加信用卡
+    @GET("api/HandleCardOnline/GetCreateCard")
+    Call<ResponseObj<BaseObj>> addXinYongKa(@QueryMap Map<String, String> map);
+
+
 
 
 

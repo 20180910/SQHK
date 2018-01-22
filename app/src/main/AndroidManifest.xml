@@ -60,6 +60,7 @@
         <activity android:name=".module.my.activity.TongZhiActivity"/>
         <activity android:name=".module.home.activity.MoreZiXunActivity"/>
         <activity android:name=".module.home.activity.WoDeYaoQingActivity"/>
+        <activity android:name=".module.home.activity.AddXinYongKaActivity" android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>

@@ -61,6 +61,13 @@ public class MyBankListActivity extends BaseActivity {
                 MyLinearLayout ll_xinyong_ka = (MyLinearLayout) holder.getView(R.id.ll_xinyong_ka);
                 ll_xinyong_ka.setSolidColor(Color.parseColor(bean.getBankColor()));
                 ll_xinyong_ka.complete();
+
+                holder.getView(R.id.tv_xinyong_ka_delete).setOnClickListener(new MyOnClickListener() {
+                    @Override
+                    protected void onNoDoubleClick(View v) {
+                        deleteXinYongCard(bean.getId()+"");
+                    }
+                });
             }
         };
         rv_my_xinyongka.setAdapter(xinYongAdapter);
@@ -87,6 +94,21 @@ public class MyBankListActivity extends BaseActivity {
             }
         };
         rv_my_yinhangka.setAdapter(chuXuAdapter);
+
+    }
+
+    private void deleteXinYongCard(String cardId) {
+        showLoading();
+        Map<String,String>map=new HashMap<String,String>();
+        map.put("card_id",cardId);
+        map.put("sign",getSign(map));
+        ApiRequest.deleteXinYongCard(map, new MyCallBack<BaseObj>(mContext) {
+            @Override
+            public void onSuccess(BaseObj obj) {
+                showMsg(obj.getMsg());
+                getData(1,false);
+            }
+        });
 
     }
 

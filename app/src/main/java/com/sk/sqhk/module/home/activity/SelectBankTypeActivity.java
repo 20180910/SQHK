@@ -36,7 +36,7 @@ public class SelectBankTypeActivity extends BaseActivity {
                 STActivityForResult(AddChuXuKaActivity.class,100);
             break;
             case R.id.ll_add_bank_xinyong:
-                STActivity(AddChuXuKaActivity.class);
+                STActivityForResult(AddXinYongKaActivity.class,100);
             break;
         }
     }
