@@ -16,6 +16,7 @@ import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseFragment;
 import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.activity.FastRenZhengActivity;
+import com.sk.sqhk.module.home.activity.JiSuHuanKuanActivity;
 import com.sk.sqhk.module.home.activity.JinRongChaoShiActivity;
 import com.sk.sqhk.module.home.activity.MoreZiXunActivity;
 import com.sk.sqhk.module.home.activity.MyFenRunActivity;
@@ -288,7 +289,7 @@ public class HomeFragment extends BaseFragment {
     protected void onViewClick(View v) {
         switch (v.getId()) {
             case R.id.ll_home_tab1:
-
+                STActivity(JiSuHuanKuanActivity.class);
                 break;
             case R.id.ll_home_tab2:
 

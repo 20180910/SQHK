@@ -25,7 +25,7 @@ public class Constant {
         public static final String typeId="typeId";
         public static final String messageId="messageId";
         public static final String creditId="creditId";
-        public static final String Address="Address";
+        public static final String isJiSuHuanKuan="isJiSuHuanKuan";
         public static final String ziXunId="ziXunId";
         public static final String xinYongKaDetail="xinYongKaDetail";
         public static final String isCollect="isCollect";

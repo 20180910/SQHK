@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
@@ -88,14 +88,5 @@
             </LinearLayout>
         </com.github.customview.MyLinearLayout>
     </LinearLayout>
-    <TextView
-        android:id="@+id/tv_chuxuka_ka_delete"
-        android:layout_width="60dp"
-        android:layout_height="match_parent"
-        android:text="删\n除"
-        android:background="@color/red"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        android:gravity="center"
-        />
-</com.mcxtzhang.swipemenulib.SwipeMenuLayout>
+
+</LinearLayout>

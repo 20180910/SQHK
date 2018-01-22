@@ -38,6 +38,8 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.iv_login_test)
     ImageView iv_login_test;
 
+    private int flag=0;
+
     @Override
     protected int getContentView() {
         setAppTitle("登录");
@@ -50,7 +52,12 @@ public class LoginActivity extends BaseActivity {
             iv_login_test.setOnClickListener(new MyOnClickListener() {
                 @Override
                 protected void onNoDoubleClick(View v) {
-                    et_login_phone.setText("18117352720");
+                    flag++;
+                    if(flag%2==0){
+                        et_login_phone.setText("18117352720");
+                    }else{
+                        et_login_phone.setText("13122753707");//zp
+                    }
 //                    et_login_phone.setText("13122753707");
                     et_login_pwd.setText("123456");
                 }

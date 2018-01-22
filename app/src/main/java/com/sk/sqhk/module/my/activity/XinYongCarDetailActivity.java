@@ -108,7 +108,7 @@ public class XinYongCarDetailActivity extends BaseActivity {
                 }
             }
         }).build();
-        for (int i = 1; i <= 31; i++) {
+        for (int i = 1; i <= 28; i++) {
             list.add(i+"");
         }
         pickerView.setPicker(list);
@@ -139,6 +139,7 @@ public class XinYongCarDetailActivity extends BaseActivity {
     private void commitDetail() {
         showLoading();
         Map<String, String> map = new HashMap<String, String>();
+        map.put("user_id",getUserId());
         map.put("card_id", cardBean.getId() + "");
         map.put("billDate", TextUtils.isEmpty(zhangDanRi) ? cardBean.getBillDate() + "" : zhangDanRi);
         map.put("payDate", TextUtils.isEmpty(huanKuanRi) ? cardBean.getPaymentDate() + "" : huanKuanRi);
