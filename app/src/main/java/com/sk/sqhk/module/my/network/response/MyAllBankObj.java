@@ -2,6 +2,7 @@ package com.sk.sqhk.module.my.network.response;
 
 import com.library.base.BaseObj;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class MyAllBankObj extends BaseObj {
         this.cash_card_list = cash_card_list;
     }
 
-    public static class CreditCardListBean {
+    public static class CreditCardListBean implements Serializable {
         /**
          * id : 482
          * userId : 593
@@ -194,7 +195,7 @@ public class MyAllBankObj extends BaseObj {
         }
     }
 
-    public static class CashCardListBean {
+    public static class CashCardListBean implements Serializable{
         /**
          * id : 48
          * bank_image : http://121.40.186.118:1145/upload/201709/18/201709181455150015.png

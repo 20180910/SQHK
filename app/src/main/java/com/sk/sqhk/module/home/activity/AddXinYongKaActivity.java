@@ -3,10 +3,12 @@ package com.sk.sqhk.module.home.activity;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.TimePickerView;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.adapter.BaseRecyclerAdapter;
 import com.github.baseclass.adapter.RecyclerViewHolder;
@@ -19,6 +21,8 @@ import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.network.ApiRequest;
 import com.sk.sqhk.module.home.network.response.BankObj;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +76,7 @@ public class AddXinYongKaActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv_add_xyk_bankcode, R.id.tv_add_xyk_getmsg, R.id.tv_add_xyk_commit, R.id.tv_add_xyk_bank})
+    @OnClick({R.id.tv_add_xyk_bankcode, R.id.tv_add_xyk_getmsg, R.id.tv_add_xyk_commit, R.id.tv_add_xyk_bank,R.id.tv_add_xyk_youxiaoqi})
     public void onViewClick(View view) {
         String cardCode = getSStr(et_add_xyk_bankcode);
         String youXiaoQi = getSStr(tv_add_xyk_youxiaoqi);
@@ -85,6 +89,9 @@ public class AddXinYongKaActivity extends BaseActivity {
                 if (BuildConfig.DEBUG) {
                     et_add_xyk_bankcode.setText("");
                 }
+                break;
+            case R.id.tv_add_xyk_youxiaoqi:
+                selectDate();
                 break;
             case R.id.tv_add_xyk_bank:
                 selectBank();
@@ -156,6 +163,23 @@ public class AddXinYongKaActivity extends BaseActivity {
                         phone);
                 break;
         }
+    }
+
+    private void selectDate() {
+        Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.YEAR,30);
+        TimePickerView pvTime = new TimePickerView.Builder(mContext, new TimePickerView.OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {//选中事件回调
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
+                String year=calendar.get(Calendar.YEAR)+"";
+                String month=(calendar.get(Calendar.MONTH)+1)+"";
+                tv_add_xyk_youxiaoqi.setText(month+"/"+year.substring(2));
+                Log.i(TAG+"===",year+"==="+month);
+            }
+        }).setRangDate(Calendar.getInstance(),instance).setType(new boolean[]{true, true, false, false, false, false}).build();
+        pvTime.show();
     }
 
     private void addXinYongKa(String cardCode, String youXiaoQi, String houSanMa, String zhangDanRi, String huanKuanRi, String phone) {

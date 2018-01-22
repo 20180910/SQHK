@@ -138,6 +138,11 @@ public interface IRequest {
     Call<ResponseObj<BaseObj>> deleteXinYongCard(@QueryMap Map<String, String> map);
 
 
+    //修改信用卡
+    @GET("api/HandleCardOnline/GetCardModify")
+    Call<ResponseObj<BaseObj>> updateXinYongCard(@QueryMap Map<String, String> map);
+
+
 
 
 }

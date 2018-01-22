@@ -95,6 +95,10 @@ public class ApiRequest extends BaseApiRequest {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
         getGeneralClient(IRequest.class).deleteXinYongCard(map).enqueue(callBack);
     }
+    public static void updateXinYongCard(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return; }
+        getGeneralClient(IRequest.class).updateXinYongCard(map).enqueue(callBack);
+    }
 
 
 

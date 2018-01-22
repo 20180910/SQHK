@@ -1,5 +1,6 @@
 package com.sk.sqhk.module.my.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.github.baseclass.adapter.LoadMoreViewHolder;
 import com.github.customview.MyLinearLayout;
 import com.library.base.BaseObj;
 import com.library.base.view.MyRecyclerView;
+import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.base.MyCallBack;
@@ -61,6 +63,14 @@ public class MyBankListActivity extends BaseActivity {
                 MyLinearLayout ll_xinyong_ka = (MyLinearLayout) holder.getView(R.id.ll_xinyong_ka);
                 ll_xinyong_ka.setSolidColor(Color.parseColor(bean.getBankColor()));
                 ll_xinyong_ka.complete();
+                ll_xinyong_ka.setOnClickListener(new MyOnClickListener() {
+                    @Override
+                    protected void onNoDoubleClick(View v) {
+                        Intent intent=new Intent();
+                        intent.putExtra(Constant.IParam.xinYongKaDetail,bean);
+                        STActivity(intent,XinYongCarDetailActivity.class);
+                    }
+                });
 
                 holder.getView(R.id.tv_xinyong_ka_delete).setOnClickListener(new MyOnClickListener() {
                     @Override
