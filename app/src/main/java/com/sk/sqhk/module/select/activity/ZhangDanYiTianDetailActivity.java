@@ -130,7 +130,7 @@ public class ZhangDanYiTianDetailActivity extends BaseActivity {
                 }
             }
         };
-        rv_yitian_plan_hk.setAdapter(xfAdapter);
+        rv_yitian_plan_hk.setAdapter(hkAdapter);
 
 
     }
