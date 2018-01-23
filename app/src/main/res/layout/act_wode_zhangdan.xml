@@ -9,48 +9,22 @@
 
     <include layout="@layout/app_title"/>
 
-    <com.library.base.ProgressLayout
-        android:id="@id/pl_load"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_zhangdan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="45dp"
+        android:background="@color/white"
+        app:tabSelectedTextColor="@color/blue_00"
+        app:tabIndicatorColor="@color/blue_00"
+        >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:text="我的信用卡"
-                />
-
-            <in.srain.cube.views.ptr.PtrClassicFrameLayout
-                android:id="@id/pcfl_refresh"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:ptr_ratio_of_header_height_to_refresh="1.2"
-                app:ptr_resistance="2.1"
-                >
-
-                <com.library.base.view.MyRecyclerView
-                    android:id="@+id/rv_wode_zhangdan"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2px"
-                    android:background="@color/white"
-                    >
-
-                </com.library.base.view.MyRecyclerView>
-            </in.srain.cube.views.ptr.PtrClassicFrameLayout>
-
-        </LinearLayout>
-    </com.library.base.ProgressLayout>
-
+    </android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_zhangdan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2px"
+        >
+    </android.support.v4.view.ViewPager>
 
 </LinearLayout>

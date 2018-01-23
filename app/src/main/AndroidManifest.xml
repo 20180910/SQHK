@@ -43,8 +43,7 @@
         <activity android:name=".module.home.activity.XinYongDaiActivity"/>
         <activity android:name=".module.home.activity.DaiKuanDetailActivity"/>
         <activity android:name=".module.my.activity.YiJianFanKuiActivity"/>
-        <activity android:name=".module.select.activity.ZhangDanActivity"/>
-        <activity android:name=".module.select.activity.ZhangDanDetailActivity"/>
+        <activity android:name=".module.select.activity.ZhangDanDuoTianDetailActivity"/>
         <activity android:name=".module.my.activity.MyAccountActivity"/>
         <activity android:name=".module.my.activity.MyBankListActivity"/>
         <activity android:name=".module.my.activity.XieYiActivity"/>
@@ -64,6 +63,8 @@
         <activity android:name=".module.my.activity.XinYongCarDetailActivity"/>
         <activity android:name=".module.home.activity.JiSuHuanKuanActivity"/>
         <activity android:name=".module.home.activity.HuanKuanJiHuaActivity"/>
+        <activity android:name=".module.select.activity.WoDeZhangDanActivity"/>
+        <activity android:name=".module.select.activity.ZhangDanYiTianDetailActivity"/>
     </application>
 
 </manifest>

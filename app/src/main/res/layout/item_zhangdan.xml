@@ -1,60 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@color/white"
+              android:background="@color/background_f2"
     >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="@color/white"
-        android:padding="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         >
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_zhangdan_no"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@color/white"
-            >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="¥398244"
-                android:textColor="@color/theme_color"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="已结清"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+            tools:text="编号:234234234234234234234234"
+            android:textSize="15sp"
+            android:textColor="@color/gray_66"
+            />
+
+        <TextView
+            android:id="@+id/tv_zhangdan_date"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            tools:text="2017-11-11 12:00"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/tv_zhangdan_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="查看详情"
             android:gravity="center_vertical"
-            android:background="@color/white"
-            android:layout_marginTop="10dp"
-            >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="期限12"
-                android:textSize="12sp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2017-11-11"
-                android:textSize="12sp"
-                />
-        </LinearLayout>
+            android:textColor="@color/blue_00"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/jiantou_blue"
+            />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="2px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="还款金额:"
+            android:ems="5"
+            android:textColor="@color/gray_66"
+            />
+        <TextView
+            android:id="@+id/tv_zhangdan_huankuan_money"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="23434元"
+            android:textColor="@color/gray_66"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="2px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="还款笔数:"
+            android:ems="5"
+            android:textColor="@color/gray_66"
+            />
+        <TextView
+            android:id="@+id/tv_zhangdan_bishu"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="3笔"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手续费:"
+            android:ems="5"
+            android:textColor="@color/gray_66"
+            />
+        <TextView
+            android:id="@+id/tv_zhangdan_shouxufei"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="30.0元"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="2px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账单日:"
+            android:ems="5"
+            android:textColor="@color/gray_66"
+            />
+        <TextView
+            android:id="@+id/tv_zhangdan_ri"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="2017-11-11"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="还款日:"
+            android:ems="5"
+            android:textColor="@color/gray_66"
+            />
+        <TextView
+            android:id="@+id/tv_zhangdan_huankuan_ri"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="2017-11-11"
+            />
+</LinearLayout>
 </LinearLayout>

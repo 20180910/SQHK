@@ -27,6 +27,7 @@ import com.sk.sqhk.module.home.network.response.MyFenRunObj;
 import com.sk.sqhk.module.home.network.response.MyXiaJiObj;
 import com.sk.sqhk.module.home.network.response.SearchObj;
 import com.sk.sqhk.module.home.network.response.SearchResultObj;
+import com.sk.sqhk.module.home.network.response.SelectXinYongCardObj;
 import com.sk.sqhk.module.home.network.response.ShouYiDetailObj;
 import com.sk.sqhk.module.home.network.response.XinYongDaiObj;
 import com.sk.sqhk.module.home.network.response.ZiXunDetailObj;
@@ -155,6 +156,12 @@ public interface IRequest {
     //急速还款——还款计划
     @GET("api/HandleCardOnline/GetShowPlan")
     Call<ResponseObj<JiSuHuanKuanPlanObj>> jiSuHuanKuanPlanList(@QueryMap Map<String, String> map);
+
+
+
+    //查询模块-获取信用卡列表
+    @GET("api/HandleCardOnline/GetCardList")
+    Call<ResponseObj<List<SelectXinYongCardObj>>> getSelectXinYongCard(@QueryMap Map<String, String> map);
 
 
 

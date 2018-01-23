@@ -98,7 +98,12 @@ public class MainActivity extends BaseActivity {
                         selectHome();
                         break;
                     case 2:
-                        selectChaXun();
+                        if (TextUtils.equals(noLoginCode, getUserId())) {
+                            STActivity(LoginActivity.class);
+                            selectView.setChecked(true);
+                        } else {
+                            selectChaXun();
+                        }
                         break;
                     case 3:
                         if (TextUtils.equals(noLoginCode, getUserId())) {

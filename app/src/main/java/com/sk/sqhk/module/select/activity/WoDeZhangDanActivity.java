@@ -1,12 +1,18 @@
 package com.sk.sqhk.module.select.activity;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.github.baseclass.adapter.LoadMoreAdapter;
-import com.github.baseclass.adapter.LoadMoreViewHolder;
-import com.library.base.view.MyRecyclerView;
+import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
+import com.sk.sqhk.module.home.network.response.SelectXinYongCardObj;
+import com.sk.sqhk.module.select.adapter.ZhangDanFragmentAdapter;
+import com.sk.sqhk.module.select.fragment.ZhangDanFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -15,29 +21,38 @@ import butterknife.BindView;
  */
 
 public class WoDeZhangDanActivity extends BaseActivity {
-    @BindView(R.id.rv_wode_zhangdan)
-    MyRecyclerView rv_wode_zhangdan;
 
-    LoadMoreAdapter adapter;
+    @BindView(R.id.tl_zhangdan)
+    TabLayout tl_zhangdan;
+
+    @BindView(R.id.vp_zhangdan)
+    ViewPager vp_zhangdan;
+
+    ZhangDanFragmentAdapter adapter;
+    private SelectXinYongCardObj cardObj;
 
     @Override
     protected int getContentView() {
-        setAppTitle("我的账单");
+        setAppTitle("账单");
         return R.layout.act_wode_zhangdan;
     }
 
     @Override
     protected void initView() {
+        cardObj = (SelectXinYongCardObj) getIntent().getSerializableExtra(Constant.IParam.selectXinYongCard);
+        String cardId=cardObj.getId()+"";
+        List<ZhangDanFragment>list=new ArrayList<>();
+        list.add(ZhangDanFragment.newInstance("0",cardId));
+        list.add(ZhangDanFragment.newInstance("1",cardId));
+        list.add(ZhangDanFragment.newInstance("2",cardId));
+        list.add(ZhangDanFragment.newInstance("3",cardId));
+        adapter=new ZhangDanFragmentAdapter(getSupportFragmentManager());
+        adapter.setList(list);
 
-        adapter=new LoadMoreAdapter(mContext,R.layout.item_wode_zhangdan,pageSize) {
-            @Override
-            public void bindData(LoadMoreViewHolder holder, int position, Object bean) {
+        vp_zhangdan.setAdapter(adapter);
+        vp_zhangdan.setOffscreenPageLimit(list.size()-1);
 
-            }
-        };
-        adapter.setOnLoadMoreListener(this);
-
-        rv_wode_zhangdan.setAdapter(adapter);
+        tl_zhangdan.setupWithViewPager(vp_zhangdan);
 
     }
 

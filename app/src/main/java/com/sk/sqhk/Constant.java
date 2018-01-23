@@ -15,7 +15,8 @@ public class Constant {
     public static final int timeStatus_1=1;//限时活动进行中
     public static final int timeStatus_2=2;//已结束
     public static final int today=1;
-    public static final int tomorrow=2;
+    public static final String zhangDanFlag="zhangDanFlag";
+    public static final String cardId="cardId";
     public static final int houTian=3;
     public static class IParam{
         public static final String userName="userName";
@@ -28,9 +29,10 @@ public class Constant {
         public static final String isJiSuHuanKuan="isJiSuHuanKuan";
         public static final String ziXunId="ziXunId";
         public static final String xinYongKaDetail="xinYongKaDetail";
+        public static final String selectXinYongCard="selectXinYongCard";
         public static final String huanKuanBean="huanKuanBean";
-        public static final String faPiaoType="faPiaoType";
-        public static final String faPiaoHead="faPiaoHead";
+        public static final String planId="planId";
+        public static final String day="day";
         public static final String faPiaoName="faPiaoName";
         public static final String faPiaoCode="faPiaoCode";
         public static final String orderMoney="orderMoney";

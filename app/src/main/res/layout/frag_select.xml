@@ -6,5 +6,11 @@
               android:layout_height="match_parent"
               android:background="@color/background_f2"
     >
-
+<fragment
+    android:id="@+id/f_select_xinyong"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    class="com.sk.sqhk.module.home.fragment.SelectXinYongCardFragment"
+    android:name="com.sk.sqhk.module.home.fragment.SelectXinYongCardFragment"
+    />
 </LinearLayout>
