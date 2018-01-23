@@ -15,11 +15,11 @@ import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
 import com.github.customview.MyLinearLayout;
 import com.library.base.view.MyRecyclerView;
+import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.base.MyCallBack;
-import com.sk.sqhk.module.my.activity.XinYongCarDetailActivity;
 import com.sk.sqhk.module.my.network.ApiRequest;
 import com.sk.sqhk.module.my.network.response.MyAllBankObj;
 
@@ -73,6 +73,8 @@ public class SelectBankTypeActivity extends BaseActivity {
             xinYongAdapter=new LoadMoreAdapter<MyAllBankObj.CreditCardListBean>(mContext,R.layout.item_my_xinyong_card,pageSize) {
                 @Override
                 public void bindData(LoadMoreViewHolder holder, int position, MyAllBankObj.CreditCardListBean bean) {
+                    SwipeMenuLayout sml_xinyong = (SwipeMenuLayout) holder.getView(R.id.sml_xinyong);
+                    sml_xinyong.setSwipeEnable(false);
                     holder.setText(R.id.tv_xinyongka_bank_name,bean.getBankName()+"\t\t")
                             .setText(R.id.tv_xinyongka_plan,bean.getPlanStatus()==0?"否":"是")
                             .setText(R.id.tv_xinyongka_code,bean.getCardNo())
@@ -87,7 +89,8 @@ public class SelectBankTypeActivity extends BaseActivity {
                         protected void onNoDoubleClick(View v) {
                             Intent intent=new Intent();
                             intent.putExtra(Constant.IParam.xinYongKaDetail,bean);
-                            STActivity(intent,XinYongCarDetailActivity.class);
+                            setResult(RESULT_OK,intent);
+                            finish();
                         }
                     });
 
@@ -105,7 +108,8 @@ public class SelectBankTypeActivity extends BaseActivity {
 //                MyLinearLayout ll_chuxuka_ka = (MyLinearLayout) holder.getView(R.id.ll_chuxuka_ka);
 //                ll_chuxuka_ka.setSolidColor(Color.parseColor(bean.get()));
 //                ll_chuxuka_ka.complete();
-
+                    SwipeMenuLayout sml_chuxu = (SwipeMenuLayout) holder.getView(R.id.sml_chuxu);
+                    sml_chuxu.setSwipeEnable(false);
 
                     holder.setText(R.id.tv_chuxuka_bank_name,bean.getBank_name())
                             .setText(R.id.tv_chuxuka_type,bean.getCard_type())
@@ -191,7 +195,9 @@ public class SelectBankTypeActivity extends BaseActivity {
         if(resultCode==RESULT_OK){
             switch (requestCode){
                 case 100:
-                    finish();
+                    if(!isJiSuHuanKuan){
+                        finish();
+                    }
                 break;
             }
         }

@@ -28,7 +28,7 @@ public class Constant {
         public static final String isJiSuHuanKuan="isJiSuHuanKuan";
         public static final String ziXunId="ziXunId";
         public static final String xinYongKaDetail="xinYongKaDetail";
-        public static final String isCollect="isCollect";
+        public static final String huanKuanBean="huanKuanBean";
         public static final String faPiaoType="faPiaoType";
         public static final String faPiaoHead="faPiaoHead";
         public static final String faPiaoName="faPiaoName";

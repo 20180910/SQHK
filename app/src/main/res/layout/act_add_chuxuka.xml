@@ -156,7 +156,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:my_tv_corner_radius="4dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="保存"
         android:textColor="@color/white"
         app:my_tv_press="@color/theme_color"

@@ -96,6 +96,14 @@ public class ApiRequest extends BaseApiRequest {
         if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
         getGeneralClient(IRequest.class).addXinYongKa(map).enqueue(callBack);
     }
+    public static void addJiSuHuanKuan(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).addJiSuHuanKuan(map).enqueue(callBack);
+    }
+    public static void jiSuHuanKuanPlanList(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) { callBack.onFailure(null, new NoNetworkException(Config.noNetWork)); return;  }
+        getGeneralClient(IRequest.class).jiSuHuanKuanPlanList(map).enqueue(callBack);
+    }
 
 
 }
