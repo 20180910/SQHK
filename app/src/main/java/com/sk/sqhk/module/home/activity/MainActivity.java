@@ -5,6 +5,7 @@ import android.content.IntentFilter;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -30,6 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * Created by Administrator on 2017/11/4.
@@ -66,6 +68,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        String registrationID = JPushInterface.getRegistrationID(mContext);
+        Log.i("registrationID","registrationID====="+registrationID);
+        if(!TextUtils.isEmpty(registrationID)){
+            SPUtils.setPrefString(mContext,Config.jiguangRegistrationId,registrationID);
+        }
+
 
         if(SPUtils.getBoolean(mContext, AppXml.needLogin,false)){
             SPUtils.removeKey(mContext,AppXml.needLogin);

@@ -65,6 +65,35 @@
         <activity android:name=".module.home.activity.HuanKuanJiHuaActivity"/>
         <activity android:name=".module.select.activity.WoDeZhangDanActivity"/>
         <activity android:name=".module.select.activity.ZhangDanYiTianDetailActivity"/>
+
+
+
+        <!--极光推送-->
+        <service android:name="cn.jpush.android.service.PushService"
+                 android:process=":multiprocess"
+                 tools:node="replace" >
+        </service>
+        <receiver
+            android:name=".broadcast.JpushReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
+
+
+
+
+
+
+
     </application>
 
 </manifest>

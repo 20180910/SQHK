@@ -5,9 +5,7 @@ package com.sk.sqhk;
  */
 
 public class Config {
-    /*10444020
-android优优点餐
-yTKTw0Ct5XUkIoGhR8DIwFus4P0lR9Tq  百度地图*/
+
     public static final String longitude = "longitude";
     public static final String latitude = "latitude";
     public static final String app_name = "lgdx";
