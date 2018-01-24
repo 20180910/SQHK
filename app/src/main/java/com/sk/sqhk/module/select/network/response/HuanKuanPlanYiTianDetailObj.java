@@ -104,6 +104,15 @@ public class HuanKuanPlanYiTianDetailObj extends BaseObj {
             private int status;
             private String day;
 
+            private String message;
+
+            public String getMessage() {
+                return message;
+            }
+
+            public void setMessage(String message) {
+                this.message = message;
+            }
             public int getDetailId() {
                 return detailId;
             }
@@ -159,6 +168,15 @@ public class HuanKuanPlanYiTianDetailObj extends BaseObj {
             private int type;
             private int status;
             private String day;
+            private String message;
+
+            public String getMessage() {
+                return message;
+            }
+
+            public void setMessage(String message) {
+                this.message = message;
+            }
 
             public int getDetailId() {
                 return detailId;

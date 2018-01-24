@@ -22,7 +22,7 @@ import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.broadcast.MyOperationBro;
 import com.sk.sqhk.module.home.fragment.HomeFragment;
 import com.sk.sqhk.module.home.fragment.MyFragment;
-import com.sk.sqhk.module.home.fragment.SelectFragment;
+import com.sk.sqhk.module.home.fragment.SelectXinYongCardFragment;
 import com.sk.sqhk.module.my.activity.LoginActivity;
 import com.sk.sqhk.network.NetApiRequest;
 
@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
 //    View status_bar;
 
     HomeFragment homeFragment;
-    SelectFragment selectFragment;
+    SelectXinYongCardFragment selectFragment;
     MyFragment myFragment;
 
     @BindView(R.id.fl_content)
@@ -136,7 +136,7 @@ public class MainActivity extends BaseActivity {
     private void selectChaXun() {
         selectView = rb_home_tab2;
         if (selectFragment == null) {
-            selectFragment = new SelectFragment();
+            selectFragment = new SelectXinYongCardFragment();
             addFragment(R.id.fl_content, selectFragment);
         } else {
             showFragment(selectFragment);

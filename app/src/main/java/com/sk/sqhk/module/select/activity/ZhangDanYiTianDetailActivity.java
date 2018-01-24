@@ -85,7 +85,7 @@ public class ZhangDanYiTianDetailActivity extends BaseActivity {
                 TextView tv_huankuan_plan_yitian_reason = holder.getTextView(R.id.tv_huankuan_plan_yitian_reason);
                 if (bean.getStatus() == 3) {//如果失败就显示
                     ll_huankuan_plan_yitian_reason.setVisibility(View.VISIBLE);
-                    tv_huankuan_plan_yitian_reason.setText("暂无数据");
+                    tv_huankuan_plan_yitian_reason.setText(bean.getMessage());
                 } else {
                     ll_huankuan_plan_yitian_reason.setVisibility(View.GONE);
                 }
@@ -124,7 +124,7 @@ public class ZhangDanYiTianDetailActivity extends BaseActivity {
                 TextView tv_huankuan_plan_yitian_reason = holder.getTextView(R.id.tv_huankuan_plan_yitian_reason);
                 if (bean.getStatus() == 3) {//如果失败就显示
                     ll_huankuan_plan_yitian_reason.setVisibility(View.VISIBLE);
-                    tv_huankuan_plan_yitian_reason.setText("暂无数据");
+                    tv_huankuan_plan_yitian_reason.setText(bean.getMessage());
                 } else {
                     ll_huankuan_plan_yitian_reason.setVisibility(View.GONE);
                 }

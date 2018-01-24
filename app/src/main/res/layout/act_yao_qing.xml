@@ -8,22 +8,34 @@
     >
 
     <include layout="@layout/app_title"/>
+    <com.library.base.ProgressLayout
+        android:id="@id/pl_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+            <WebView
+                android:id="@+id/wv_yao_qing"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none"
+                >
+            </WebView>
+            <TextView
+                android:id="@+id/tv_yao_qing"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/theme_color"
+                android:gravity="center"
+                android:text="立即邀请"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+    </com.library.base.ProgressLayout>
 
-    <WebView
-        android:id="@+id/wv_yao_qing"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbars="none"
-        >
-    </WebView>
-    <TextView
-        android:id="@+id/tv_yao_qing"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/theme_color"
-        android:gravity="center"
-        android:text="立即邀请"
-        android:textColor="@color/white"
-        />
 </LinearLayout>
