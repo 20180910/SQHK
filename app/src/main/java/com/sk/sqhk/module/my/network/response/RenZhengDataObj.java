@@ -26,7 +26,6 @@ public class RenZhengDataObj extends BaseObj {
     private int client_id;
     private int userid;
     private String real_name;
-    private String card_id;
     private String address;
     private String card_front_img;
     private String card_back_img;
@@ -67,13 +66,6 @@ public class RenZhengDataObj extends BaseObj {
         this.real_name = real_name;
     }
 
-    public String getCard_id() {
-        return card_id;
-    }
-
-    public void setCard_id(String card_id) {
-        this.card_id = card_id;
-    }
 
     public String getAddress() {
         return address;

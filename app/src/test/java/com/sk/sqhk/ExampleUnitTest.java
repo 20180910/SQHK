@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,9 +22,20 @@ public class ExampleUnitTest {
     }
     @Test
     public void afdasdf() throws Exception {
-        String a="asfdasfd.gif";
-        String substring = a.substring(1, 4);
-        System.out.println(substring);
+        List<String> list=new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        List<String>littleList=new ArrayList<>();
+        littleList.add("a");
+        littleList.add("b");
+        littleList.add("c");
+        littleList.add("d");
+        littleList.addAll(1,list);
+        for (int i = 0; i < littleList.size(); i++) {
+            System.out.println(littleList.get(i));
+        }
     }
     @Test
     public void afds() throws Exception {

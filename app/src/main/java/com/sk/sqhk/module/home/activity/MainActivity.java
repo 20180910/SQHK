@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 
 import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
+import com.github.baseclass.rx.MySubscriber;
 import com.github.customview.MyRadioButton;
 import com.library.base.BaseObj;
 import com.sk.sqhk.base.MyCallBack;
@@ -21,6 +22,7 @@ import com.sk.sqhk.GetSign;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.broadcast.MyOperationBro;
+import com.sk.sqhk.module.home.event.SelectZhangDanEvent;
 import com.sk.sqhk.module.home.fragment.HomeFragment;
 import com.sk.sqhk.module.home.fragment.MyFragment;
 import com.sk.sqhk.module.home.fragment.SelectXinYongCardFragment;
@@ -200,7 +202,13 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initRxBus() {
         super.initRxBus();
-
+        getRxBusEvent(SelectZhangDanEvent.class, new MySubscriber() {
+            @Override
+            public void onMyNext(Object o) {
+                selectChaXun();
+                selectView.setChecked(true);
+            }
+        });
     }
 
     protected void onViewClick(View v) {

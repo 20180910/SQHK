@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.github.androidtools.SPUtils;
 import com.github.baseclass.rx.IOCallBack;
+import com.github.baseclass.rx.RxBus;
 import com.github.customview.CircleImageView;
 import com.library.base.BaseObj;
 import com.library.base.tools.has.BitmapUtils;
@@ -15,6 +16,7 @@ import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseFragment;
 import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.activity.YaoQingActivity;
+import com.sk.sqhk.module.home.event.SelectZhangDanEvent;
 import com.sk.sqhk.module.my.activity.HelpCenterActivity;
 import com.sk.sqhk.module.my.activity.MyAccountActivity;
 import com.sk.sqhk.module.my.activity.MyBankListActivity;
@@ -139,7 +141,7 @@ public class MyFragment extends BaseFragment {
         SPUtils.setPrefString(mContext, AppXml.major, obj.getMajor());
     }
 
-    @OnClick({R.id.civ_my,R.id.iv_my_msg, R.id.tv_my_setting,R.id.tv_my_yinhangka, R.id.tv_my_zhangdan, R.id.tv_my_zhanghu, R.id.tv_my_bangzhu,R.id.tv_my_yaoqing})
+    @OnClick({R.id.civ_my,R.id.iv_my_msg, R.id.tv_my_setting,R.id.tv_my_yinhangka, R.id.tv_my_zhangdan, R.id.tv_my_zhanghu, R.id.tv_my_bangzhu,R.id.ll_my_yaoqing})
     public void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.civ_my:
@@ -155,11 +157,12 @@ public class MyFragment extends BaseFragment {
                 STActivity(MyBankListActivity.class);
                 break;
             case R.id.tv_my_zhangdan:
+                RxBus.getInstance().post(new SelectZhangDanEvent());
                 break;
             case R.id.tv_my_zhanghu:
                 STActivity(MyAccountActivity.class);
                 break;
-            case R.id.tv_my_yaoqing:
+            case R.id.ll_my_yaoqing:
                 STActivity(YaoQingActivity.class);
                 break;
             case R.id.tv_my_bangzhu:

@@ -20,6 +20,7 @@ import com.sk.sqhk.module.home.activity.JiSuHuanKuanActivity;
 import com.sk.sqhk.module.home.activity.JinRongChaoShiActivity;
 import com.sk.sqhk.module.home.activity.MoreZiXunActivity;
 import com.sk.sqhk.module.home.activity.MyFenRunActivity;
+import com.sk.sqhk.module.home.activity.OnlineMakeBankActivity;
 import com.sk.sqhk.module.home.activity.WenZhangDetailActivity;
 import com.sk.sqhk.module.home.activity.WoDeYaoQingActivity;
 import com.sk.sqhk.module.home.activity.YaoQingActivity;
@@ -292,7 +293,7 @@ public class HomeFragment extends BaseFragment {
                 STActivity(JiSuHuanKuanActivity.class);
                 break;
             case R.id.ll_home_tab2:
-
+                STActivity(OnlineMakeBankActivity.class);
                 break;
             case R.id.ll_home_tab3:
                 STActivity(JinRongChaoShiActivity.class);

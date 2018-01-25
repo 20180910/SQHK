@@ -21,6 +21,7 @@ import com.sk.sqhk.module.home.network.response.HomePageImageObj;
 import com.sk.sqhk.module.home.network.response.HomeTypeAssemblageObj;
 import com.sk.sqhk.module.home.network.response.HomeTypeMerchantListObj;
 import com.sk.sqhk.module.home.network.response.HomeZiXunDataObj;
+import com.sk.sqhk.module.home.network.response.HotBankObj;
 import com.sk.sqhk.module.home.network.response.JiSuHuanKuanPlanObj;
 import com.sk.sqhk.module.home.network.response.JinRongChaoShiObj;
 import com.sk.sqhk.module.home.network.response.MyFenRunObj;
@@ -162,6 +163,10 @@ public interface IRequest {
     //查询模块-获取信用卡列表
     @GET("api/HandleCardOnline/GetCardList")
     Call<ResponseObj<List<SelectXinYongCardObj>>> getSelectXinYongCard(@QueryMap Map<String, String> map);
+
+    //在线办卡获取热门银行
+    @GET("api/HandleCardOnline/GetBankList")
+    Call<ResponseObj<List<HotBankObj>>> getHotBankList(@QueryMap Map<String, String> map);
 
 
 
