@@ -28,11 +28,11 @@ public class TiXianResultActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.ll_tixian_bank})
+    @OnClick({ R.id.tv_tx_result})
     protected void onViewClick(View v) {
         switch (v.getId()){
-            case R.id.ll_tixian_bank:
-                STActivity(BankListActivity.class);
+            case R.id.tv_tx_result:
+                finish();
             break;
         }
     }

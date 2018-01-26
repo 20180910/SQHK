@@ -85,12 +85,12 @@ public class DaiKuanDetailActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onViewClick(View v) {
-
-    }
-
     @OnClick(R.id.tv_daikuan_shenqing)
-    public void onClick() {
+    protected void onViewClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_daikuan_shenqing:
+
+            break;
+        }
     }
 }

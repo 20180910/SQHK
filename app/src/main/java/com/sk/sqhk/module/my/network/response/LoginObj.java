@@ -36,7 +36,7 @@ public class LoginObj extends BaseObj {
     private String sex;
     private String mobile;
     private String birthday;
-    private int amount;
+    private float amount;
     private int commission;
     private int message_sink;
     private int is_validation;//身份认证状态(0未认证 1待审核 2审核通过 3审核未通过)
@@ -108,11 +108,11 @@ public class LoginObj extends BaseObj {
         this.birthday = birthday;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 

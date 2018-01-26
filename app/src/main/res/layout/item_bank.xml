@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="@color/white"
+                                            android:id="@+id/sml_account_bank"
     >
 <LinearLayout
+    android:id="@+id/ll_account_bank"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -16,10 +19,11 @@
     android:paddingRight="10dp"
     >
     <com.github.customview.MyImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/yinhangka_icon3"
-        app:my_iv_radius="25dp"
+        android:id="@+id/iv_account_bank"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        tools:src="@drawable/yinhangka_icon3"
+        app:my_iv_radius="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         />
@@ -33,17 +37,30 @@
         android:layout_marginLeft="10dp"
         >
         <TextView
+            android:id="@+id/tv_account_bank_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="招商银行"
-            android:textSize="17sp"
+            tools:text="招商银行"
+            android:textSize="13sp"
             />
         <TextView
+            android:id="@+id/tv_account_bank_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="尾号022储蓄卡"
+            tools:text="尾号022储蓄卡"
             android:layout_marginTop="3dp"
+            android:textSize="11sp"
             />
     </LinearLayout>
 </LinearLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_account_bank_delete"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:text="删\n除"
+        android:background="@color/red"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:gravity="center"
+        />
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

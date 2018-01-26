@@ -33,9 +33,9 @@ public class Constant {
         public static final String huanKuanBean="huanKuanBean";
         public static final String planId="planId";
         public static final String day="day";
-        public static final String faPiaoName="faPiaoName";
-        public static final String faPiaoCode="faPiaoCode";
-        public static final String orderMoney="orderMoney";
+        public static final String bankCardId="bankCardId";
+        public static final String bankCardContent="bankCardContent";
+        public static final String noDefault="noDefault";
         public static final String youHuiId="youHuiId";
         public static final String youHuiMoney="youHuiMoney";
         public static final String gongChangId="gongChangId";

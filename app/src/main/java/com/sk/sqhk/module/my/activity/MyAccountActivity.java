@@ -57,6 +57,11 @@ public class MyAccountActivity extends BaseActivity {
         showProgress();
         getData(1,false);
     }
+    @Override
+    protected void onMyReStart() {
+        super.onMyReStart();
+        getData(1,false);
+    }
 
     @Override
     protected void getData(int page, boolean isLoad) {

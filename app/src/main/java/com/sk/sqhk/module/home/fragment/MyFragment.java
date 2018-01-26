@@ -130,7 +130,7 @@ public class MyFragment extends BaseFragment {
         SPUtils.setPrefString(mContext, AppXml.birthday, obj.getBirthday());
         SPUtils.setPrefString(mContext, AppXml.user_name, obj.getUser_name());
         SPUtils.setPrefString(mContext, AppXml.nick_name, obj.getNick_name());
-        SPUtils.setPrefFloat(mContext, AppXml.amount, obj.getAmount());
+        SPUtils.setPrefFloat(mContext, AppXml.amount, (float) obj.getAmount());
         SPUtils.setPrefFloat(mContext, AppXml.commission, obj.getCommission());
         SPUtils.setPrefInt(mContext, AppXml.message_sink, obj.getMessage_sink());
         SPUtils.setPrefInt(mContext, AppXml.is_validation, obj.getIs_validation());

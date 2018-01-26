@@ -40,7 +40,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:text="点击添加银行卡"
+                    android:hint="点击添加银行卡"
                     android:drawableRight="@drawable/jiantou_right1"
                     android:gravity="center_vertical|right"
                     android:drawablePadding="7dp"
@@ -129,7 +129,7 @@
                 android:orientation="vertical"
                 android:background="@color/white"
                 android:layout_marginTop="5dp"
-                android:paddingTop="40dp"
+                android:paddingTop="20dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 >

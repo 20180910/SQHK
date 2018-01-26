@@ -12,6 +12,7 @@ import com.sk.sqhk.module.my.network.response.MyAccountObj;
 import com.sk.sqhk.module.my.network.response.MyAllBankObj;
 import com.sk.sqhk.module.my.network.response.MyMessageObj;
 import com.sk.sqhk.module.my.network.response.RenZhengDataObj;
+import com.sk.sqhk.module.my.network.response.TiXianAccountListObj;
 import com.sk.sqhk.module.my.network.response.YaoQingObj;
 
 import java.util.List;
@@ -54,8 +55,26 @@ public interface IRequest {
 
 
     //获取默认银行卡
-    @GET("api/User/GetMyBalance")
+    @GET("api/AccountWithdrawal/GetAccountDefault")
     Call<ResponseObj<DefaultBankObj>> getDefaultBank(@QueryMap Map<String, String> map);
+
+    //获取银行卡账户列表
+    @GET("api/AccountWithdrawal/GetAccount")
+    Call<ResponseObj<List<TiXianAccountListObj>>> getTiXianAccountList(@QueryMap Map<String, String> map);
+
+    //设置默认账户
+    @GET("api/AccountWithdrawal/GetEditDefalut")
+    Call<ResponseObj<BaseObj>> setDefaultBank(@QueryMap Map<String, String> map);
+
+    //提现-删除账户
+    @GET("api/AccountWithdrawal/GetDelAccount")
+    Call<ResponseObj<BaseObj>> delBankAccount(@QueryMap Map<String, String> map);
+
+
+    //提现申请
+    @GET("api/AccountWithdrawal/GetWithdrawals")
+    Call<ResponseObj<BaseObj>> tiXianCommit(@QueryMap Map<String, String> map);
+
 
 
     //保存银行卡

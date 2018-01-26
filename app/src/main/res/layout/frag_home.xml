@@ -107,14 +107,12 @@
                     android:orientation="horizontal"
                     android:paddingLeft="10dp"
                     >
-
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/home_xiaoxi"
+                        android:src="@drawable/home_gonggao"
                         />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -123,7 +121,6 @@
                         tools:text="123123还款1000万"
                         />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
