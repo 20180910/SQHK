@@ -3,6 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              xmlns:tools="http://schemas.android.com/tools"
               android:background="@color/white"
               android:orientation="vertical"
     >
@@ -17,10 +18,11 @@
         >
 
         <com.github.customview.MyImageView
+            android:id="@+id/iv_online_makecard"
             android:layout_width="120dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/yaoqing_banner1"
+            tools:src="@drawable/yaoqing_banner1"
             app:my_iv_radius="4dp"
             />
 
@@ -35,18 +37,20 @@
             >
 
             <TextView
+                android:id="@+id/tv_online_makecard_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="交通银行卡标准信用卡金卡"
+                tools:text="交通银行卡标准信用卡金卡"
                 android:textColor="@color/gray_33"
                 android:textSize="16sp"
                 />
 
             <TextView
+                android:id="@+id/tv_online_makecard_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="店内周六至周四想刷5%刷卡金"
+                tools:text="店内周六至周四想刷5%刷卡金"
                 android:maxLines="2"
                 android:ellipsize="end"
                 />

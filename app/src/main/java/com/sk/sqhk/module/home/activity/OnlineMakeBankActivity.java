@@ -1,5 +1,6 @@
 package com.sk.sqhk.module.home.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,14 +10,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.BitmapEncoder;
+import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
 import com.library.base.view.MyRecyclerView;
+import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.network.ApiRequest;
 import com.sk.sqhk.module.home.network.response.HotBankObj;
+import com.sk.sqhk.module.home.network.response.HotXinYongCardObj;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,6 +63,15 @@ public class OnlineMakeBankActivity extends BaseActivity {
                 ImageView imageView = holder.getImageView(R.id.iv_hot_bank);
                 Glide.with(mContext).load(bean.getImage_url()).asBitmap().encoder(new BitmapEncoder(Bitmap.CompressFormat.PNG,90)).error(R.color.c_press).into(imageView);
                 holder.setText(R.id.tv_hot_bank_name,bean.getBank_name());
+
+                holder.itemView.setOnClickListener(new MyOnClickListener() {
+                    @Override
+                    protected void onNoDoubleClick(View v) {
+                        Intent intent=new Intent();
+                        intent.putExtra(Constant.IParam.webUrl,bean.getBank_link());
+                        STActivity(intent,WebActivity.class);
+                    }
+                });
             }
         };
         rv_hot_bank.setAdapter(bankAdapter);
@@ -67,10 +80,22 @@ public class OnlineMakeBankActivity extends BaseActivity {
 //        rv_hot_bank.addItemDecoration(getItemDivider());
 
 
-        xinyongKaAdapter=new LoadMoreAdapter(mContext,R.layout.item_hot_xinyongka,pageSize) {
+        xinyongKaAdapter=new LoadMoreAdapter<HotXinYongCardObj>(mContext,R.layout.item_hot_xinyongka,pageSize,nsv) {
             @Override
-            public void bindData(LoadMoreViewHolder holder, int position, Object bean) {
+            public void bindData(LoadMoreViewHolder holder, int position, HotXinYongCardObj bean) {
+                ImageView imageView = holder.getImageView(R.id.iv_online_makecard);
+                Glide.with(mContext).load(bean.getImg_url()).asBitmap().encoder(new BitmapEncoder(Bitmap.CompressFormat.PNG,90)).error(R.color.c_press).into(imageView);
 
+                holder.itemView.setOnClickListener(new MyOnClickListener() {
+                    @Override
+                    protected void onNoDoubleClick(View v) {
+                        Intent intent=new Intent();
+                        intent.putExtra(Constant.IParam.webUrl,bean.getLink());
+                        STActivity(intent,WebActivity.class);
+                    }
+                });
+                holder.setText(R.id.tv_online_makecard_title,bean.getTitle())
+                        .setText(R.id.tv_online_makecard_content,bean.getZhaiyao());
             }
         };
         xinyongKaAdapter.setOnLoadMoreListener(this);
@@ -83,15 +108,14 @@ public class OnlineMakeBankActivity extends BaseActivity {
     protected void initData() {
         showProgress();
         getData(1,false);
+        getHotBankList();
     }
 
-    @Override
-    protected void getData(int page, boolean isLoad) {
-        super.getData(page, isLoad);
+    private void getHotBankList() {
         Map<String,String> map=new HashMap<String,String>();
         map.put("rnd",getRnd());
         map.put("sign",getSign(map));
-        ApiRequest.getHotBankList(map, new MyCallBack<List<HotBankObj>>(mContext,pl_load,pcfl) {
+        ApiRequest.getHotBankList(map, new MyCallBack<List<HotBankObj>>(mContext) {
             @Override
             public void onSuccess(List<HotBankObj> list) {
                 allList=list;
@@ -109,6 +133,27 @@ public class OnlineMakeBankActivity extends BaseActivity {
                     }
                     bankAdapter.setList(littleList,true);
                 }
+            }
+        });
+    }
+
+    @Override
+    protected void getData(int page, boolean isLoad) {
+        super.getData(page, isLoad);
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("pagesize",pagesize+"");
+        map.put("page",page+"");
+        map.put("sign",getSign(map));
+        ApiRequest.getHotXinYongCard(map, new MyCallBack<List<HotXinYongCardObj>>(mContext,pl_load,pcfl) {
+            @Override
+            public void onSuccess(List<HotXinYongCardObj> list) {
+                 if(isLoad){
+                     pageNum++;
+                     xinyongKaAdapter.addList(list,true);
+                 }else{
+                     pageNum=2;
+                     xinyongKaAdapter.setList(list,true);
+                 }
             }
         });
 

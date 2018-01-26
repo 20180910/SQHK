@@ -14,6 +14,15 @@ public class HotBankObj  {
     private int bank_id;
     private String image_url;
     private String bank_name;
+    private String bank_link;
+
+    public String getBank_link() {
+        return bank_link;
+    }
+
+    public void setBank_link(String bank_link) {
+        this.bank_link = bank_link;
+    }
 
     public int getBank_id() {
         return bank_id;
