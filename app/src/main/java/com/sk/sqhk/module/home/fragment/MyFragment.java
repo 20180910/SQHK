@@ -1,6 +1,7 @@
 package com.sk.sqhk.module.home.fragment;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -83,6 +84,11 @@ public class MyFragment extends BaseFragment {
     @Override
     protected void onMyReStart() {
         super.onMyReStart();
+
+        String imgPath = SPUtils.getString(mContext, AppXml.avatar, null);
+        if(!TextUtils.isEmpty(imgPath)){
+            Glide.with(mContext).load(imgPath).error(R.drawable.my_people).into(civ_my);
+        }
         getOtherData();
         getData(1, false);
     }

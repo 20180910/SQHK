@@ -65,7 +65,7 @@
         <activity android:name=".module.home.activity.HuanKuanJiHuaActivity"/>
         <activity android:name=".module.select.activity.WoDeZhangDanActivity"/>
         <activity android:name=".module.select.activity.ZhangDanYiTianDetailActivity"/>
-
+        <activity android:name=".module.home.activity.WebActivity"/>
 
 
         <!--极光推送-->

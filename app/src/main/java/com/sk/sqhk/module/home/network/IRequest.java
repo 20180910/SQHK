@@ -10,6 +10,7 @@ import com.sk.sqhk.module.home.network.response.BankObj;
 import com.sk.sqhk.module.home.network.response.BannerObj;
 import com.sk.sqhk.module.home.network.response.CityIdObj;
 import com.sk.sqhk.module.home.network.response.DaiKuanDetailObj;
+import com.sk.sqhk.module.home.network.response.DaiKuanShenQingObj;
 import com.sk.sqhk.module.home.network.response.DianZanObj;
 import com.sk.sqhk.module.home.network.response.HomeAnnouncementObj;
 import com.sk.sqhk.module.home.network.response.HomeDailybestObj;
@@ -168,6 +169,10 @@ public interface IRequest {
     @GET("api/HandleCardOnline/GetBankList")
     Call<ResponseObj<List<HotBankObj>>> getHotBankList(@QueryMap Map<String, String> map);
 
+
+    //贷款详情申请
+    @GET("api/FinancialSupermarket/GetApplyImmediately")
+    Call<ResponseObj<DaiKuanShenQingObj>> daiKuanShenQing(@QueryMap Map<String, String> map);
 
 
 

@@ -1,5 +1,6 @@
 package com.sk.sqhk.module.home.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,6 +12,8 @@ import com.sk.sqhk.base.BaseActivity;
 import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.network.ApiRequest;
 import com.sk.sqhk.module.home.network.response.DaiKuanDetailObj;
+import com.sk.sqhk.module.home.network.response.DaiKuanShenQingObj;
+import com.sk.sqhk.module.my.activity.LoginActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,9 +43,10 @@ public class DaiKuanDetailActivity extends BaseActivity {
     TextView tv_daikuan_detail_tj;
     @BindView(R.id.tv_daikuan_detail_sm1)
     TextView tv_daikuan_detail_sm1;
-    @BindView(R.id.tv_daikuan_detail_sm2)
-    TextView tv_daikuan_detail_sm2;
+//    @BindView(R.id.tv_daikuan_detail_sm2)
+//    TextView tv_daikuan_detail_sm2;
     private String creditId;
+    private String creditId1;
 
     @Override
     protected int getContentView() {
@@ -53,7 +57,6 @@ public class DaiKuanDetailActivity extends BaseActivity {
     @Override
     protected void initView() {
         creditId = getIntent().getStringExtra(Constant.IParam.creditId);
-
     }
 
     @Override
@@ -89,8 +92,29 @@ public class DaiKuanDetailActivity extends BaseActivity {
     protected void onViewClick(View v) {
         switch (v.getId()){
             case R.id.tv_daikuan_shenqing:
-
+                if(noLogin()){
+                    STActivity(LoginActivity.class);
+                    return;
+                }
+                shenQing();
             break;
         }
+    }
+
+    private void shenQing() {
+        showLoading();
+        Map<String,String>map=new HashMap<String,String>();
+        map.put("user_id",getUserId());
+        map.put("credit_id",creditId);
+        map.put("sign",getSign(map));
+        ApiRequest.daiKuanShenQing(map, new MyCallBack<DaiKuanShenQingObj>(mContext) {
+            @Override
+            public void onSuccess(DaiKuanShenQingObj obj) {
+                Intent intent=new Intent();
+                intent.putExtra(Constant.IParam.webUrl,obj.getLink());
+                STActivity(intent,WebActivity.class);
+            }
+        });
+
     }
 }
