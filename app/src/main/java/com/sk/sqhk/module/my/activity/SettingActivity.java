@@ -8,18 +8,22 @@ import android.widget.TextView;
 
 import com.github.androidtools.SPUtils;
 import com.github.baseclass.rx.IOCallBack;
+import com.github.baseclass.view.MyDialog;
 import com.library.base.BaseObj;
-import com.sk.sqhk.base.MyCallBack;
 import com.library.base.tools.CacheUtils;
 import com.sk.sqhk.AppXml;
+import com.sk.sqhk.Config;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.module.home.activity.FastRenZhengActivity;
+import com.sk.sqhk.module.home.bean.AppInfo;
 import com.sk.sqhk.module.my.network.ApiRequest;
 import com.sk.sqhk.module.my.network.response.LoginObj;
 import com.sk.sqhk.network.NetApiRequest;
 import com.sk.sqhk.network.response.APPVersionObj;
+import com.sk.sqhk.service.MyAPPDownloadService;
 import com.suke.widget.SwitchButton;
 
 import java.util.HashMap;
@@ -34,6 +38,8 @@ import rx.Subscriber;
  */
 
 public class SettingActivity extends BaseActivity {
+    @BindView(R.id.tv_setting_new_version)
+    TextView tv_setting_new_version;
     @BindView(R.id.tv_setting_renzheng)
     TextView tv_setting_renzheng;
     @BindView(R.id.tv_setting_phone)
@@ -55,6 +61,12 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        if(SPUtils.getBoolean(mContext,Config.appHasNewVersion,false)){
+            tv_setting_new_version.setVisibility(View.VISIBLE);
+        }else{
+            tv_setting_new_version.setVisibility(View.INVISIBLE);
+        }
+
         setRenZheng();
         tv_setting_version.setText("V"+getAppVersionName());
 
@@ -132,7 +144,6 @@ public class SettingActivity extends BaseActivity {
     }
     @Override
     protected void initData() {
-        getVersionName();
     }
 
     private void getVersionName() {
@@ -142,17 +153,36 @@ public class SettingActivity extends BaseActivity {
         NetApiRequest.getAPPVersion(map, new MyCallBack<APPVersionObj>(mContext) {
             @Override
             public void onSuccess(APPVersionObj obj) {
-//                tv_setting_version.setText(obj.getVersion_name());
+                if(obj.getAndroid_version()>getAppVersionCode()){
+                    SPUtils.setPrefString(mContext,Config.appDownloadUrl,obj.getAndroid_vs_url());
+                    SPUtils.setPrefBoolean(mContext, Config.appHasNewVersion,true);
+                    MyDialog.Builder mDialog=new MyDialog.Builder(mContext);
+                    mDialog.setMessage("检测到app有新版本是否更新?");
+                    mDialog.setNegativeButton((dialog, which) -> dialog.dismiss());
+                    mDialog.setPositiveButton((dialog, which) -> {
+                        dialog.dismiss();
+                        AppInfo info=new AppInfo();
+                        info.setUrl(obj.getAndroid_vs_url());
+                        info.setHouZhui(".apk");
+                        info.setFileName("shenqihuanka");
+                        info.setId(obj.getAndroid_version()+"");
+                        MyAPPDownloadService.intentDownload(mContext, info);
+                    });
+                    mDialog.create().show();
+                }else{
+                    showMsg("当前app已是最新版本");
+                    tv_setting_new_version.setVisibility(View.INVISIBLE);
+                    SPUtils.setPrefBoolean(mContext,Config.appHasNewVersion,false);
+                }
             }
         });
-
     }
 
-    @OnClick({R.id.ll_setting_clear_cache,R.id.tv_setting_about_we,R.id.tv_setting_exit,R.id.tv_setting_renzheng, R.id.tv_setting_phone, R.id.tv_setting_updatepwd})
+    @OnClick({R.id.ll_setting_update,R.id.ll_setting_clear_cache,R.id.tv_setting_about_we,R.id.tv_setting_exit,R.id.tv_setting_renzheng, R.id.tv_setting_phone, R.id.tv_setting_updatepwd})
     protected void onViewClick(View v) {
         switch (v.getId()) {
             case R.id.ll_setting_update:
-
+                getVersionName();
                 break;
             case R.id.ll_setting_clear_cache:
                 deleteCache(tv_setting_cachesize,false);

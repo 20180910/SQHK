@@ -8,36 +8,36 @@ import com.library.base.BaseObj;
 
 public class APPVersionObj extends BaseObj {
     /**
-     * version_code :
-     * version_name : 1.1
-     * version_url : http://121.40.186.118:6699/upload/app-release.apk
+     * android_version : 1.1
+     * android_vs_name : 2
+     * android_vs_url : http://121.40.186.118:6699/upload/app-release.apk
      */
 
-    private String version_code;
-    private String version_name;
-    private String version_url;
+    private int android_version;
+    private String android_vs_name;
+    private String android_vs_url;
 
-    public String getVersion_code() {
-        return version_code;
+    public int getAndroid_version() {
+        return android_version;
     }
 
-    public void setVersion_code(String version_code) {
-        this.version_code = version_code;
+    public void setAndroid_version(int android_version) {
+        this.android_version = android_version;
     }
 
-    public String getVersion_name() {
-        return version_name;
+    public String getAndroid_vs_name() {
+        return android_vs_name;
     }
 
-    public void setVersion_name(String version_name) {
-        this.version_name = version_name;
+    public void setAndroid_vs_name(String android_vs_name) {
+        this.android_vs_name = android_vs_name;
     }
 
-    public String getVersion_url() {
-        return version_url;
+    public String getAndroid_vs_url() {
+        return android_vs_url;
     }
 
-    public void setVersion_url(String version_url) {
-        this.version_url = version_url;
+    public void setAndroid_vs_url(String android_vs_url) {
+        this.android_vs_url = android_vs_url;
     }
 }

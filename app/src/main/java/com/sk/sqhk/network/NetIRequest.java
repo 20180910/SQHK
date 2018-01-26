@@ -37,8 +37,6 @@ public interface NetIRequest {
     @GET("api/Lib/GetVersionUpdate")
     Call<ResponseObj<APPVersionObj>> getAPPVersion(@QueryMap Map<String, String> map );
 
-
-
     //是否有未读消息
     @GET("api/Informations/GetUnreadNews")
     Call<ResponseObj<BaseObj>> isHasNewMsg(@QueryMap Map<String, String> map );

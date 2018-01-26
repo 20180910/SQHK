@@ -73,6 +73,16 @@
                  android:process=":multiprocess"
                  tools:node="replace" >
         </service>
+
+        <service android:name=".service.MyAPPDownloadService"/>
+        <receiver
+            android:name=".broadcast.DownloadBro"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="download" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name=".broadcast.JpushReceiver"
             android:enabled="true">

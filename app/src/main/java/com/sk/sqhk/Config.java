@@ -77,6 +77,9 @@ public class Config {
 
     }
 
+    public static final String appDownloadUrl="appDownloadUrl";
+    public static final String appHasNewVersion="appHasNewVersion";
+    public static final String useVoucher="useVoucher";
     //百度地图-KEY：8aFeUXK0pzqiFi58WUniIV8S2RWCVNq7
 
     public static final String pwd="pwd";

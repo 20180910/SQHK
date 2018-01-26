@@ -4,6 +4,8 @@ package com.sk.sqhk;
 import android.app.Application;
 import android.content.Context;
 
+import com.aspsine.multithreaddownload.DownloadConfiguration;
+import com.aspsine.multithreaddownload.DownloadManager;
 import com.github.androidtools.SPUtils;
 import com.github.baseclass.view.Loading;
 import com.github.retrofitutil.NetWorkManager;
@@ -35,6 +37,11 @@ public class MyApplication extends Application {
 
         JPushInterface.setDebugMode(BuildConfig.DEBUG); 	// 设置开启日志,发布时请关闭日志
         JPushInterface.init(this);     		// 初始化 JPush
+
+        DownloadConfiguration configuration = new DownloadConfiguration();
+        configuration.setMaxThreadNum(10);
+        configuration.setThreadNum(3);
+        DownloadManager.getInstance().init(getApplicationContext(), configuration);
     }
 
    //经度

@@ -76,6 +76,7 @@ dependencies {
 
     compile(name: 'mylibrary', ext: 'aar')
     compile(name: 'baseclass', ext: 'aar')
+    compile(name: 'download', ext: 'aar')
     compile 'com.github:androidutils:1.0.4'
 //    compile(name: 'androidutils', ext: 'aar')
 //    compile(name: 'retrofitutil', ext: 'aar')

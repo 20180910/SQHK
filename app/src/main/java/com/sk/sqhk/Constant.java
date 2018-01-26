@@ -37,7 +37,7 @@ public class Constant {
         public static final String bankCardContent="bankCardContent";
         public static final String noDefault="noDefault";
         public static final String webUrl="webUrl";
-        public static final String youHuiMoney="youHuiMoney";
+        public static final String path="path";
         public static final String gongChangId="gongChangId";
         public static final String pinPaiId="pinPaiId";
     }

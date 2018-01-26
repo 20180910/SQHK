@@ -1,5 +1,6 @@
 package com.sk.sqhk.module.home.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.annotation.NonNull;
@@ -12,22 +13,26 @@ import android.widget.FrameLayout;
 import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.rx.MySubscriber;
+import com.github.baseclass.view.MyDialog;
 import com.github.customview.MyRadioButton;
 import com.library.base.BaseObj;
-import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.Config;
 import com.sk.sqhk.Constant;
 import com.sk.sqhk.GetSign;
 import com.sk.sqhk.R;
 import com.sk.sqhk.base.BaseActivity;
+import com.sk.sqhk.base.MyCallBack;
 import com.sk.sqhk.broadcast.MyOperationBro;
+import com.sk.sqhk.module.home.bean.AppInfo;
 import com.sk.sqhk.module.home.event.SelectZhangDanEvent;
 import com.sk.sqhk.module.home.fragment.HomeFragment;
 import com.sk.sqhk.module.home.fragment.MyFragment;
 import com.sk.sqhk.module.home.fragment.SelectXinYongCardFragment;
 import com.sk.sqhk.module.my.activity.LoginActivity;
 import com.sk.sqhk.network.NetApiRequest;
+import com.sk.sqhk.network.response.APPVersionObj;
+import com.sk.sqhk.service.MyAPPDownloadService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -97,6 +102,7 @@ public class MainActivity extends BaseActivity {
         rb_home_tab3.setOnClickListener(getTabClickListener(3));
 
     }
+
 
     @NonNull
     private MyOnClickListener getTabClickListener(final int index) {
@@ -178,10 +184,48 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+
+        updateApp();
         getPaymentURL(1);//获取支付宝回传地址
         getPaymentURL(2);//获取微信回传地址
     }
-
+    private void updateApp() {
+        Map<String,String>map=new HashMap<String,String>();
+        map.put("rnd",getRnd());
+        map.put("sign",GetSign.getSign(map));
+        NetApiRequest.getAPPVersion(map, new MyCallBack<APPVersionObj>(mContext) {
+            @Override
+            public void onSuccess(APPVersionObj obj) {
+                if(obj.getAndroid_version()>getAppVersionCode()){
+                    SPUtils.setPrefString(mContext,Config.appDownloadUrl,obj.getAndroid_vs_url());
+                    SPUtils.setPrefBoolean(mContext,Config.appHasNewVersion,true);
+                    MyDialog.Builder mDialog=new MyDialog.Builder(mContext);
+                    mDialog.setMessage("检测到app有新版本是否更新?");
+                    mDialog.setNegativeButton(new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    mDialog.setPositiveButton(new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            AppInfo info = new AppInfo();
+                            info.setUrl(obj.getAndroid_vs_url());
+                            info.setHouZhui(".apk");
+                            info.setFileName("yangyu");
+                            info.setId(obj.getAndroid_version() + "");
+                            MyAPPDownloadService.intentDownload(mContext, info);
+                        }
+                    });
+                    mDialog.create().show();
+                }else{
+                    SPUtils.setPrefBoolean(mContext,Config.appHasNewVersion,false);
+                }
+            }
+        });
+    }
     private void getPaymentURL(int type) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("payment_type", type + "");
