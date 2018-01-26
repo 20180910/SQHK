@@ -103,8 +103,10 @@ public class LoginActivity extends BaseActivity {
                 STActivity(ForgetPWDActivity.class);
                 break;
             case R.id.iv_login_qq:
+                showMsg("暂未开通第三方登录功能");
                 break;
             case R.id.iv_login_wx:
+                showMsg("暂未开通第三方登录功能");
                 break;
         }
     }
