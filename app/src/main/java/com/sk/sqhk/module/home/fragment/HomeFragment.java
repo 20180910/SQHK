@@ -27,12 +27,14 @@ import com.sk.sqhk.module.home.activity.YaoQingActivity;
 import com.sk.sqhk.module.home.network.ApiRequest;
 import com.sk.sqhk.module.home.network.response.BannerObj;
 import com.sk.sqhk.module.home.network.response.HomeFenLeiObj;
+import com.sk.sqhk.module.home.network.response.HomeGongGaoObj;
 import com.sk.sqhk.module.home.network.response.HomeImgObj;
 import com.sk.sqhk.module.home.network.response.HomeJiSuObj;
 import com.sk.sqhk.module.home.network.response.HomeZiXunDataObj;
 import com.sk.sqhk.module.my.activity.LoginActivity;
 import com.sk.sqhk.module.my.activity.MyMessageActivity;
 import com.sk.sqhk.network.NetApiRequest;
+import com.sunfusheng.marqueeview.MarqueeView;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -94,6 +96,10 @@ public class HomeFragment extends BaseFragment {
     TextView tv_home_fenlei4;
 
 
+    @BindView(R.id.tv_home_toutiao)
+    MarqueeView tv_home_toutiao;
+
+
     LoadMoreAdapter adapter;
 
     private List<String> bannerList = new ArrayList<String>();
@@ -148,11 +154,32 @@ public class HomeFragment extends BaseFragment {
     @Override
     protected void getOtherData() {
         super.getOtherData();
+        getHomeGongGao();
         getBanner();
         getHomeImg();
         isHasMsg();
         getJiSuData();
     }
+
+    private void getHomeGongGao() {
+        Map<String,String>map=new HashMap<String,String>();
+        map.put("rnd",getRnd());
+        map.put("sign",getSign(map));
+        ApiRequest.getHomeGongGao(map, new MyCallBack<List<HomeGongGaoObj>>(mContext) {
+            @Override
+            public void onSuccess(List<HomeGongGaoObj> list) {
+                if(notEmpty(list)){
+                    List<String> info = new ArrayList<>();
+                    for (int i = 0; i < list.size(); i++) {
+                        info.add(list.get(i).getTitle());
+                    }
+                    tv_home_toutiao.startWithList(info);
+                }
+            }
+        });
+
+    }
+
     private void getBanner() {
         Map<String,String>map=new HashMap<String,String>();
         map.put("rnd",getRnd());

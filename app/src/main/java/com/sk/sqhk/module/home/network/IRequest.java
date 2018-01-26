@@ -15,6 +15,7 @@ import com.sk.sqhk.module.home.network.response.DianZanObj;
 import com.sk.sqhk.module.home.network.response.HomeAnnouncementObj;
 import com.sk.sqhk.module.home.network.response.HomeDailybestObj;
 import com.sk.sqhk.module.home.network.response.HomeFenLeiObj;
+import com.sk.sqhk.module.home.network.response.HomeGongGaoObj;
 import com.sk.sqhk.module.home.network.response.HomeImgObj;
 import com.sk.sqhk.module.home.network.response.HomeJiSuObj;
 import com.sk.sqhk.module.home.network.response.HomeLikeObj;
@@ -173,6 +174,10 @@ public interface IRequest {
     //贷款详情申请
     @GET("api/FinancialSupermarket/GetApplyImmediately")
     Call<ResponseObj<DaiKuanShenQingObj>> daiKuanShenQing(@QueryMap Map<String, String> map);
+
+    //首页公告
+    @GET("api/Informations/GetAnnouncement")
+    Call<ResponseObj<List<HomeGongGaoObj>>> getHomeGongGao(@QueryMap Map<String, String> map);
 
 
 

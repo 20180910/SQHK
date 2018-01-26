@@ -113,13 +113,17 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/home_gonggao"
                         />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/theme_color"
-                        tools:text="123123还款1000万"
-                        />
+                    <com.sunfusheng.marqueeview.MarqueeView
+                        android:id="@+id/tv_home_toutiao"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        app:mvAnimDuration="1000"
+                        app:mvInterval="3000"
+                        app:mvSingleLine="true"
+                        app:mvTextColor="@color/gray_66"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+                        app:mvTextSize="13sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
