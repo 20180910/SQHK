@@ -53,13 +53,16 @@ public class LoginActivity extends BaseActivity {
                 @Override
                 protected void onNoDoubleClick(View v) {
                     flag++;
-                    if(flag%2==0){
+                    et_login_pwd.setText("123456");
+                    if(flag%3==0){
                         et_login_phone.setText("18117352720");
-                    }else{
+                    }else if(flag%3==1){
                         et_login_phone.setText("13122753707");//zp
+                    }else if(flag%3==2){
+                        et_login_phone.setText("18202198781");//wg
+                        et_login_pwd.setText("12345678ax");
                     }
 //                    et_login_phone.setText("13122753707");
-                    et_login_pwd.setText("123456");
                 }
             });
         }

@@ -79,7 +79,8 @@ public class FastRenZhengActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        showProgress();
+//        showProgress();
+        showLoading();
         getData(1, false);
     }
 
@@ -89,7 +90,7 @@ public class FastRenZhengActivity extends BaseActivity {
         Map<String, String> map = new HashMap<String, String>();
         map.put("user_id", getUserId());
         map.put("sign", getSign(map));
-        ApiRequest.getRenZhengData(map, new MyCallBack<RenZhengDataObj>(mContext, pl_load, pcfl) {
+        ApiRequest.getRenZhengData(map, new MyCallBack<RenZhengDataObj>(mContext) {
             @Override
             public void onSuccess(RenZhengDataObj obj) {
                 name = obj.getReal_name();
