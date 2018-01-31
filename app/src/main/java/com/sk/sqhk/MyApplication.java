@@ -30,7 +30,7 @@ public class MyApplication extends Application {
 //        ZXingLibrary.initDisplayOpinion(this);
         //二维码
 //        SDKInitializer.initialize(getApplicationContext());
-//        PlatformConfig.setWeixin(Config.weixing_id, Config.weixing_AppSecret);
+//        PlatformConfig.setWeixin(Config.weixing_id, Config.weixing_AppSecret );
 //        PlatformConfig.setQQZone(Config.qq_id, Config.qq_key);
 //        PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
 //        UMShareAPI.get(this);

@@ -174,7 +174,13 @@ public class AddXinYongKaActivity extends BaseActivity {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
                 String year=calendar.get(Calendar.YEAR)+"";
-                String month=(calendar.get(Calendar.MONTH)+1)+"";
+                String month;
+                int monthParam = calendar.get(Calendar.MONTH) + 1;
+                if(monthParam<10){
+                    month="0"+monthParam;
+                }else{
+                    month=monthParam+"";
+                }
                 tv_add_xyk_youxiaoqi.setText(month+"/"+year.substring(2));
                 Log.i(TAG+"===",year+"==="+month);
             }
