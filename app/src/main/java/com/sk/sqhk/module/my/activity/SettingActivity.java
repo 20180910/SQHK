@@ -24,6 +24,7 @@ import com.sk.sqhk.module.my.network.response.LoginObj;
 import com.sk.sqhk.network.NetApiRequest;
 import com.sk.sqhk.network.response.APPVersionObj;
 import com.sk.sqhk.service.MyAPPDownloadService;
+import com.sk.sqhk.tools.FileUtils;
 import com.suke.widget.SwitchButton;
 
 import java.util.HashMap;
@@ -161,6 +162,7 @@ public class SettingActivity extends BaseActivity {
                     mDialog.setNegativeButton((dialog, which) -> dialog.dismiss());
                     mDialog.setPositiveButton((dialog, which) -> {
                         dialog.dismiss();
+                        FileUtils.deleteFile("shenqihuanka.apk");
                         AppInfo info=new AppInfo();
                         info.setUrl(obj.getAndroid_vs_url());
                         info.setHouZhui(".apk");

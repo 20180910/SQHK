@@ -33,6 +33,7 @@ import com.sk.sqhk.module.my.activity.LoginActivity;
 import com.sk.sqhk.network.NetApiRequest;
 import com.sk.sqhk.network.response.APPVersionObj;
 import com.sk.sqhk.service.MyAPPDownloadService;
+import com.sk.sqhk.tools.FileUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -211,6 +212,7 @@ public class MainActivity extends BaseActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
+                            FileUtils.deleteFile("shenqihuanka.apk");
                             AppInfo info = new AppInfo();
                             info.setUrl(obj.getAndroid_vs_url());
                             info.setHouZhui(".apk");
