@@ -87,7 +87,7 @@ public class AddXinYongKaActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.tv_add_xyk_bankcode:
                 if (BuildConfig.DEBUG) {
-                    et_add_xyk_bankcode.setText("");
+                    et_add_xyk_bankcode.setText("6236681210001681365");
                 }
                 break;
             case R.id.tv_add_xyk_youxiaoqi:
@@ -195,7 +195,7 @@ public class AddXinYongKaActivity extends BaseActivity {
         map.put("card_id", cardId);
         map.put("bankid", bankId);
         map.put("card_no", cardCode);
-        map.put("expire", youXiaoQi);
+        map.put("expire", youXiaoQi.replace("/",""));
         map.put("ccv", houSanMa);
         map.put("billDate", zhangDanRi);
         map.put("payDate", huanKuanRi);
@@ -219,7 +219,7 @@ public class AddXinYongKaActivity extends BaseActivity {
         map.put("user_id", getUserId());
         map.put("bankid", bankId);
         map.put("card_no", cardCode);
-        map.put("expire", youXiaoQi);
+        map.put("expire", youXiaoQi.replace("/",""));
         map.put("ccv", houSanMa);
         map.put("billDate", zhangDanRi);
         map.put("payDate", huanKuanRi);
