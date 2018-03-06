@@ -41,7 +41,7 @@ public class MyBankListActivity extends BaseActivity {
     MyRecyclerView rv_my_yinhangka;
 
     LoadMoreAdapter xinYongAdapter,chuXuAdapter;
-
+    boolean needRenZheng=true;
     @Override
     protected int getContentView() {
         setAppTitle("我的银行卡");
@@ -153,12 +153,14 @@ public class MyBankListActivity extends BaseActivity {
     @Override
     protected void getData(int page, boolean isLoad) {
         super.getData(page, isLoad);
+        needRenZheng=true;
         Map<String,String> map=new HashMap<String,String>();
         map.put("user_id",getUserId());
         map.put("sign",getSign(map));
         ApiRequest.getXinYongCardList(map, new MyCallBack<MyAllBankObj>(mContext,pl_load,pcfl) {
             @Override
             public void onSuccess(MyAllBankObj obj) {
+                needRenZheng=false;
                 xinYongAdapter.setList(obj.getCredit_card_list(),true);
                 chuXuAdapter.setList(obj.getCash_card_list(),true);
             }
@@ -170,7 +172,11 @@ public class MyBankListActivity extends BaseActivity {
     protected void onViewClick(View v) {
         switch (v.getId()){
             case R.id.app_right_iv:
-                STActivity(SelectBankTypeActivity.class);
+                if(needRenZheng){
+                    showMsg("请先完成实名认证");
+                }else{
+                    STActivity(SelectBankTypeActivity.class);
+                }
             break;
         }
     }
