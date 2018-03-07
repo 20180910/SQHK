@@ -14,6 +14,7 @@ import com.sk.sqhk.module.my.network.response.MyMessageObj;
 import com.sk.sqhk.module.my.network.response.RenZhengDataObj;
 import com.sk.sqhk.module.my.network.response.TiXianAccountListObj;
 import com.sk.sqhk.module.my.network.response.YaoQingObj;
+import com.sk.sqhk.network.response.FenXiangObj;
 
 import java.util.List;
 import java.util.Map;
@@ -109,6 +110,10 @@ public interface IRequest {
     //关于我们
     @GET("api/Informations/GetPlatform_Instruction")
     Call<ResponseObj<AboutWeObj>> aboutWe(@QueryMap Map<String, String> map);
+
+    //获取分享信息
+    @GET("api/Lib/GetShareInformations")
+    Call<ResponseObj<FenXiangObj>> fenXiang(@QueryMap Map<String, String> map);
 
 
     //推送开关

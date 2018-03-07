@@ -69,7 +69,8 @@ public class YaoQingActivity extends BaseActivity {
                 STActivity(intent,HuoDongGuiZeActivity.class);
                 break;
             case R.id.tv_yao_qing:
-                showMsg("暂未开通第三方分享功能");
+                showFenXiang();
+//                showMsg("暂未开通第三方分享功能");
             break;
         }
     }

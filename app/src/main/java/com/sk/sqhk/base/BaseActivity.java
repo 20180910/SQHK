@@ -3,8 +3,11 @@ package com.sk.sqhk.base;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.design.widget.BottomSheetDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -14,10 +17,18 @@ import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.rx.RxUtils;
 import com.library.base.MyBaseActivity;
+import com.library.base.tools.wx.AppShareUtils;
+import com.library.base.tools.wx.ShareHelper;
 import com.library.base.view.MyWebViewClient;
 import com.sk.sqhk.AppXml;
 import com.sk.sqhk.BuildConfig;
+import com.sk.sqhk.Config;
 import com.sk.sqhk.GetSign;
+import com.sk.sqhk.R;
+import com.sk.sqhk.module.my.network.ApiRequest;
+import com.sk.sqhk.network.response.FenXiangObj;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.youth.banner.Banner;
 
 import org.jsoup.Jsoup;
@@ -25,6 +36,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -259,6 +271,86 @@ public abstract class BaseActivity extends MyBaseActivity {
             Log.e("VersionInfo", "Exception", e);
         }
         return versionName;
+    }
+
+
+
+    BottomSheetDialog fenXiangDialog;
+    public void showFenXiang(){
+        if (fenXiangDialog == null) {
+            View sexView= LayoutInflater.from(mContext).inflate(R.layout.popu_fen_xiang,null);
+            sexView.findViewById(R.id.iv_yaoqing_wx).setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View view) {
+                    fenXiang(ShareHelper.friend);
+                    fenXiangDialog.dismiss();
+                }
+            });
+            sexView.findViewById(R.id.iv_yaoqing_friend).setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View view) {
+                    fenXiang(ShareHelper.friendCircle);
+                    fenXiangDialog.dismiss();
+
+                }
+            });
+            sexView.findViewById(R.id.iv_yaoqing_qq).setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View view) {
+                    fenXiang(ShareHelper.QQ);
+                    fenXiangDialog.dismiss();
+                }
+            });
+            sexView.findViewById(R.id.iv_yaoqing_qzone).setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View view) {
+                    fenXiang(ShareHelper.Qzone);
+                    fenXiangDialog.dismiss();
+                }
+            });
+            /*sexView.findViewById(R.id.iv_yaoqing_sina).setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View view) {
+                    showMsg("正在开发中");
+                    fenXiangDialog.dismiss();
+                }
+            });*/
+            sexView.findViewById(R.id.tv_fenxiang_cancle).setOnClickListener(new MyOnClickListener() {
+                @Override
+                protected void onNoDoubleClick(View view) {
+                    fenXiangDialog.dismiss();
+                }
+            });
+            fenXiangDialog=new BottomSheetDialog(mContext);
+            fenXiangDialog.setCanceledOnTouchOutside(true);
+            fenXiangDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            fenXiangDialog.setContentView(sexView);
+        }
+        fenXiangDialog.show();
+    }
+    protected void fenXiang(@ShareHelper.ParamType int platform) {
+        IWXAPI api = WXAPIFactory.createWXAPI(this, Config.weixing_id);
+        api.registerApp(Config.weixing_id);
+        showLoading();
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("rnd",getRnd());
+        map.put("sign",GetSign.getSign(map));
+        ApiRequest.fenXiang(map, new MyCallBack<FenXiangObj>(mContext) {
+            @Override
+            public void onSuccess(FenXiangObj obj) {
+                if(platform==ShareHelper.QQ||platform==ShareHelper.Qzone){
+                    showMsg("QQ分享正在开发中");
+                }else{
+                    ShareHelper.WebHelper webHelper=new ShareHelper.VideoHelper(platform);
+                    webHelper.setUrl(obj.getShare_link());
+                    webHelper.setBitmapResId(R.mipmap.ic_launcher);
+                    webHelper.setTitle(obj.getTitle());
+                    webHelper.setDescription(obj.getContent());
+
+                    AppShareUtils.WXWeb(mContext,api,webHelper);
+                }
+            }
+        });
     }
 }
 

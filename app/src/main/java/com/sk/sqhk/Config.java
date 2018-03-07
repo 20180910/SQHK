@@ -10,7 +10,7 @@ public class Config {
     public static final String latitude = "latitude";
     public static final String app_name = "lgdx";
 
-    public static final String weixing_id = "wx84ef2f811b19ad6b";
+    public static final String weixing_id = "wx1490c61b4713bceb";
     public static final String weixing_AppSecret = "e0e4844100e8c4b92c1ce78beccd61a0";
     public static final String weixing_miyao = "NVwPLeIStgt1yUQ6H6A0LjMHpe2abwkM";
     public static final String weixing_mch_id = "1489530042";//商户号
