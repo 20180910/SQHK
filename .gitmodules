@@ -1,3 +1,6 @@
 [submodule "baselibrary"]
 	path = baselibrary
 	url = git@github.com:zhongruiAndroid/baselibrary.git
+[submodule "sdklibrary"]
+	path = sdklibrary
+	url = https://github.com/zhongruiAndroid/sdklibrary.git
